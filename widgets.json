@@ -16,5 +16,6 @@
 	"ContentVideo",
 	"ContentFaq",
 	"ContentSpecification",
-	"ContentFeatures"
+	"ContentFeatures",
+	"InlineH2"
 ]
