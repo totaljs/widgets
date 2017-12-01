@@ -17,5 +17,7 @@
 	"ContentFaq",
 	"ContentSpecification",
 	"ContentFeatures",
-	"InlineH2"
+	"InlineH1",
+	"InlineH2",
+	"InlineH3"
 ]
