@@ -12,5 +12,8 @@
 	"ContentTextImageLeft",
 	"ContentTextImageRight",
 	"ContentLine",
-	"InlineLine"
+	"InlineLine",
+	"ContentVideo",
+	"ContentFaq",
+	"ContentSpecification"
 ]
