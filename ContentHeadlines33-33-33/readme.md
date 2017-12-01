@@ -1,3 +1,3 @@
-# Features
+# Headlines 33% 33% 33%
 
 - content widget
