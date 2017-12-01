@@ -1,3 +1,3 @@
-# Inline H3
+# Inline H1
 
 - inline widget
