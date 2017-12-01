@@ -1,0 +1,54 @@
+<style>
+	.wc115 {}
+	.wc115body { padding: 20px 20px 5px; border-radius: 4px; display: inline-block; width: 100%; }
+	.wc115body-smoke { background-color: #F0F0F0; }
+	.wc115body-yellow { background-color: #FFFED9; }
+	.wc115body-green { background-color: #F1FFDC; }
+	.wc115body-blue { background-color: #D6F9FF; }
+	.wc115body-red { background-color: #FFE1E5; }
+	.wc115body-white { background-color: white; }
+	.wc115body-black { background-color: #202020; color: white; }
+	.wc115body .fa { margin-right: 8px; }
+	.wc115body p { margin: 0; }
+</style>
+
+<script editor>
+
+	option('color', 'Theme', 'smoke', [{ text: 'Silver', value: 'smoke' }, { text: 'Yellow', value: 'yellow' }, { text: 'Red', value: 'red' }, { text: 'Blue', value: 'blue' }, { text: 'Green', value: 'green' }, { text: 'Black', value: 'black' }, { text: 'White', value: 'white' }]);
+
+	exports.configure = function(options, el) {
+		el.find('.wc115body').each(function() {
+			$(this).rclass2('wc115body-').aclass('wc115body-' + options.color);
+		});
+	};
+
+</script>
+
+<div class="contentpadding wc115">
+	<div class="row">
+		<div class="col-md-4 CMS_repeat">
+			<div class="wc115body wc115body-smoke CMS_widgets" data-cms-category="Inline">
+				<div class="wmargin">
+					<h3 class="CMS_search"><i class="fa fa-lock CMS_edit CMS_remove"></i><span class="CMS_edit CMS_unwrap">Lorem ipsum dolor</span></h3>
+					<p class="CMS_edit">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, assumenda.</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4 CMS_repeat CMS_remove">
+			<div class="wc115body wc115body-smoke CMS_widgets" data-cms-category="Inline">
+				<div class="wmargin">
+					<h3 class="CMS_search"><i class="fa fa-lock CMS_edit CMS_remove"></i><span class="CMS_edit CMS_unwrap">Lorem ipsum dolor</span></h3>
+					<p class="CMS_edit">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, assumenda.</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4 CMS_repeat CMS_remove">
+			<div class="wc115body wc115body-smoke CMS_widgets" data-cms-category="Inline">
+				<div class="wmargin">
+					<h3 class="CMS_search"><i class="fa fa-lock CMS_edit CMS_remove"></i><span class="CMS_edit CMS_unwrap">Lorem ipsum dolor</span></h3>
+					<p class="CMS_edit">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, assumenda.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
