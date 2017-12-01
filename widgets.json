@@ -19,5 +19,6 @@
 	"ContentFeatures",
 	"InlineH1",
 	"InlineH2",
-	"InlineH3"
+	"InlineH3",
+	"List"
 ]
