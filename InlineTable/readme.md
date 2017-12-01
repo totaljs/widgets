@@ -1,0 +1,3 @@
+# Inline Table
+
+- inline widget

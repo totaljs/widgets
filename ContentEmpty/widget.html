@@ -1,0 +1,14 @@
+<style>
+	.wc108 {}
+</style>
+
+<div class="wc108"><br></div>
+
+<script editor>
+	option('count', 'Size of lines', 1, 'number', 20, 1);
+	exports.configure = function(options, el) {
+		el.find('br').remove();
+		for (var i = 0; i < options.count; i++)
+			el.append('<br>');
+	};
+</script>

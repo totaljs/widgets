@@ -1,0 +1,74 @@
+<style>
+	.wi101 { table-layout: fixed; width: 100%; margin: 0; }
+	.wi101 th { border: 1px solid #E0E0E0; padding: 5px 10px; font-weight: bold; background-color: #F8F8F8; }
+	.wi101 td { border: 1px solid #E0E0E0; padding: 5px 10px; }
+</style>
+
+<script editor>
+	option('head', 'Head', false);
+	option('columns', 'Columns', '50%, 50%');
+
+	exports.configure = function(options, el) {
+
+		var columns = options.columns.split(',').trim();
+		var count = columns.length;
+
+		el.find('tbody').find('tr').each(function(index) {
+
+			var tr = $(this);
+			var td = tr.find('td');
+
+			if (td.length < count) {
+				for (var i = td.length; i < count; i++)
+					tr.append('<td class="CMS_edit">Lorem Ipsum</td>');
+			} else if (td.length > count) {
+				for (var i = 0; i < (td.length - count); i++)
+					tr.find('td:last-child').remove();
+			}
+
+			// Set sizes
+			!index && tr.find('td').each(function(index) {
+				var size = columns[index];
+				$(this).css('width', size || 'auto');
+			});
+
+		});
+
+		if (options.head) {
+			var head = el.find('thead');
+
+			if (!head.length) {
+				el.find('table').prepend('<thead><tr></tr></thead>');
+				head = el.find('thead');
+			}
+
+			head.find('tr').each(function() {
+				var tr = $(this);
+				var th = tr.find('th');
+				if (th.length < count) {
+					for (var i = th.length; i < count; i++)
+						tr.append('<th class="CMS_edit">Lorem Ipsum</th>');
+				} else if (th.length > count) {
+					for (var i = 0; i < (th.length - count); i++)
+						tr.find('th:last-child').remove();
+				}
+			});
+		} else
+			el.find('thead').remove();
+	};
+</script>
+
+<div class="wmargin">
+	<table class="wi101">
+		<tbody>
+			<tr class="CMS_repeat">
+				<td class="CMS_edit">Lorem Ipsum</td>
+				<td class="CMS_edit">Lorem Ipsum</td>
+			</tr>
+			<tr class="CMS_repeat CMS_remove">
+				<td class="CMS_edit">Lorem Ipsum</td>
+				<td class="CMS_edit">Lorem Ipsum</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
