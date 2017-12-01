@@ -1,0 +1,72 @@
+<style>
+	.wc118 { padding-bottom: 0; }
+	.wc118 .col-md-4 { margin-bottom: 20px; }
+	.wc118link { position: relative; display: inline-block; min-width: 70px; padding: 3px 10px; font-size: 12px; color: white; border-radius: 3px; }
+	.wc118link .fa { margin-right: 5px; }
+	.wc118link:hover { text-decoration: none; opacity: 0.9; }
+	.wc118image { margin-bottom: 15px; }
+	.wc118image img { border-radius: 3px; }
+	.wc118body { padding: 20px; border-radius: 3px; }
+	.wc118body p { margin-bottom: 15px; line-height: 18px; font-size: 14px; }
+	.wc118body-smoke { background-color: #F0F0F0; }
+	.wc118body-yellow { background-color: #FFFED9; }
+	.wc118body-green { background-color: #F1FFDC; }
+	.wc118body-blue { background-color: #D6F9FF; }
+	.wc118body-red { background-color: #FFE1E5; }
+	.wc118body-white { background-color: white; }
+	.wc118body-black { background-color: #202020; color: white; }
+	.wc118link-smoke { background-color: #E0E0E0; color: black !important; }
+	.wc118link-yellow { background-color: #F6BB42; }
+	.wc118link-orange { background-color: #E9573F; }
+	.wc118link-green { background-color: #8CC152; }
+	.wc118link-blue { background-color: #3BAFDA; }
+	.wc118link-red { background-color: #DA4453; }
+	.wc118link-pink { background-color: #D770AD; }
+	.wc118link-mint { background-color: #37BC9B; }
+	.wc118link-purple { background-color: #967ADC; }
+	.wc118link-white { background-color: white; color: black !important; }
+	.wc118link-black { background-color: #202020; }
+</style>
+
+<script editor>
+
+	option('color', 'Theme', 'smoke', [{ text: 'Silver', value: 'smoke' }, { text: 'Yellow', value: 'yellow' }, { text: 'Red', value: 'red' }, { text: 'Blue', value: 'blue' }, { text: 'Green', value: 'green' }, { text: 'Black', value: 'black' }, { text: 'White', value: 'white' }]);
+	option('colorlink', 'Link button color', 'yellow', [{ text: 'Silver', value: 'smoke' }, { text: 'Yellow', value: 'yellow' }, { text: 'Red', value: 'red' }, { text: 'Blue', value: 'blue' }, { text: 'Green', value: 'green' }, { text: 'Pink', value: 'pink' }, { text: 'Orange', value: 'orange' }, { text: 'Purple', value: 'purple' }, { text: 'Mint', value: 'mint' }, { text: 'Black', value: 'black' }, { text: 'White', value: 'white' }]);
+
+	exports.configure = function(options, el) {
+		el.find('.wc118body').each(function() {
+			$(this).rclass2('wc118body-').aclass('wc118body-' + options.color);
+			$(this).find('.wc118link').rclass2('wc118link-').aclass('wc118link-' + options.colorlink);
+		});
+	};
+
+</script>
+
+<div class="wmargin wpadding wc118">
+	<div class="row">
+		<div class="col-md-4 CMS_widgets CMS_repeat" data-cms-category="Inline">
+			<div class="wmargin wc118body wc118body-smoke">
+				<div class="CMS_remove wc118image"><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAD6AQMAAAC1aYMHAAAAA1BMVEXW1taWrGEgAAAAI0lEQVQYGe3BMQEAAADCIPunXgsvYAAAAAAAAAAAAAAAABwFMc4AAYHBuq8AAAAASUVORK5CYII=" class="CMS_edit img-responsive" border="0" alt="Unknown image" /></a></div>
+				<h3 class="CMS_edit CMS_remove CMS_search">Lorem ipsum sodem</h3>
+				<p class="CMS_edit CMS_remove">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid iusto eos molestias, modi quibusdam doloremque similique dignissimos odio a amet.</p>
+				<a href="#" class="wc118link wc118link-yellow CMS_edit CMS_remove"><i class="fa fa-plus CMS_edit CMS_remove"></i><span class="CMS_edit CMS_unwrap">Read more</span></a>
+			</div>
+		</div>
+		<div class="col-md-4 CMS_widgets CMS_repeat" data-cms-category="Inline">
+			<div class="wmargin wc118body wc118body-smoke">
+				<div class="CMS_remove wc118image"><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAD6AQMAAAC1aYMHAAAAA1BMVEXW1taWrGEgAAAAI0lEQVQYGe3BMQEAAADCIPunXgsvYAAAAAAAAAAAAAAAABwFMc4AAYHBuq8AAAAASUVORK5CYII=" class="CMS_edit img-responsive" border="0" alt="Unknown image" /></a></div>
+				<h3 class="CMS_edit CMS_remove CMS_search">Lorem ipsum sodem</h3>
+				<p class="CMS_edit CMS_remove">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid iusto eos molestias, modi quibusdam doloremque similique dignissimos odio a amet.</p>
+				<a href="#" class="wc118link wc118link-yellow CMS_edit CMS_remove"><i class="fa fa-plus CMS_edit CMS_remove"></i><span class="CMS_edit CMS_unwrap">Read more</span></a>
+			</div>
+		</div>
+		<div class="col-md-4 CMS_widgets CMS_repeat" data-cms-category="Inline">
+			<div class="wmargin wc118body wc118body-smoke">
+				<div class="CMS_remove wc118image"><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAD6AQMAAAC1aYMHAAAAA1BMVEXW1taWrGEgAAAAI0lEQVQYGe3BMQEAAADCIPunXgsvYAAAAAAAAAAAAAAAABwFMc4AAYHBuq8AAAAASUVORK5CYII=" class="CMS_edit img-responsive" border="0" alt="Unknown image" /></a></div>
+				<h3 class="CMS_edit CMS_remove CMS_search">Lorem ipsum sodem</h3>
+				<p class="CMS_edit CMS_remove">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid iusto eos molestias, modi quibusdam doloremque similique dignissimos odio a amet.</p>
+				<a href="#" class="wc118link wc118link-yellow CMS_edit CMS_remove"><i class="fa fa-plus CMS_edit CMS_remove"></i><span class="CMS_edit CMS_unwrap">Read more</span></a>
+			</div>
+		</div>
+	</div>
+</div>
