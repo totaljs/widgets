@@ -33,5 +33,6 @@
 	"InlineAlert",
 	"ContentImageLinks2",
 	"InlineContact",
-	"InlineParagraph"
+	"InlineParagraph",
+	"ContentReferences"
 ]
