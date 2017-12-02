@@ -29,5 +29,6 @@
 	"InlineLinks",
 	"ContentContactMap",
 	"ContentImageLinks",
-	"ContentAlert"
+	"ContentAlert",
+	"InlineAlert"
 ]
