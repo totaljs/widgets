@@ -34,5 +34,6 @@
 	"ContentImageLinks2",
 	"InlineContact",
 	"InlineParagraph",
-	"ContentReferences"
+	"ContentReferences",
+	"ContentStaticImages"
 ]
