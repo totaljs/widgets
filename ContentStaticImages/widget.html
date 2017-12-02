@@ -1,0 +1,34 @@
+<style>
+	.wc124 a { display: block; }
+	.wc124small > div { margin-bottom: 26px; }
+	.wc124rounded img { border-radius: 4px; }
+</style>
+
+<script editor>
+
+	option('links', 'Links', true);
+	option('rounded', 'Rounded', false);
+
+	exports.configure = function(options, el) {
+		el = el.find('.wc124');
+		el.tclass('wc124rounded', options.rounded);
+		if (options.links) {
+			!el.find('a').length && el.find('img').wrap('<a href="#" />');
+		} else {
+			el.find('a').length && el.find('img').unwrap('a');
+		}
+	};
+
+</script>
+
+<div class="wmargin wpadding wc124">
+	<div class="row">
+		<div class="col-sm-8 wc124large">
+			<a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyAAAAH0AQMAAAD/jts7AAAAA1BMVEW/v79R+5idAAAAR0lEQVR4Xu3AAQkAAADCMPunNsdhWxoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABwxUQAAU+P938AAAAASUVORK5CYII=" border="0" alt="" class="img-responsive CMS_edit" /></a>
+		</div>
+		<div class="col-sm-4 wc124small">
+			<div><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAD2AQMAAADCq0N8AAAAA1BMVEW/v79R+5idAAAAI0lEQVR4Ae3BMQEAAADCIPuntsYOYAAAAAAAAAAAAAAAAHkHMQIAAT9T8iwAAAAASUVORK5CYII=" border="0" alt="" class="img-responsive CMS_edit" /></a></div>
+			<a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAD2AQMAAADCq0N8AAAAA1BMVEW/v79R+5idAAAAI0lEQVR4Ae3BMQEAAADCIPuntsYOYAAAAAAAAAAAAAAAAHkHMQIAAT9T8iwAAAAASUVORK5CYII=" border="0" alt="" class="img-responsive CMS_edit" /></a>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,3 @@
+# Static images
+
+- content widget
