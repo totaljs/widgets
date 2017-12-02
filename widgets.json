@@ -35,5 +35,7 @@
 	"InlineContact",
 	"InlineParagraph",
 	"ContentReferences",
-	"ContentStaticImages"
+	"ContentStaticImages",
+	"InlinePanel",
+	"InlineEmpty"
 ]
