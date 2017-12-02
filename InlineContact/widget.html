@@ -1,0 +1,32 @@
+<style>
+	.wi112 {}
+	.wi112address { line-height: 14px; font-size: 12px; }
+	.wi112name { font-size: 16px; font-weight: bold; margin-bottom: 8px; }
+	.wi112name .fa { margin-right: 5px; }
+	.wi112contact { margin: 10px 0 0 0; font-size: 12px; }
+	.wi112contact div { padding: 1px 0; }
+	.wi112contact .fa { width: 22px; margin-right: 7px; border-right: 1px solid #D0D0D0; }
+	.wi112 hr { border-color: #E0E0E0; margin: 15px 0 !important; }
+</style>
+
+<script editor>
+	option('large', 'Large', false);
+
+	exports.configure = function(options, el) {
+		el.find('wi112').tclass('wi112large', options.large);
+	};
+</script>
+
+<div class="wpadding wmargin wi112">
+	<div class="wi112name"><i class="fa fa-building CMS_edit CMS_remove"></i><span class="CMS_edit CMS_unwrap">Total Company</span></div>
+	<div class="wi112address">
+		<div class="CMS_edit CMS_repeat">Viestova 28</div>
+		<div class="CMS_edit CMS_repeat CMS_remove">Banska Bystrica</div>
+		<div class="CMS_edit CMS_repeat CMS_remove">Slovakia (EU)</div>
+	</div>
+	<hr />
+	<div class="wi112contact">
+		<div class="CMS_repeat"><i class="fa fa-phone CMS_edit"></i><span class="CMS_edit CMS_unwrap">+421903163302</span></div>
+		<div class="CMS_repeat CMS_remove"><i class="fa fa-envelope-o CMS_edit"></i><span class="CMS_edit CMS_unwrap">petersirka@gmail.com</span></div>
+	</div>
+</div>
