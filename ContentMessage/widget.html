@@ -1,0 +1,25 @@
+<style>
+	.wc121 blockquote { padding: 20px; margin: 0; border-radius: 4px; font-size: 16px; line-height: 22px; text-align: center; }
+	.wc121-yellow { background-color: #F9F1CA; border: 2px solid #F5E79E; color: #8A6D3B; }
+	.wc121-red { background-color: #EFDFDF; border: 2px solid #E6CDD1; color: #9D4A45; }
+	.wc121-green { background-color: #E2EFDA; border: 2px solid #DAE8C9; color: #4A7443; }
+	.wc121-blue { background-color: #DDEDF6; border: 2px solid #C5E7F0; color: #416F8C; }
+</style>
+
+<div class="wmargin wpadding wc121">
+	<div class="row">
+		<div class="col-sm-8 col-sm-offset-2">
+			<blockquote class="wc121-yellow CMS_edit">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut quidem obcaecati magnam nisi distinctio. Delectus porro eum velit molestiae perferendis?</blockquote>
+		</div>
+	</div>
+</div>
+
+<script editor>
+
+	option('color', 'Color', 'yellow', [{ text: 'Yellow', value: 'yellow' }, { text: 'Red', value: 'red' }, { text: 'Blue', value: 'blue' }, { text: 'Green', value: 'green' }]);
+
+	exports.configure = function(options, el) {
+		el.find('blockquote').rclass2('wc121-').aclass('wc121-' + options.color);
+	};
+
+</script>
