@@ -1,3 +1,3 @@
-# Article
+# Link to article
 
 - inline widget
