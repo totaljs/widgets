@@ -38,5 +38,6 @@
 	"ContentStaticImages",
 	"InlinePanel",
 	"InlineEmpty",
-	"InlineTabs"
+	"InlineTabs",
+	"InlineSubscribe"
 ]

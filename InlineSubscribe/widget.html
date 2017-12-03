@@ -1,0 +1,56 @@
+<style>
+	.wi117form { border: 1px solid black; border-radius: 3px; height: 34px; background-color: white; box-shadow: 0 2px 5px rgba(0,0,0,0.03), inset 0 2px 3px rgba(0,0,0,0.03); max-width: 350px; }
+	.wi117input { margin-right: 100px; padding: 3px 5px 0; }
+	.wi117input input { width: 100%; outline: 0; border: 0; background-color: white; font-weight: bold; font-size: 16px; color: black; }
+	.wi117button { float: right; width: 100px; height: 32px; padding: 2px; }
+	.wi117button button { width: 100%; border: 0; background-color: black; color: white; border-radius: 3px; height: 28px; outline: 0; font-size: 12px; font-weight: bold; }
+	.wi117button button:hover { background-color: #303030; }
+	.wi117title { margin-bottom: 10px; color: gray; }
+	.wi117title b { color: #303030; }
+	.wi117 .fa { margin-right: 5px; }
+	.wi117success { background-color: #78AE4E; max-width: 350px; border-radius: 3px; margin: 10px 0 0 0; color: white; padding: 8px 15px; }
+	.CMS_preview .wi117success { display: block !important; visibility: visible !important; }
+
+	@media(max-width: 768px) {
+		.wi117form, .wi117success { max-width: 100%; }
+	}
+</style>
+
+<script>
+	$(document).on('click', '.wi117subscribe', function() {
+	});
+
+	COMPONENT('wi117', '', function(self, config) {
+		self.blind();
+		self.make = function() {
+			self.event('keydown', 'input', function(e) {
+				if (e.keyCode === 13) {
+					e.preventDefault();
+					e.stopPropagation();
+					self.find('button').trigger('click');
+				}
+			});
+			self.event('click', 'button', function() {
+				var btn = $(this);
+				var data = {};
+				var input = self.find('input');
+				data.email = input.val();
+				!BLOCKED(self.id, 2000) && data.email.isEmail() && AJAX('POST /api/subscribers/', data, function(response) {
+					input.val('');
+					self.find('.wi117form').aclass('hidden');
+					self.find('.wi117success').rclass('hidden');
+				});
+			});
+		};
+	});
+
+</script>
+
+<div class="wmargin wi117" data-jc="wi117">
+	<div class="wi117title CMS_edit CMS_remove"><b>Stay connected</b>. Join our mailing list.</div>
+	<div class="wi117form">
+		<div class="wi117button"><button class="wi117subscribe CMS_edit">Subscribe</button></div>
+		<div class="wi117input"><input type="text" value="@" maxlength="120" /></div>
+	</div>
+	<div class="wi117success hidden"><i class="fa fa-check-circle CMS_edit"></i><span class="CMS_edit CMS_unwrap">Congratulations, you're in.</span></div>
+</div>
