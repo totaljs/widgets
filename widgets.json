@@ -43,5 +43,6 @@
 	"InlineLinkArticle",
 	"InlineNotices",
 	"ContentTeam",
-	"ContentFeatures"
+	"ContentFeatures",
+	"ContentImageHeader"
 ]
