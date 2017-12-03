@@ -39,5 +39,6 @@
 	"InlinePanel",
 	"InlineEmpty",
 	"InlineTabs",
-	"InlineSubscribe"
+	"InlineSubscribe",
+	"InlineArticle"
 ]
