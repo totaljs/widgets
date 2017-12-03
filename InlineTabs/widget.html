@@ -1,0 +1,67 @@
+<style>
+
+	.wi115 ul { background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAAA1BMVEXQ0NAtGB8hAAAACklEQVQIHWNgAAAAAgABz8g15QAAAABJRU5ErkJggg==) repeat-x 0 100%; padding: 0; margin: 0; display: block; position: relative; white-space: nowrap; overflow-x: auto; overflow-y: hidden; }
+	.wi115 li { position: relative; font-size: 12px; display: inline-block; border: 1px solid #E0E0E0; border-bottom-color: #D0D0D0; margin: 0 0 0 10px; padding: 0; border-radius: 3px 3px 0 0; background-color: #F8F8F8; text-align: center; padding: 7px 10px; color: #A0A0A0; cursor: pointer; }
+	.wi115 li:first-child { margin-left: 0; }
+	li.wi115selected { background-color: white; top: 1px; border-color: #D0D0D0; color: black; padding-top: 8px; }
+	.wi115body { display: none; border: 1px solid #E0E0E0; border-top: 0; padding: 15px; }
+	.wi115body.wi115selected { display: block; }
+	.wi115 .fa { margin-right: 5px; }
+	.CMS_preview .wi115body { display: block !important; }
+
+</style>
+
+<script editor>
+	option('count', 'Count of tabs', 3);
+
+	exports.configure = function(options, el) {
+
+		var count = options.count;
+		var container = el.find('.wi115');
+		var ul = container.find('ul');
+		var length = ul.find('li').length;
+
+		if (count === length)
+			return;
+
+		if (length < count) {
+			for (var i = length; i < count; i++) {
+				ul.append('<li class="wi115tab" data-index="{0}"><i class="fa fa-home CMS_edit CMS_remove"></i><span class="CMS_edit CMS_unwrap">Tab {1}</span></li>'.format(i, i + 1));
+				container.append('<div data-index="{0}" class="wi115body CMS_widgets"></div>'.format(i));
+			}
+		} else {
+			for (var i = 0; i < (length - count); i++) {
+				var li = ul.find('li:last-child');
+				li.remove();
+				container.find('div[data-index="{0}"]'.format(li.attrd('index'))).remove();
+			}
+		}
+
+		container.find('[data-index="0"]').aclass('wi115selected');
+	};
+</script>
+
+<script>
+	$(document).on('click', '.wi115tab', function() {
+		var cls = 'wi115selected';
+		var li = $(this);
+		var ul = li.parent();
+		var prev = ul.find('.' + cls).rclass(cls);
+		var container = ul.parent();
+		var sel = '.wi115body[data-index="{0}"]';
+		container.find(sel.format(prev.attrd('index'))).rclass(cls);
+		container.find(sel.format(li.attrd('index'))).aclass(cls);
+		li.aclass(cls);
+	});
+</script>
+
+<div class="wmargin wi115">
+	<ul>
+		<li class="wi115tab wi115selected" data-index="0"><i class="fa fa-info-circle CMS_edit CMS_remove"></i><span class="CMS_edit CMS_unwrap">Tab 1</span></li>
+		<li class="wi115tab" data-index="1"><i class="fa fa-cog CMS_edit CMS_remove"></i><span class="CMS_edit CMS_unwrap">Tab 2</span></li>
+		<li class="wi115tab" data-index="2"><i class="fa fa-warning CMS_edit CMS_remove"></i><span class="CMS_edit CMS_unwrap">Tab 3</span></li>
+	</ul>
+	<div data-index="0" class="wi115body wi115selected CMS_widgets"></div>
+	<div data-index="1" class="wi115body CMS_widgets"></div>
+	<div data-index="2" class="wi115body CMS_widgets"></div>
+</div>

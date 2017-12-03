@@ -37,5 +37,6 @@
 	"ContentReferences",
 	"ContentStaticImages",
 	"InlinePanel",
-	"InlineEmpty"
+	"InlineEmpty",
+	"InlineTabs"
 ]
