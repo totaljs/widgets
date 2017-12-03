@@ -16,7 +16,7 @@
 	"ContentVideo",
 	"ContentFaq",
 	"ContentSpecification",
-	"ContentFeatures",
+	"ContentFeatures2",
 	"InlineH1",
 	"InlineH2",
 	"InlineH3",
@@ -42,5 +42,6 @@
 	"InlineSubscribe",
 	"InlineLinkArticle",
 	"InlineNotices",
-	"ContentTeam"
+	"ContentTeam",
+	"ContentFeatures",
 ]

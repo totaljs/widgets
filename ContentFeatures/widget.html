@@ -1,25 +1,23 @@
 <style>
-	.wc114 { padding: 0 20px; margin-bottom: 20px; }
-	.wc114-item { border-left: 1px solid #E0E0E0; padding: 25px 0 5px; min-height: 110px; overflow: hidden; }
-	.wc114-icon { float: left; width: 90px; font-size: 40px; text-align: center; }
-	.wc114-icon .fa { padding-top: 5px; }
-	.wc114-text { margin-left: 90px; padding-right: 10px; line-height: 16px; }
-	.wc114-item h3 { font-size: 16px; margin: 2px 0 5px; }
-	.wc114-item p { margin: 0 0 20px; line-height: 16px; }
-	.wc114 .col-sm-4:first-child { border-left: 0; }
-	.wc114 hr { margin: 0; border-color: #E0E0E0; }
-	.wc114-icon img { width: 60px; height: 60px; border-radius: 3px; }
+	.wc126 { padding: 0 20px; margin-bottom: 20px; }
+	.wc126-item { padding: 0 0 5px; min-height: 110px; overflow: hidden; }
+	.wc126-icon { float: left; width: 90px; font-size: 40px; text-align: center; }
+	.wc126-icon .fa { padding-top: 5px; }
+	.wc126-text { margin-left: 90px; padding-right: 10px; line-height: 16px; }
+	.wc126-item h3 { font-size: 16px; margin: 2px 0 5px; }
+	.wc126-item p { margin: 0 0 20px; line-height: 16px; }
+	.wc126 .col-sm-4:first-child { border-left: 0; }
+	.wc126-icon img { width: 60px; height: 60px; border-radius: 3px; }
 
 	@media(max-width: 980px) and (min-width: 768px) {
-		.wc114-icon { float: none; text-align: left; padding: 0 20px; }
-		.wc114-text { padding: 10px 20px 0; margin: 0; font-size: 12px; }
-		.wc114-text h3 { font-size: 14px; }
-		.wc114-item { min-height: 200px; }
+		.wc126-icon { float: none; text-align: left; padding: 0 20px; }
+		.wc126-text { padding: 10px 20px 0; margin: 0; font-size: 12px; }
+		.wc126-text h3 { font-size: 14px; }
 	}
 
 	@media(max-width: 768px) {
-		.wc114-item { border: 0; border-bottom: 1px solid #E0E0E0; }
-		.wc114 hr { border: 0; }
+		.wc126-item { border: 0; border-bottom: 1px solid #E0E0E0; }
+		.wc126 hr { border: 0; }
 	}
 </style>
 
@@ -30,7 +28,7 @@
 	exports.configure = function(options, el) {
 		var img = '<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAABGAQMAAABL4HDHAAAAA1BMVEXW1taWrGEgAAAADklEQVQYGWMYBaNgiAIAArwAAa44Of4AAAAASUVORK5CYII=" class="CMS_edit" data-cms-width="50" data-cms-height="50" border="0" />';
 		var icon = '<i class="fa fa-home CMS_edit"></i>';
-		el.find('.wc114-icon').each(function() {
+		el.find('.wc126-icon').each(function() {
 			var el = $(this);
 			var fa = el.find('.fa');
 			if (options.type === 'icons') {
@@ -43,63 +41,44 @@
 
 </script>
 
-<div class="wmargin wpadding wc114">
-	<div class="row">
-		<div class="col-sm-4 wc114-item">
-			<div class="wc114-icon">
+<div class="wmargin wpadding wc126">
+	<div class="row CMS_repeat">
+		<div class="col-sm-6 wc126-item">
+			<div class="wc126-icon">
 				<i class="fa fa-home CMS_edit"></i>
 			</div>
-			<div class="wc114-text CMS_widgets" data-cms-category="Inline">
+			<div class="wc126-text CMS_widgets" data-cms-category="Inline">
 				<h3 class="CMS_edit">Lorem Ipsum</h3>
-				<p class="CMS_edit">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, alias.</p>
+				<p class="CMS_edit">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque, excepturi, reiciendis. Numquam rem eveniet vel accusamus commodi!</p>
 			</div>
 		</div>
-		<div class="col-sm-4 wc114-item">
-			<div class="wc114-icon">
+		<div class="col-sm-6 wc126-item">
+			<div class="wc126-icon">
 				<i class="fa fa-home CMS_edit"></i>
 			</div>
-			<div class="wc114-text CMS_widgets" data-cms-category="Inline">
+			<div class="wc126-text CMS_widgets" data-cms-category="Inline">
 				<h3 class="CMS_edit">Lorem Ipsum</h3>
-				<p class="CMS_edit">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, alias.</p>
-			</div>
-		</div>
-		<div class="col-sm-4 wc114-item">
-			<div class="wc114-icon">
-				<i class="fa fa-home CMS_edit"></i>
-			</div>
-			<div class="wc114-text CMS_widgets" data-cms-category="Inline">
-				<h3 class="CMS_edit">Lorem Ipsum</h3>
-				<p class="CMS_edit">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, alias.</p>
+				<p class="CMS_edit">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque, excepturi, reiciendis. Numquam rem eveniet vel accusamus commodi!</p>
 			</div>
 		</div>
 	</div>
-	<hr />
-	<div class="row">
-		<div class="col-sm-4 wc114-item">
-			<div class="wc114-icon">
+	<div class="row CMS_repeat CMS_remove">
+		<div class="col-sm-6 wc126-item">
+			<div class="wc126-icon">
 				<i class="fa fa-home CMS_edit"></i>
 			</div>
-			<div class="wc114-text CMS_widgets" data-cms-category="Inline">
+			<div class="wc126-text CMS_widgets" data-cms-category="Inline">
 				<h3 class="CMS_edit">Lorem Ipsum</h3>
-				<p class="CMS_edit">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, alias.</p>
+				<p class="CMS_edit">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque, excepturi, reiciendis. Numquam rem eveniet vel accusamus commodi!</p>
 			</div>
 		</div>
-		<div class="col-sm-4 wc114-item">
-			<div class="wc114-icon">
+		<div class="col-sm-6 wc126-item">
+			<div class="wc126-icon">
 				<i class="fa fa-home CMS_edit"></i>
 			</div>
-			<div class="wc114-text CMS_widgets" data-cms-category="Inline">
+			<div class="wc126-text CMS_widgets" data-cms-category="Inline">
 				<h3 class="CMS_edit">Lorem Ipsum</h3>
-				<p class="CMS_edit">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, alias.</p>
-			</div>
-		</div>
-		<div class="col-sm-4 wc114-item">
-			<div class="wc114-icon">
-				<i class="fa fa-home CMS_edit"></i>
-			</div>
-			<div class="wc114-text CMS_widgets" data-cms-category="Inline">
-				<h3 class="CMS_edit">Lorem Ipsum</h3>
-				<p class="CMS_edit">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, alias.</p>
+				<p class="CMS_edit">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque, excepturi, reiciendis. Numquam rem eveniet vel accusamus commodi!</p>
 			</div>
 		</div>
 	</div>
