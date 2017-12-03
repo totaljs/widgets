@@ -1,0 +1,51 @@
+<style>
+    .wi119 { margin-bottom: 20px; }
+    .wi119notice { background-color: white; margin-bottom: 25px; border: 1px solid #E0E0E0; border-radius: 3px; }
+    .wi119pinned { border: 2px solid #C93A48 !important; }
+    .wi119event .wi119title { background-color: #FFFEDD; }
+    .wi119title { border-bottom: 1px solid #F0F0F0; padding: 10px 15px; border-radius: 3px 3px 0 0; line-height: 15px; }
+    .wi119pinned .wi119title { color: #C93A48; border-bottom: 2px solid #C93A48;  }
+    .wi119-body { padding: 7px 15px 0; font-size: 12px; line-height: 15px; }
+    .wi119-body img { border-radius: 3px; }
+    .wi119title .fa { margin: 2px 10px 0 0; float:left; width: 30px; height: 32px; font-size: 27px; padding-right: 5px; text-align: center; }
+    .wi119title b { display: block; }
+    .wi119title span { font-size: 11px; display: block; }
+	.wi119eventdate { border-top: 1px solid #E0E0E0; padding: 5px 15px; font-size: 12px; border-radius: 0 0 3px 3px; background-color: #F8F8F8; }
+	.wi119eventdate .fa { margin-right: 5px; }
+</style>
+
+<script editor>
+	option('category', 'Category', 'all', ['event', 'notice', 'all']);
+    option('count', 'Count', 3);
+    option('pinned', 'Pinned', false);
+</script>
+
+<script total>
+	exports.render = function(options, html, next) {
+        var opt = {};
+        opt.limit = options.count || 3;
+        opt.category = options.category || 'all';
+		opt.ispinned = options.pinned === true;
+
+        if (opt.category === 'event') {
+            opt.event = true;
+            opt.sort = 'event_asc';
+        }
+
+        $QUERY('Notice', opt, function(err, response) {
+            var builder = [];
+
+            for (var i = 0, length = response.items.length; i < length; i++) {
+            	var item = response.items[i];
+                builder.push('<div class="wi119notice wi119-{5}{6}"><div class="wi119title"><i class="fa fa-{2}"></i><b>{0}</b><span>Created: {4}</span></div><div class="wi119-body">{1}</div>{3}</div>'.format(item.name, item.body, item.icon, item.event ? '<div class="wi119eventdate"><div><i class="fa fa-calendar"></i>Date: <b>{0}</b></div></div>'.format(item.event.format('dd.MM.yyyy')) : '', item.date.format('dd.MM.yyyy'), item.idcategory, item.ispinned ? ' wi119pinned' : ''));
+            }
+
+            next('<div class="wmargin wi119">{0}</div>'.format(builder.join('')));
+        });
+    };
+</script>
+
+<div class="totaljs">
+    <div>Notices</div>
+</div>
+<br />

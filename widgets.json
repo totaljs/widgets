@@ -40,5 +40,6 @@
 	"InlineEmpty",
 	"InlineTabs",
 	"InlineSubscribe",
-	"InlineLinkArticle"
+	"InlineLinkArticle",
+	"InlineNotices"
 ]
