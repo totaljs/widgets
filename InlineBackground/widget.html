@@ -1,0 +1,28 @@
+<style>
+	.wi121 {}
+	.wi121padding { padding: 15px; }
+	.wi121rounded { border-radius: 3px; }
+	.wi121-yellow { background-color: #F9F1CA; color: #8A6D3B; }
+	.wi121-red { background-color: #EFDFDF; color: #9D4A45; }
+	.wi121-green { background-color: #E2EFDA; color: #4A7443; }
+	.wi121-blue { background-color: #DDEDF6; color: #416F8C; }
+	.wi121-silver { background-color: #F0F0F0; }
+</style>
+
+<script editor>
+
+	option('color', 'Color', 'silver', [{ text: 'Silver', value: 'silver' },{ text: 'Yellow', value: 'yellow' }, { text: 'Red', value: 'red' }, { text: 'Blue', value: 'blue' }, { text: 'Green', value: 'green' }]);
+	option('padding', 'Padding', true);
+	option('rounded', 'Round corners', true);
+
+	exports.configure = function(options, el) {
+		el = el.find('.wi121');
+		el.rclass2('wi121-').aclass('wi121-' + options.color);
+		el.tclass('wi121padding', options.padding);
+		el.tclass('wi121rounded', options.rounded);
+	};
+</script>
+
+<div class="wmargin wi121 CMS_widgets wi121padding wi121rounded wi121-silver" data-cms-category="Inline">
+
+</div>
