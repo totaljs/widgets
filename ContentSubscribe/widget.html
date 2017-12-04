@@ -1,0 +1,67 @@
+<style>
+	.wc130 { padding: 30px 0; border-top: 1px solid #E0E0E0; border-bottom: 1px solid #E0E0E0; }
+	.wc130form { height: 40px; }
+	.wc130input { margin-right: 100px; padding: 7px 10px 0; border: 1px solid #E0E0E0; border-right: 0; border-radius: 3px 0 0 3px; height: 40px; }
+	.wc130input input { width: 100%; outline: 0; border: 0; background-color: white; font-weight: bold; font-size: 16px; color: black; }
+	.wc130button { float: right; width: 100px; height: 32px; margin: 0; }
+	.wc130button button { width: 100%; border: 0; background-color: white; border: 2px solid #1891E3; color: #1891E3; border-radius: 0 3px 3px 0; height: 40px; outline: 0; font-size: 14px; font-weight: bold; }
+	.wc130button button:hover { background-color: #1891E3; color: white; }
+	.wc130title { margin: 0 0 0 55px; padding: 2px 0 0 0; color: gray; line-height: 18px; }
+	.wc130title b { color: #303030; }
+	.wc130title div { font-size: 16px; }
+	.wc130success { background-color: #78AE4E; border-radius: 3px; margin: 0; color: white; padding: 12px 15px; font-size: 16px; text-align: center; }
+	.wc130success .fa { margin-right: 7px; }
+	.wc130icon { float: left; font-size: 40px; width: 45px; line-height: 0; color: #1891E3; }
+	.CMS_preview .wc130success { display: block !important; visibility: visible !important; margin-top: 15px; }
+
+	@media(max-width: 768px) {
+		.wc130form { margin-top: 15px; }
+	}
+</style>
+
+<script>
+	COMPONENT('wc130', '', function(self, config) {
+		self.blind();
+		self.make = function() {
+			self.event('keydown', 'input', function(e) {
+				if (e.keyCode === 13) {
+					e.preventDefault();
+					e.stopPropagation();
+					self.find('button').trigger('click');
+				}
+			});
+			self.event('click', 'button', function() {
+				var btn = $(this);
+				var data = {};
+				var input = self.find('input');
+				data.email = input.val();
+				!BLOCKED(self.id, 2000) && data.email.isEmail() && AJAX('POST /api/subscribers/', data, function(response) {
+					input.val('');
+					self.find('.wc130form').aclass('hidden');
+					self.find('.wc130success').rclass('hidden');
+				});
+			});
+		};
+	});
+
+</script>
+
+<div class="wmargin wpadding">
+	<div class="wc130" data-jc="wc130">
+		<div class="row">
+			<div class="col-md-7 col-sm-7">
+				<div class="wc130icon">
+					<i class="fa fa-envelope"></i>
+				</div>
+				<div class="wc130title"><div class="CMS_edit"><b>Stay connected</b></div><span class="CMS_edit">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span></div>
+			</div>
+			<div class="col-md-5 col-sm-5">
+				<div class="wc130form">
+					<div class="wc130button"><button class="wc130subscribe CMS_edit">Subscribe</button></div>
+					<div class="wc130input"><input type="text" value="@" maxlength="120" /></div>
+				</div>
+				<div class="wc130success hidden"><i class="fa fa-check-circle CMS_edit"></i><span class="CMS_edit CMS_unwrap">Congratulations, you're in.</span></div>
+			</div>
+		</div>
+	</div>
+</div>
