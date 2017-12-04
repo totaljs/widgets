@@ -8,20 +8,6 @@
 	.wc128body p { margin-bottom: 15px; line-height: 18px; font-size: 14px; }
 </style>
 
-<script editor>
-
-	option('color', 'Theme', 'smoke', [{ text: 'Silver', value: 'smoke' }, { text: 'Yellow', value: 'yellow' }, { text: 'Red', value: 'red' }, { text: 'Blue', value: 'blue' }, { text: 'Green', value: 'green' }, { text: 'Black', value: 'black' }, { text: 'White', value: 'white' }]);
-	option('colorlink', 'Link button color', 'yellow', [{ text: 'Silver', value: 'smoke' }, { text: 'Yellow', value: 'yellow' }, { text: 'Red', value: 'red' }, { text: 'Blue', value: 'blue' }, { text: 'Green', value: 'green' }, { text: 'Pink', value: 'pink' }, { text: 'Orange', value: 'orange' }, { text: 'Purple', value: 'purple' }, { text: 'Mint', value: 'mint' }, { text: 'Black', value: 'black' }, { text: 'White', value: 'white' }]);
-
-	exports.configure = function(options, el) {
-		el.find('.wc128body').each(function() {
-			$(this).rclass2('wc128body-').aclass('wc128body-' + options.color);
-			$(this).find('.wc128link').rclass2('wc128link-').aclass('wc128link-' + options.colorlink);
-		});
-	};
-
-</script>
-
 <div class="wmargin wpadding wc128">
 	<div class="row">
 		<div class="col-sm-4 CMS_repeat wmargin">
