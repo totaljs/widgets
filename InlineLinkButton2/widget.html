@@ -1,20 +1,36 @@
 <style>
-	.wi120 { display: block; background-color: #F5F8FB; padding: 20px; border-radius: 3px; }
+	.wi120 { display: block; padding: 20px; border-radius: 3px; }
 	.wi120 .fa { width: 50px; float: left; font-size: 40px; }
 	.wi120 * { text-decoration: none !important; }
 	.wi120 > span { display: block; margin-left: 60px; }
 	.wi120 strong { display: block; font-size: 20px; }
 	.wi120:hover * { text-decoration: none; }
 	.wi120:hover { text-decoration: none; opacity: 0.9; }
-
+	.wi120-smoke { background-color: #E0E0E0; color: gray; }
+	.wi120-yellow { background-color: #fcffdd; color: #b1b180; }
+	.wi120-green { background-color: #effbe6; color: #8bad89; }
+	.wi120-blue { background-color: #F5F8FB; color: #4579B2; }
+	.wi120-red { background-color: #fff3f4; color: #b18385; }
+	.wi120-white { background-color: white; color: black; }
+	.wi120-black { background-color: #202020; color: white; }
 	@media(max-width: 768px) {
 		.wi120 strong { font-size: 16px; margin-bottom: 8px; }
 		.wi120 { font-size: 12px; line-height: 14px; }
 	}
 </style>
 
+<script editor>
+
+	option('color', 'Color', 'blue', [{ text: 'Silver', value: 'smoke' }, { text: 'Yellow', value: 'yellow' }, { text: 'Red', value: 'red' }, { text: 'Blue', value: 'blue' }, { text: 'Green', value: 'green' }, { text: 'Black', value: 'black' }, { text: 'White', value: 'white' }]);
+
+	exports.configure = function(options, el) {
+		el.find('.wi120').rclass2('wi120-').aclass('wi120-' + options.color);
+	};
+
+</script>
+
 <div class="wmargin CMS_repeat">
-	<a href="#" class="wi120">
+	<a href="#" class="wi120 wi120-blue">
 		<i class="fa fa-home CMS_edit"></i>
 		<span><strong class="CMS_edit">Lorem ipsum dolor sit amet</strong> <span class="CMS_edit">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia suscipit at, magnam incidunt deserunt illo atque dolorum vel, et ipsum.</span></span>
 	</a>
