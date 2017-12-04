@@ -1,0 +1,52 @@
+<style>
+	.wc128 { padding-bottom: 0; }
+	.wc128link { position: relative; display: inline-block; min-width: 70px; padding: 3px 10px; font-size: 12px; color: black; border-radius: 3px; background-color: #E0E0E0; }
+	.wc128link .fa { margin-right: 5px; }
+	.wc128link:hover { text-decoration: none; opacity: 0.9; }
+	.wc128image img { border-radius: 3px 3px 0 0; }
+	.wc128body { padding: 20px; border-radius: 0 0 3px 3px; border: 1px solid #E0E0E0; }
+	.wc128body p { margin-bottom: 15px; line-height: 18px; font-size: 14px; }
+</style>
+
+<script editor>
+
+	option('color', 'Theme', 'smoke', [{ text: 'Silver', value: 'smoke' }, { text: 'Yellow', value: 'yellow' }, { text: 'Red', value: 'red' }, { text: 'Blue', value: 'blue' }, { text: 'Green', value: 'green' }, { text: 'Black', value: 'black' }, { text: 'White', value: 'white' }]);
+	option('colorlink', 'Link button color', 'yellow', [{ text: 'Silver', value: 'smoke' }, { text: 'Yellow', value: 'yellow' }, { text: 'Red', value: 'red' }, { text: 'Blue', value: 'blue' }, { text: 'Green', value: 'green' }, { text: 'Pink', value: 'pink' }, { text: 'Orange', value: 'orange' }, { text: 'Purple', value: 'purple' }, { text: 'Mint', value: 'mint' }, { text: 'Black', value: 'black' }, { text: 'White', value: 'white' }]);
+
+	exports.configure = function(options, el) {
+		el.find('.wc128body').each(function() {
+			$(this).rclass2('wc128body-').aclass('wc128body-' + options.color);
+			$(this).find('.wc128link').rclass2('wc128link-').aclass('wc128link-' + options.colorlink);
+		});
+	};
+
+</script>
+
+<div class="wmargin wpadding wc128">
+	<div class="row">
+		<div class="col-sm-4 CMS_repeat wmargin">
+			<div class="wc128image"><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAD6AQMAAAC1aYMHAAAAA1BMVEXW1taWrGEgAAAAI0lEQVQYGe3BMQEAAADCIPunXgsvYAAAAAAAAAAAAAAAABwFMc4AAYHBuq8AAAAASUVORK5CYII=" class="CMS_edit img-responsive" border="0" alt="Unknown image" data-cms-width="400" data-cms-height="250"  /></a></div>
+			<div class="wmargin wc128body">
+				<h3 class="CMS_edit CMS_remove CMS_search">Lorem ipsum sodem</h3>
+				<p class="CMS_edit CMS_remove">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid iusto eos molestias, modi quibusdam doloremque similique dignissimos odio a amet.</p>
+				<a href="#" class="wc128link CMS_edit CMS_remove"><i class="fa fa-plus CMS_edit CMS_remove"></i><span class="CMS_edit CMS_unwrap">Read more</span></a>
+			</div>
+		</div>
+		<div class="col-sm-4 CMS_repeat CMS_remove wmargin">
+			<div class="wc128image"><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAD6AQMAAAC1aYMHAAAAA1BMVEXW1taWrGEgAAAAI0lEQVQYGe3BMQEAAADCIPunXgsvYAAAAAAAAAAAAAAAABwFMc4AAYHBuq8AAAAASUVORK5CYII=" class="CMS_edit img-responsive" border="0" alt="Unknown image" data-cms-width="400" data-cms-height="250"  /></a></div>
+			<div class="wmargin wc128body">
+				<h3 class="CMS_edit CMS_remove CMS_search">Lorem ipsum sodem</h3>
+				<p class="CMS_edit CMS_remove">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid iusto eos molestias, modi quibusdam doloremque similique dignissimos odio a amet.</p>
+				<a href="#" class="wc128link CMS_edit CMS_remove"><i class="fa fa-plus CMS_edit CMS_remove"></i><span class="CMS_edit CMS_unwrap">Read more</span></a>
+			</div>
+		</div>
+		<div class="col-sm-4 CMS_repeat CMS_remove wmargin">
+			<div class="wc128image"><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAD6AQMAAAC1aYMHAAAAA1BMVEXW1taWrGEgAAAAI0lEQVQYGe3BMQEAAADCIPunXgsvYAAAAAAAAAAAAAAAABwFMc4AAYHBuq8AAAAASUVORK5CYII=" class="CMS_edit img-responsive" border="0" alt="Unknown image" data-cms-width="400" data-cms-height="250"  /></a></div>
+			<div class="wmargin wc128body">
+				<h3 class="CMS_edit CMS_remove CMS_search">Lorem ipsum sodem</h3>
+				<p class="CMS_edit CMS_remove">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid iusto eos molestias, modi quibusdam doloremque similique dignissimos odio a amet.</p>
+				<a href="#" class="wc128link CMS_edit CMS_remove"><i class="fa fa-plus CMS_edit CMS_remove"></i><span class="CMS_edit CMS_unwrap">Read more</span></a>
+			</div>
+		</div>
+	</div>
+</div>
