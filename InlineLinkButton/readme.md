@@ -1,4 +1,4 @@
-# Inline Button
+# Inline Link Button
 
 - inline widget
 - supports 3x sizes
