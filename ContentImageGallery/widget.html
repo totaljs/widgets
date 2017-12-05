@@ -1,0 +1,142 @@
+<style>
+	.wc133 {}
+	.wc133 img { border-radius: 3px; cursor: pointer; }
+	.wc133body { margin-bottom: 25px; }
+	.wc133preview { position: fixed; left: 0; top: 0; bottom: 0; right: 0; background-color: rgba(255,255,255,0.8); }
+	.wc133table { width: 100%; height: 100%; display: table; }
+	.wc133cell { vertical-align: middle; align-self: center; display: table-cell; }
+	.wc133cell img { margin: 0 auto; border-radius: 4px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); width: auto; max-height: 100%; height: 100%; display: block; }
+	.wc133cell div { padding: 0 20px 50px; }
+	.wc133preview button { position: absolute; width: 50px; height: 80px; background-color: #369CE6; color: white; font-size: 20px; border: 0; top: 50%; margin-top: -60px; outline: 0; }
+	.wc133preview button:hover { opacity: 0.9; }
+	.wc133preview button[name="next"] { right: 0; border-radius: 3px 0 0 3px; }
+	.wc133preview button[name="prev"] { border-radius: 0 3px 3px 0; }
+
+	@media(max-width: 768px) {
+		.wc133cell img { width: 100%; max-height: auto; height: auto; max-width: 100%; display: block; }
+	}
+</style>
+
+<div class="wmargin wpadding wc133" data-jc="wc133">
+	<h2 class="CMS_edit CMS_remove CMS_search">Lorem ipsum dolor</h2>
+	<div class="row">
+		<div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 wc133body CMS_repeat">
+			<div class="wc133image"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAYAAAAEgAQMAAACHFTYSAAAAA1BMVEW/v79R+5idAAAAJElEQVQYGe3BAQ0AAADCIPunfg43YAAAAAAAAAAAAAAAAABwKDcgAAHjhadaAAAAAElFTkSuQmCC" data-cms-width="1280" data-cms-height="960" data-cms-size="30" data-cms-original="https://www.totaljs.com/exports/gallery.jpg" border="0" alt="" class="img-responsive" /></div>
+		</div>
+		<div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 wc133body CMS_repeat CMS_remove">
+			<div class="wc133image"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAYAAAAEgAQMAAACHFTYSAAAAA1BMVEW/v79R+5idAAAAJElEQVQYGe3BAQ0AAADCIPunfg43YAAAAAAAAAAAAAAAAABwKDcgAAHjhadaAAAAAElFTkSuQmCC" data-cms-width="1280" data-cms-height="960" data-cms-size="30" data-cms-original="https://www.totaljs.com/exports/gallery2.jpg" border="0" alt="" class="img-responsive" /></div>
+		</div>
+		<div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 wc133body CMS_repeat CMS_remove">
+			<div class="wc133image"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAYAAAAEgAQMAAACHFTYSAAAAA1BMVEW/v79R+5idAAAAJElEQVQYGe3BAQ0AAADCIPunfg43YAAAAAAAAAAAAAAAAABwKDcgAAHjhadaAAAAAElFTkSuQmCC" data-cms-width="1280" data-cms-height="960" data-cms-size="30" data-cms-original="https://www.totaljs.com/exports/gallery.jpg" border="0" alt="" class="img-responsive" /></div>
+		</div>
+		<div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 wc133body CMS_repeat CMS_remove">
+			<div class="wc133image"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAYAAAAEgAQMAAACHFTYSAAAAA1BMVEW/v79R+5idAAAAJElEQVQYGe3BAQ0AAADCIPunfg43YAAAAAAAAAAAAAAAAABwKDcgAAHjhadaAAAAAElFTkSuQmCC" data-cms-width="1280" data-cms-height="960" data-cms-size="30" data-cms-original="https://www.totaljs.com/exports/gallery.jpg" border="0" alt="" class="img-responsive" /></div>
+		</div>
+		<div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 wc133body CMS_repeat CMS_remove">
+			<div class="wc133image"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAYAAAAEgAQMAAACHFTYSAAAAA1BMVEW/v79R+5idAAAAJElEQVQYGe3BAQ0AAADCIPunfg43YAAAAAAAAAAAAAAAAABwKDcgAAHjhadaAAAAAElFTkSuQmCC" data-cms-width="1280" data-cms-height="960" data-cms-size="30" data-cms-original="https://www.totaljs.com/exports/gallery.jpg" border="0" alt="" class="img-responsive" /></div>
+		</div>
+		<div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 wc133body CMS_repeat CMS_remove">
+			<div class="wc133image"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAYAAAAEgAQMAAACHFTYSAAAAA1BMVEW/v79R+5idAAAAJElEQVQYGe3BAQ0AAADCIPunfg43YAAAAAAAAAAAAAAAAABwKDcgAAHjhadaAAAAAElFTkSuQmCC" data-cms-width="1280" data-cms-height="960" data-cms-size="30" data-cms-original="https://www.totaljs.com/exports/gallery.jpg" border="0" alt="" class="img-responsive" /></div>
+		</div>
+	</div>
+</div>
+
+<script>
+
+	COMPONENT('wc133', function(self, config) {
+
+		var images, container, current = 0;
+
+		self.readonly();
+		self.blind();
+
+		self.init = function() {
+			$('body').append('<div class="wc133preview hidden"><button name="prev"><i class="fa fa-caret-left"></i></button><button name="next"><i class="fa fa-caret-right"></i></button><div class="wc133table"><div class="wc133cell"><div><img src="" alt="" /></div></div></div></div>');
+
+			window.wc133container = $('.wc133preview');
+
+			$(window).on('resize', function() {
+				setTimeout2('wc133', function() {
+					var w = $(window);
+					$('.wc133preview').css({ width: w.width(), height: w.height() })
+				}, 500);
+			});
+
+			$(window).on('keydown', function(e) {
+
+				if (!window.wc133instance || window.wc133container.hclass('hidden'))
+					return;
+
+				switch (e.which) {
+					case 39:
+						wc133instance.next();
+						break;
+					case 37:
+						wc133instance.prev();
+						break;
+					case 27:
+						wc133instance.close();
+						break;
+				}
+			});
+
+			window.wc133container.on('click', 'button', function() {
+				window.wc133instance && window.wc133instance[this.name]();
+			});
+
+			window.wc133container.on('click', 'img', function() {
+				window.wc133instance && window.wc133instance.close();
+			});
+		};
+
+		self.make = function() {
+			images = self.find('img');
+
+			// Sets index
+			images.each(function(index) {
+				$(this).attrd('index', index);
+			});
+
+			images = images.toArray();
+			container = $($('.wc133preview').get(0));
+
+			self.event('click', 'img', function() {
+				var img = $(this);
+				self.show(+img.attrd('index'));
+			});
+		};
+
+		self.close = function() {
+			container.aclass('hidden');
+			window.wc133instance = null;
+		};
+
+		self.show = function(index) {
+
+			window.wc133instance = self;
+
+			current = index;
+			var img = images[current];
+
+			// Loads image
+			container.find('img').attr('src', $(img).attrd('cms-original'));
+			container.rclass('hidden');
+		};
+
+		self.next = function() {
+			current++;
+			if (current > images.length - 1)
+				current = 0;
+			self.show(current);
+		};
+
+		self.prev = function() {
+			current--;
+			if (current < 0)
+				current = images.length - 1;
+			self.show(current);
+		};
+
+	});
+
+</script>

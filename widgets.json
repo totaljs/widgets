@@ -52,5 +52,6 @@
 	"ContentFiles",
 	"InlineBackground",
 	"ContentCount",
-	"InlineContactButton"
+	"InlineContactButton",
+	"ContentImageGallery"
 ]
