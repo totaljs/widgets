@@ -7,13 +7,20 @@
 ## Last counter
 
 - layout `wl100`
-- columns/content `wc133`
+- columns/content `wc134`
 - inline `wi122`
 
 ## Good to know
 
 - `wpadding` class contains each `columns` and `content`
 - `wmargin` class contains each widget instead of `layout`
+
+__Default global styles__:
+
+```css
+.wpadding { padding: 0 20px; }
+.wmargin { margin-bottom: 20px; }
+```
 
 ## Contributors
 
