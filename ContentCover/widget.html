@@ -1,0 +1,15 @@
+<script editor>
+	option('link', 'Enable link', false);
+	exports.configure = function(options, el) {
+		var link = el.find('a');
+		if (options.link) {
+			!link.length && el.find('img').wrap('<a href="/" class="CMS_edit"></a>');
+		} else {
+			link.length && el.find('img').unwrap('a');
+		}
+	};
+</script>
+
+<div class="wmargin wc134">
+	<div class="wc134image"><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABQAAAAGQAQMAAADLA1/kAAAAA1BMVEXMzMzKUkQnAAAAVUlEQVR4Ae3BAQEAAAQDMP1TiwHfVgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAArNb7kAABZyUYdQAAAABJRU5ErkJggg==" class="CMS_edit img-responsive" border="0" alt="Unknown image"  /></a></div>
+</div>
