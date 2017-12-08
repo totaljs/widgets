@@ -1,3 +1,3 @@
 # Empty space
 
-- inline widget
+- content widget
