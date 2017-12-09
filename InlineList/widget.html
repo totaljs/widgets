@@ -3,13 +3,15 @@
 	.wi108 li { display: block; padding: 6px 0; border-top: 1px solid #E0E0E0; }
 	.wi108 li:first-child { border-top: 0; padding-top: 0; }
 	.wi108 .fa { margin-right: 8px; color: #6EBC45; }
+	.wi108large { font-size: 16px; }
+	.wi108large li { padding: 8px 0; }
 </style>
 
 <script editor>
 	option('large', 'Large', false);
 
 	exports.configure = function(options, el) {
-		el.find('wi108').tclass('wi108large', options.large);
+		el.find('.wi108').tclass('wi108large', options.large);
 	};
 </script>
 
