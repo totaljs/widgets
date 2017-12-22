@@ -4,9 +4,13 @@
 	.wc138panel { margin-top: -44px; background-color: white; border: 1px solid #E0E0E0; border-top-width: 5px; border-radius: 3px; position: absolute; width: 80%; height: 87px; left: 10%; }
 	.wc138panel img { float: left; width: 150px; margin: 21px 0 0 20px; }
 	.wc138-blue { border-top-color: #3075D1; }
+	.wc138-blue .wc138button { background-color: #3075D1; }
 	.wc138-red { border-top-color: #C7292D; }
+	.wc138-red .wc138button { background-color: #C7292D; }
 	.wc138-dark { border-top-color: #303030; }
+	.wc138-dark .wc138button { background-color: #303030; }
 	.wc138-green { border-top-color: #76BA16; }
+	.wc138-green .wc138button { background-color: #76BA16; }
 	.wc138title { font-weight: bold; font-size: 16px; line-height: 16px; }
 	.wc138button { float: right; padding: 8px 20px; background-color: #3075D1; color: white; font-size: 14px; margin: 24px 20px 0 0; border-radius: 3px; font-weight: bold; text-decoration: none !important; }
 	.wc138button:hover { opacity: 0.8; }
@@ -33,7 +37,7 @@
 	option('color', 'Color', 'blue', [{ text: 'Blue', value: 'blue' }, { text: 'Red', value: 'red' }, { text: 'Green', value: 'green' }, { text: 'Dark', value: 'dark' }]);
 
 	exports.configure = function(options, el) {
-		el.find('.wc138').rclass2('wc138-').aclass('wc138-' + options.color);
+		el.find('.wc138panel').rclass2('wc138-').aclass('wc138-' + options.color);
 	};
 
 </script>
