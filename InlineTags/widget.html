@@ -1,0 +1,33 @@
+<style>
+	.wi126 { padding: 0; list-style-type: none; }
+	.wi126 a { display: inline-block; position: relative; border-radius: 3px; font-size: 12px; padding: 2px 8px; margin: 0 5px 8px 0; text-decoration: none; color: white; font-weight: bold; }
+	.wi126 a:hover { opacity: 0.8; }
+	.wi126-blue a { background-color: #3574CF; }
+	.wi126-red a { background-color: #C7292D; }
+	.wi126-dark a { background-color: #303030; }
+	.wi126-green a { background-color: #76BA16; }
+	.wi126-yellow a { background-color: #FFFB62; color: black; }
+	.wi126-orange a { background-color: #FFA313; }
+</style>
+
+<script editor>
+
+	option('color', 'Color', 'blue', [{ text: 'Blue', value: 'blue' }, { text: 'Red', value: 'red' }, { text: 'Green', value: 'green' }, { text: 'Dark', value: 'dark' }, { text: 'Yellow', value: 'yellow' }, { text: 'Orange', value: 'orange' }]);
+
+	exports.configure = function(options, el) {
+		el = el.find('.wi126');
+		el.rclass2('wi126-').aclass('wi126-' + options.color);
+	};
+
+</script>
+
+<div class="wmargin">
+	<nav class="wi126 wi126-blue">
+		<a href="#" class="CMS_repeat CMS_edit">Total.js</a>
+		<a href="#" class="CMS_repeat CMS_edit CMS_remove">Componentator</a>
+		<a href="#" class="CMS_repeat CMS_edit CMS_remove">Node.js</a>
+		<a href="#" class="CMS_repeat CMS_edit CMS_remove">Slovakia</a>
+		<a href="#" class="CMS_repeat CMS_edit CMS_remove">jComponent</a>
+		<a href="#" class="CMS_repeat CMS_edit CMS_remove">SuperAdmin</a>
+	</nav>
+</div>
