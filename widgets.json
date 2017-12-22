@@ -60,5 +60,6 @@
 	"ContentHeadline",
 	"InlineLinks2",
 	"ContentSocial",
-	"InlineTags"
+	"InlineTags",
+	"InlineDifferences"
 ]
