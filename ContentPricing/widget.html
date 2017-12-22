@@ -1,0 +1,137 @@
+<style>
+	.wc137 { padding: 0 20px; }
+	.wc137-blue .wc137price { background-color: #3075D1; border: 1px solid #2860AD; }
+	.wc137-blue .wc137button a { background-color: #3075D1; }
+	.wc137-red .wc137price { background-color: #C7292D; border: 1px solid #9D2023; }
+	.wc137-red .wc137button a { background-color: #C7292D; }
+	.wc137-dark .wc137price { background-color: #303030; border: 1px solid #202020; }
+	.wc137-dark .wc137button a { background-color: #303030; }
+	.wc137-green .wc137price { background-color: #76BA16; border: 1px solid #639812; }
+	.wc137-green .wc137button a { background-color: #76BA16; }
+	.wc137benefits { width: 33.33%; float: left; }
+	.wc137benefits table { text-align: center; margin: 0; table-layout: fixed; }
+	.wc137benefits table div { text-overflow: ellipsis; white-space: nowrap; overflow: hidden; width: 100%; }
+	.wc137benefitsfirst table { border-right: 0 !important; }
+	.wc137benefitsfirst table tbody td { border-right: 0 !important; }
+	.wc137benefitslast table { border-left: 0 !important; }
+	.wc137benefitslast table tbody td { border-left: 0 !important; }
+	.wc137price { height: 80px; font-size: 40px; text-align: center; border-bottom: 0; padding: 10px 0 0; background-color: black; color: white; font-weight: bold; }
+	.wc137benefitsfirst .wc137price { border-right: 0; }
+	.wc137benefitslast .wc137price { border-left: 0; margin-right: 1px; }
+
+	.wc137name { height: 50px; font-size: 18px; text-align: center; border: 1px solid #E0E0E0; margin-top: 10px; border-bottom: 0; padding: 12px 0 0; font-weight: bold; }
+	.wc137benefitsfirst .wc137name { border-right: 0; border-radius: 3px 0 0 0; }
+	.wc137benefitsmid .wc137name { height: 60px; margin-top: 0; padding: 17px 0 0 0; border-radius: 3px 3px 0 0; }
+	.wc137benefitslast .wc137name { border-left: 0; border-radius: 0 3px 0 0; margin-right: 1px; }
+
+	.wc137button { height: 80px; font-size: 14px; text-align: center; border: 1px solid #E0E0E0; margin-botom: 10px; border-top: 0; padding: 20px 10px 0; }
+	.wc137benefitsfirst .wc137button { border-right: 0; border-radius: 0 0 0 3px; }
+	.wc137benefitsmid .wc137button { height: 100px; margin-botom: 0; padding-top: 20px; border-radius: 0 0 3px 3px; }
+	.wc137benefitslast .wc137button { border-left: 0; border-radius: 0 0 3px 0; margin-right: 1px; }
+
+	.wc137button a { color: white; display: block; max-width: 120px; border-radius: 3px; padding: 8px 0; margin: 0 auto; font-weight: bold; text-decoration: none !important; }
+	.wc137button a:hover { opacity: 0.8; }
+	.wc137button div { font-size: 11px; color: #A0A0A0; margin-top: 10px; }
+
+	@media(max-width: 998px) {
+		.wc137 { font-size: 12px; }
+		.wc137price { font-size: 20px; height: 50px; padding-top: 10px; }
+		.wc137name { font-size: 14px; height: 40px; padding-top: 10px; }
+		.wc137benefitsmid .wc137name { height: 50px; }
+		.wc137button a { font-size: 12px; padding: 5px 0; }
+		.wc137button { height: 70px; }
+		.wc137benefitsmid .wc137button { height: 85px; }
+	}
+
+	@media(max-width: 769px) {
+		.wc137price { font-size: 20px; height: 40px; padding-top: 5px; }
+		.wc137benefitsmid .wc137button { height: 90px; }
+	}
+
+</style>
+
+<script editor>
+
+	option('color', 'Color', 'blue', [{ text: 'Blue', value: 'blue' }, { text: 'Red', value: 'red' }, { text: 'Green', value: 'green' }, { text: 'Dark', value: 'dark' }]);
+
+	exports.configure = function(options, el) {
+		el.find('.wc137').rclass2('wc137-').aclass('wc137-' + options.color);
+	};
+
+</script>
+
+<div class="wmargin wpadding">
+	<div class="wc137 wc137-blue">
+		<div class="wc137benefits wc137benefitsfirst">
+			<div class="wc137name CMS_edit">Standard</div>
+			<div class="wc137price CMS_edit">&euro; 30</div>
+			<table class="table table-bordered">
+				<tbody>
+					<tr class="CMS_repeat">
+						<td><div class="CMS_edit">Lorem ipsum</div></td>
+					</tr>
+					<tr class="CMS_repeat CMS_remove">
+						<td><div class="CMS_edit">Lorem ipsum</div></td>
+					</tr>
+					<tr class="CMS_repeat CMS_remove">
+						<td><div class="CMS_edit">Lorem ipsum</div></td>
+					</tr>
+					<tr class="CMS_repeat CMS_remove">
+						<td><div class="CMS_edit">Lorem ipsum</div></td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="wc137button">
+				<a href="#" class="CMS_edit">Buy</a>
+			</div>
+		</div>
+		<div class="wc137benefits wc137benefitsmid">
+			<div class="wc137name CMS_edit">Premium</div>
+			<div class="wc137price CMS_edit">&euro; 55</div>
+			<table class="table table-bordered">
+				<tbody>
+					<tr class="CMS_repeat">
+						<td><div class="CMS_edit">Lorem ipsum</div></td>
+					</tr>
+					<tr class="CMS_repeat CMS_remove">
+						<td><div class="CMS_edit">Lorem ipsum</div></td>
+					</tr>
+					<tr class="CMS_repeat CMS_remove">
+						<td><div class="CMS_edit">Lorem ipsum</div></td>
+					</tr>
+					<tr class="CMS_repeat CMS_remove">
+						<td><div class="CMS_edit">Lorem ipsum</div></td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="wc137button">
+				<a href="#" class="CMS_edit">Buy</a>
+				<div>Best choice for you</div>
+			</div>
+		</div>
+		<div class="wc137benefits wc137benefitslast">
+			<div class="wc137name CMS_edit">Business</div>
+			<div class="wc137price CMS_edit">&euro; 80</div>
+			<table class="table table-bordered">
+				<tbody>
+					<tr class="CMS_repeat">
+						<td><div class="CMS_edit">Lorem ipsum</div></td>
+					</tr>
+					<tr class="CMS_repeat CMS_remove">
+						<td><div class="CMS_edit">Lorem ipsum</div></td>
+					</tr>
+					<tr class="CMS_repeat CMS_remove">
+						<td><div class="CMS_edit">Lorem ipsum</div></td>
+					</tr>
+					<tr class="CMS_repeat CMS_remove">
+						<td><div class="CMS_edit">Lorem ipsum</div></td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="wc137button">
+				<a href="#" class="CMS_edit">Buy</a>
+			</div>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>
