@@ -1,0 +1,53 @@
+<style>
+	.wc138 { padding: 0; height: 100px; position: relative; }
+	.wc138 hr { margin-top: 50px; }
+	.wc138panel { margin-top: -44px; background-color: white; border: 1px solid #E0E0E0; border-top-width: 5px; border-radius: 3px; position: absolute; width: 80%; height: 87px; left: 10%; }
+	.wc138panel img { float: left; width: 150px; margin: 21px 0 0 20px; }
+	.wc138-blue { border-top-color: #3075D1; }
+	.wc138-red { border-top-color: #C7292D; }
+	.wc138-dark { border-top-color: #303030; }
+	.wc138-green { border-top-color: #76BA16; }
+	.wc138title { font-weight: bold; font-size: 16px; line-height: 16px; }
+	.wc138button { float: right; padding: 8px 20px; background-color: #3075D1; color: white; font-size: 14px; margin: 24px 20px 0 0; border-radius: 3px; font-weight: bold; text-decoration: none !important; }
+	.wc138button:hover { opacity: 0.8; }
+	.wc138body { float: left; margin: 25px 0 0 25px; }
+	.wc138body > div { text-overflow: ellipsis; white-space: nowrap; overflow: hidden; }
+
+	@media(max-width: 980px) {
+		.wc138panel img { display: none; }
+		.wc138 { height: auto; }
+		.wc138 hr { display: none; }
+		.wc138panel { margin: 0; position: relative; display: block; width: 100%; left: 0; height: 90px; }
+	}
+
+	@media(max-width: 769px) {
+		.wc138panel img { display: block; float: none; }
+		.wc138panel { height: auto; }
+		.wc138body { float: none; display: block; margin: 20px 20px 10px; }
+		.wc138button { float: none; display: block; margin: 0 20px 20px; }
+	}
+</style>
+
+<script editor>
+
+	option('color', 'Color', 'blue', [{ text: 'Blue', value: 'blue' }, { text: 'Red', value: 'red' }, { text: 'Green', value: 'green' }, { text: 'Dark', value: 'dark' }]);
+
+	exports.configure = function(options, el) {
+		el.find('.wc138').rclass2('wc138-').aclass('wc138-' + options.color);
+	};
+
+</script>
+
+<div class="wmargin wpadding">
+	<div class="wc138">
+		<div class="wc138panel wc138-blue">
+			<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAAA8AQMAAAC+SNEpAAAAA1BMVEW/v79R+5idAAAAEUlEQVR4AWMYImAUjIJRMAoABLAAAadaC2sAAAAASUVORK5CYII=" class="CMS_edit" alt="" data-cms-width="150" data-cms-height="60" />
+			<div class="wc138body">
+				<div class="wc138title CMS_edit">Check our new themes</div>
+				<div class="wc138text CMS_edit">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+			</div>
+			<a href="#" class="wc138button CMS_edit">Explore more</a>
+		</div>
+		<hr />
+	</div>
+</div>
