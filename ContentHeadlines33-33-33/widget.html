@@ -25,6 +25,15 @@
 	.wc118link-purple { background-color: #967ADC; }
 	.wc118link-white { background-color: white; color: black !important; }
 	.wc118link-black { background-color: #202020; }
+
+	.wc118swipe { margin-top: 10px; text-align: center; font-size: 11px; color: #A0A0A0; display: none; }
+	.wc118swipe span { margin: 0 10px; }
+	.CMS_preview .wc118swipe { display: block; }
+
+	@media(max-width:769px) {
+		.wc118swipe { display: block; }
+	}
+
 </style>
 
 <script editor>
@@ -34,22 +43,28 @@
 	option('mobilecarousel', 'Enable carousel (XS)', false);
 
 	exports.configure = function(options, el) {
+
+		var swipe = el.find('.wc118swipe');
+
 		el.find('.wc118body').each(function() {
 			$(this).rclass2('wc118body-').aclass('wc118body-' + options.color);
 			$(this).find('.wc118link').rclass2('wc118link-').aclass('wc118link-' + options.colorlink);
 		});
 
-		el = el.find('.wc118');
-		if (options.mobilecarousel)
-			el.attr({ 'data-jc': 'mobilecarousel@1', 'data-jc-config': 'selector:.col-sm-4' });
-		else
-			el.rattr('data-jc').rattr('data-jc-config');
+		var container = el.find('.wc118container');
+		if (options.mobilecarousel) {
+			container.attr({ 'data-jc': 'mobilecarousel@1', 'data-jc-config': 'selector:.col-sm-4' });
+			!swipe.length && el.find('.wc118').append('<div class="wc118swipe wmargin"><i class="fa fa-long-arrow-left CMS_edit"></i><span class="CMS_edit">Swipe content</span><i class="fa fa-long-arrow-right CMS_edit"></i></div>');
+		} else {
+			swipe.remove();
+			container.rattr('data-jc').rattr('data-jc-config');
+		}
 	};
 
 </script>
 
-<div class="wmargin wpadding">
-	<div class="wc118">
+<div class="wmargin wpadding wc118">
+	<div class="wc118container">
 		<div class="row">
 			<div class="col-sm-4 CMS_widgets CMS_repeat" data-cms-category="Inline">
 				<div class="wmargin wc118body wc118body-smoke">

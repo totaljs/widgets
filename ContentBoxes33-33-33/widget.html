@@ -6,6 +6,14 @@
 	.wc128image img { border-radius: 3px 3px 0 0; }
 	.wc128body { padding: 20px; border-radius: 0 0 3px 3px; border: 1px solid #E0E0E0; }
 	.wc128body p { margin-bottom: 15px; line-height: 18px; font-size: 14px; }
+	.wc128swipe { margin-top: 10px; text-align: center; font-size: 11px; color: #A0A0A0; display: none; }
+	.wc128swipe span { margin: 0 10px; }
+	.CMS_preview .wc128swipe { display: block; }
+
+	@media(max-width:769px) {
+		.wc128swipe { display: block; }
+	}
+
 </style>
 
 <script editor>
@@ -13,17 +21,21 @@
 	option('mobilecarousel', 'Enable carousel (XS)', false);
 
 	exports.configure = function(options, el) {
-		el = el.find('.wc128');
-		if (options.mobilecarousel)
-			el.attr({ 'data-jc': 'mobilecarousel@1', 'data-jc-config': 'selector:.col-sm-4' });
-		else
-			el.rattr('data-jc').rattr('data-jc-config');
+		var container = el.find('.wc128container');
+		var swipe = el.find('.wc128swipe');
+		if (options.mobilecarousel) {
+			container.attr({ 'data-jc': 'mobilecarousel@1', 'data-jc-config': 'selector:.col-sm-4' });
+			!swipe.length && el.find('.wc128').append('<div class="wc128swipe wmargin"><i class="fa fa-long-arrow-left CMS_edit"></i><span class="CMS_edit">Swipe content</span><i class="fa fa-long-arrow-right CMS_edit"></i></div>');
+		} else {
+			swipe.remove();
+			container.rattr('data-jc').rattr('data-jc-config');
+		}
 	};
 
 </script>
 
-<div class="wpadding">
-	<div class="wc128">
+<div class="wpadding wc128">
+	<div class="wc128container">
 		<div class="row">
 			<div class="col-sm-4 CMS_repeat wmargin">
 				<div class="wc128image"><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfQAAAEsAQMAAAAPddOLAAAAA1BMVEXMzMzKUkQnAAAAKUlEQVR4Ae3BMQEAAADCIPuntsUuYAAAAAAAAAAAAAAAAAAAAAAAABA6SwAAAXWr0YQAAAAASUVORK5CYII=" class="CMS_edit img-responsive" border="0" alt="Unknown image" data-cms-width="500" data-cms-height="300"  /></a></div>
