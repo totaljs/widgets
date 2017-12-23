@@ -8,10 +8,24 @@
 	.wc128body p { margin-bottom: 15px; line-height: 18px; font-size: 14px; }
 </style>
 
+<script editor>
+
+	option('mobilecarousel', 'Enable carousel (XS)', false);
+
+	exports.configure = function(options, el) {
+		el = el.find('.wc128');
+		if (options.mobilecarousel)
+			el.attr({ 'data-jc': 'mobilecarousel@1', 'data-jc-config': 'selector:.col-sm-4' });
+		else
+			el.rattr('data-jc').rattr('data-jc-config');
+	};
+
+</script>
+
 <div class="wpadding wc128">
 	<div class="row">
 		<div class="col-sm-4 CMS_repeat wmargin">
-			<div class="wc128image"><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAD6AQMAAAC1aYMHAAAAA1BMVEXW1taWrGEgAAAAI0lEQVQYGe3BMQEAAADCIPunXgsvYAAAAAAAAAAAAAAAABwFMc4AAYHBuq8AAAAASUVORK5CYII=" class="CMS_edit img-responsive" border="0" alt="Unknown image" data-cms-width="400" data-cms-height="250"  /></a></div>
+			<div class="wc128image"><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfQAAAEsAQMAAAAPddOLAAAAA1BMVEXMzMzKUkQnAAAAKUlEQVR4Ae3BMQEAAADCIPuntsUuYAAAAAAAAAAAAAAAAAAAAAAAABA6SwAAAXWr0YQAAAAASUVORK5CYII=" class="CMS_edit img-responsive" border="0" alt="Unknown image" data-cms-width="500" data-cms-height="300"  /></a></div>
 			<div class="wmargin wc128body">
 				<h3 class="CMS_edit CMS_remove CMS_search">Lorem ipsum sodem</h3>
 				<p class="CMS_edit CMS_remove">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid iusto eos molestias, modi quibusdam doloremque similique dignissimos odio a amet.</p>
@@ -19,7 +33,7 @@
 			</div>
 		</div>
 		<div class="col-sm-4 CMS_repeat CMS_remove wmargin">
-			<div class="wc128image"><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAD6AQMAAAC1aYMHAAAAA1BMVEXW1taWrGEgAAAAI0lEQVQYGe3BMQEAAADCIPunXgsvYAAAAAAAAAAAAAAAABwFMc4AAYHBuq8AAAAASUVORK5CYII=" class="CMS_edit img-responsive" border="0" alt="Unknown image" data-cms-width="400" data-cms-height="250"  /></a></div>
+			<div class="wc128image"><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfQAAAEsAQMAAAAPddOLAAAAA1BMVEXMzMzKUkQnAAAAKUlEQVR4Ae3BMQEAAADCIPuntsUuYAAAAAAAAAAAAAAAAAAAAAAAABA6SwAAAXWr0YQAAAAASUVORK5CYII=" class="CMS_edit img-responsive" border="0" alt="Unknown image" data-cms-width="500" data-cms-height="300"  /></a></div>
 			<div class="wmargin wc128body">
 				<h3 class="CMS_edit CMS_remove CMS_search">Lorem ipsum sodem</h3>
 				<p class="CMS_edit CMS_remove">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid iusto eos molestias, modi quibusdam doloremque similique dignissimos odio a amet.</p>
@@ -27,7 +41,7 @@
 			</div>
 		</div>
 		<div class="col-sm-4 CMS_repeat CMS_remove wmargin">
-			<div class="wc128image"><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAD6AQMAAAC1aYMHAAAAA1BMVEXW1taWrGEgAAAAI0lEQVQYGe3BMQEAAADCIPunXgsvYAAAAAAAAAAAAAAAABwFMc4AAYHBuq8AAAAASUVORK5CYII=" class="CMS_edit img-responsive" border="0" alt="Unknown image" data-cms-width="400" data-cms-height="250"  /></a></div>
+			<div class="wc128image"><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfQAAAEsAQMAAAAPddOLAAAAA1BMVEXMzMzKUkQnAAAAKUlEQVR4Ae3BMQEAAADCIPuntsUuYAAAAAAAAAAAAAAAAAAAAAAAABA6SwAAAXWr0YQAAAAASUVORK5CYII=" class="CMS_edit img-responsive" border="0" alt="Unknown image" data-cms-width="500" data-cms-height="300"  /></a></div>
 			<div class="wmargin wc128body">
 				<h3 class="CMS_edit CMS_remove CMS_search">Lorem ipsum sodem</h3>
 				<p class="CMS_edit CMS_remove">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid iusto eos molestias, modi quibusdam doloremque similique dignissimos odio a amet.</p>
