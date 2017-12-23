@@ -1,7 +1,7 @@
 <style>
 	.wc127 { padding-bottom: 0; position: relative; }
 	.wc127body { position: absolute; width: 100%; text-align: center; top: 200px; color: white; }
-	.wc127body p { max-width: 800px; margin: 0 auto 30px; line-height: 20px; font-size: 16px; }
+	.wc127body p { max-width: 750px; margin: 0 auto 30px; line-height: 20px; font-size: 16px; }
 	.wc127a { font-size: 16px; color: white; position: relative; display: inline-block; padding: 12px 0; border-radius: 4px; margin: 0 10px; width: 150px; transition: all 0.2s; border: 2px solid white; }
 	.wc127a .fa { margin-right: 7px; }
 	.wc127a:hover { text-decoration: none; transform: scale(1.05); }
@@ -27,10 +27,20 @@
 	@media(max-width: 768px) {
 		.wc127body { top: 50px; }
 		.wc127body p { font-size: 12px; line-height: 14px; max-width: 400px; }
-		.wc127a { padding: 5px 0; font-size: 14px; width: 150px; }
+		.wc127a { padding: 5px 0; font-size: 14px; width: 140px; }
 		.wc127body h1 { font-size: 18px; }
 	}
 
+	@media(max-width: 450px) {
+		.wc127body { top: 25px; }
+		.wc127a { padding: 5px 0; font-size: 12px; width: 120px; }
+	}
+
+	@media(max-width: 320px) {
+		.wc127body { top: 10px; }
+		.wc127body p { margin-bottom: 15px; }
+		.wc127a { padding: 5px 0; font-size: 12px; width: 120px; }
+	}
 </style>
 
 <script editor>
@@ -45,7 +55,7 @@
 <div class="wmargin wc127">
 	<div class="wc127body wc127-blue">
 		<h1 class="CMS_edit">Lorem ipsum dolor sit amet</h1>
-		<p class="CMS_edit">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo possimus, mollitia numquam pariatur provident ab doloribus nesciunt incidunt, delectus libero!.</p>
+		<p class="CMS_edit">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo possimus, mollitia numquam pariatur provident ab doloribus nesciunt incidunt!</p>
 		<a href="#" class="CMS_edit CMS_remove wc127a wc127ahighlight">Download Now</a>
 		<a href="#" class="CMS_edit CMS_remove wc127a">Discover More</a>
 	</div>
