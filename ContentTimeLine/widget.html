@@ -1,0 +1,55 @@
+<style>
+
+	.wc139item {}
+	.wc139date { float: left; width: 200px; border-bottom: 1px solid #E0E0E0; padding: 5px 0; font-weight: bold; }
+	.wc139body { margin: 0 0 0 200px; padding: 10px 0; background-color: #F8F8F8; border-top: 1px solid #E9E9E9; }
+	.wc139body ul { margin: 0; }
+	.wc139item:first-child .wc139body { border-top: 0; border-radius: 3px 3px 0 0; }
+	.wc139item:last-child .wc139body { border-radius: 0 0 3px 3px; }
+
+	@media(max-width: 998px) {
+		.wc139date { width: 150px; }
+		.wc139body { margin: 0 0 0 150px; }
+	}
+
+	@media(max-width: 768px) {
+		.wc139date { float: none; width: auto; }
+		.wc139body { margin-left: 0; border-radius: 0 0 3px 3px; }
+		.wc139item:first-child .wc139body { border-radius: 0 0 3px 3px; }
+		.wc139item { margin-bottom: 15px; }
+	}
+
+</style>
+
+<div class="wmargin wpadding wc139">
+	<div class="wc139item CMS_repeat">
+		<div class="wc139date CMS_edit">2012</div>
+		<div class="wc139body">
+			<ul>
+				<li class="CMS_edit CMS_repeat">Lorem ipsum dolor sit</li>
+				<li class="CMS_edit CMS_repeat CMS_remove">Lorem ipsum dolor sit</li>
+				<li class="CMS_edit CMS_repeat CMS_remove">Lorem ipsum dolor sit</li>
+			</ul>
+		</div>
+	</div>
+	<div class="wc139item CMS_repeat CMS_remove">
+		<div class="wc139date CMS_edit">2013</div>
+		<div class="wc139body">
+			<ul>
+				<li class="CMS_edit CMS_repeat">Lorem ipsum dolor sit</li>
+				<li class="CMS_edit CMS_repeat CMS_remove">Lorem ipsum dolor sit</li>
+				<li class="CMS_edit CMS_repeat CMS_remove">Lorem ipsum dolor sit</li>
+			</ul>
+		</div>
+	</div>
+	<div class="wc139item CMS_repeat CMS_remove">
+		<div class="wc139date CMS_edit">2014</div>
+		<div class="wc139body">
+			<ul>
+				<li class="CMS_edit CMS_repeat">Lorem ipsum dolor sit</li>
+				<li class="CMS_edit CMS_repeat CMS_remove">Lorem ipsum dolor sit</li>
+				<li class="CMS_edit CMS_repeat CMS_remove">Lorem ipsum dolor sit</li>
+			</ul>
+		</div>
+	</div>
+</div>
