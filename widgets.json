@@ -63,5 +63,6 @@
 	"InlineTags",
 	"InlineDifferences",
 	"ContentPricing",
-	"ContentFloatingPanel"
+	"ContentFloatingPanel",
+	"ContentTimeLine"
 ]
