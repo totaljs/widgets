@@ -1,0 +1,50 @@
+<style>
+	.wc140 { column-width: 320px; column-gap: 20px; width: 100%; margin: 30px auto; }
+	.wc140 figure { width: 100%; background: white; border: 1px solid #E0E0E0; margin: 0 2px 20px; padding: 15px; display: inline-block; column-break-inside: avoid; border-radius: 4px; line-height: 16px; }
+	.wc140 .date { font-size: 11px; color: #A0A0A0; margin-bottom: 10px; }
+	.wc140 .date .fa { margin-right: 5px; }
+	.wc140 h3 { margin: 0 0 5px 0; }
+	.wc140link { display: inline-block; position: relative; background-color: #E0E0E0; border-radius: 3px; padding: 4px 15px; font-size: 12px; color: black; }
+    .wc140link .fa { margin-right: 5px; }
+	.wc140link:hover { text-decoration: none; opacity: 0.9; }
+</style>
+
+<script editor>
+	option('type', 'Type', 'all', ['all', 'pinned', 'unpinned']);
+	option('category', 'Category', 'all', 'Notices');
+	option('count', 'Count', 3);
+	option('linkbutton', 'Button', 'Read more');
+</script>
+
+<script total>
+
+	exports.render = function(options, html, next) {
+
+		var template = '<figure><h3>{0}</h3><div class="date"><i class="fa fa-clock-o"></i>{1}</div><div class="markdown">{2}</div>{3}</figure>';
+		var opt = {};
+		opt.limit = options.count || 3;
+		opt.category = options.category === 'all' ? null : options.category;
+		opt.ispinned = options.type === 'all' ? null : options.type === 'pinned';
+
+		if (opt.category === 'event') {
+			opt.event = true;
+			opt.sort = 'event_asc';
+		}
+
+		$QUERY('Notice', opt, function(err, response) {
+			var builder = [];
+
+			for (var i = 0, length = response.items.length; i < length; i++) {
+				var item = response.items[i];
+				builder.push(template.format(item.name, item.date.format('yyyy-MM-dd'), item.body, item.url ? '<a href="{0}" target="_blank" class="wc140link"><i class="fa fa-plus"></i>{1}</a>'.format(item.url, options.linkbutton) : ''));
+			}
+
+			next('<div class="wpadding wmargin"><div class="wc140">{0}</div></div></div>'.format(builder.join('')));
+		});
+	};
+
+</script>
+
+<div class="wpadding wmargin">
+	<div class="totaljs">Notices Masonry</div>
+</div>

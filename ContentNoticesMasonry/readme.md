@@ -1,0 +1,3 @@
+# Notices Masonry
+
+- content widget

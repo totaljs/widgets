@@ -64,5 +64,6 @@
 	"InlineDifferences",
 	"ContentPricing",
 	"ContentFloatingPanel",
-	"ContentTimeLine"
+	"ContentTimeLine",
+	"ContentNoticesMasonry"
 ]
