@@ -22,9 +22,14 @@
 <script editor>
 
 	option('color', 'Color', 'yellow', [{ text: 'Yellow', value: 'yellow' }, { text: 'Red', value: 'red' }, { text: 'Blue', value: 'blue' }, { text: 'Green', value: 'green' }]);
+	option('fullwidth', 'Full width', false);
 
 	exports.configure = function(options, el) {
 		el.find('blockquote').rclass2('wc121-').aclass('wc121-' + options.color);
+		if (options.fullwidth)
+			el.find('.col-md-8').tclass('col-md-8 col-md-offset-2 col-md-12');
+		else
+			el.find('.col-md-12').tclass('col-md-8 col-md-offset-2 col-md-12');
 	};
 
 </script>
