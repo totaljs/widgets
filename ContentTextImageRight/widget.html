@@ -1,8 +1,12 @@
 <style>
-	.wc107 { border-bottom: 1px solid #F0F0F0; padding-top: 40px; padding-right: 0 !important; }
+	.wc107 { border-bottom: 1px solid #F0F0F0; padding-top: 40px; }
 	.wc107 p { margin: 0; font-size: 14px; line-height: 20px; }
 
-	@media(max-width: 768px) {
+	@media(min-width: 768px) {
+		.wc107 { padding-right: 0 !important; }
+	}
+
+	@media(max-width: 767px) {
 		.wc107 { padding-top: 15px; }
 		.wc107 .col-sm-6 div { margin: 0 20px 20px 0; }
 	}
