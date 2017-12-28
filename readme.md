@@ -18,7 +18,7 @@
 __Default global styles__:
 
 ```css
-.wpadding { padding: 0 20px; }
+.wpadding { padding-left: 20px; padding-right: 20px; }
 .wmargin { margin-bottom: 20px; }
 ```
 
