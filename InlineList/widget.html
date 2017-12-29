@@ -8,20 +8,31 @@
 </style>
 
 <script editor>
+
 	option('large', 'Large', false);
+	option('twocolumns', 'Two columns', false);
 
 	exports.configure = function(options, el) {
-		el.find('.wi108').tclass('wi108large', options.large);
+		var container = el.find('.wi108');
+		container.tclass('wi108large', options.large);
+		var columns = container.find('.row').length > 0;
+		if (options.twocolumns) {
+			!columns && container.html('<div class="row">{0}{0}</div>'.format('<div class="col-sm-6"><ul><li class="CMS_repeat"><i class="fa fa-check-circle CMS_edit"></i><span class="CMS_edit CMS_unwrap">Lorem Ipsum sodem</span></li></ul></div>'));
+		} else
+			columns && container.html('<ul><li class="CMS_repeat"><i class="fa fa-check-circle CMS_edit"></i><span class="CMS_edit CMS_unwrap">Lorem Ipsum sodem</span></li></ul>');
 	};
+
 </script>
 
 <div class="wmargin">
-	<ul class="wi108">
-		<li class="CMS_repeat"><i class="fa fa-check-circle CMS_edit"></i><span class="CMS_edit CMS_unwrap">Lorem Ipsum sodem</span></li>
-		<li class="CMS_repeat CMS_remove"><i class="fa fa-check-circle CMS_edit"></i><span class="CMS_edit CMS_unwrap">Lorem Ipsum sodem</span></li>
-		<li class="CMS_repeat CMS_remove"><i class="fa fa-check-circle CMS_edit"></i><span class="CMS_edit CMS_unwrap">Lorem Ipsum sodem</span></li>
-		<li class="CMS_repeat CMS_remove"><i class="fa fa-check-circle CMS_edit"></i><span class="CMS_edit CMS_unwrap">Lorem Ipsum sodem</span></li>
-		<li class="CMS_repeat CMS_remove"><i class="fa fa-check-circle CMS_edit"></i><span class="CMS_edit CMS_unwrap">Lorem Ipsum sodem</span></li>
-		<li class="CMS_repeat CMS_remove"><i class="fa fa-check-circle CMS_edit"></i><span class="CMS_edit CMS_unwrap">Lorem Ipsum sodem</span></li>
-	</ul>
+	<div class="wi108">
+		<ul>
+			<li class="CMS_repeat"><i class="fa fa-check-circle CMS_edit"></i><span class="CMS_edit CMS_unwrap">Lorem Ipsum sodem</span></li>
+			<li class="CMS_repeat CMS_remove"><i class="fa fa-check-circle CMS_edit"></i><span class="CMS_edit CMS_unwrap">Lorem Ipsum sodem</span></li>
+			<li class="CMS_repeat CMS_remove"><i class="fa fa-check-circle CMS_edit"></i><span class="CMS_edit CMS_unwrap">Lorem Ipsum sodem</span></li>
+			<li class="CMS_repeat CMS_remove"><i class="fa fa-check-circle CMS_edit"></i><span class="CMS_edit CMS_unwrap">Lorem Ipsum sodem</span></li>
+			<li class="CMS_repeat CMS_remove"><i class="fa fa-check-circle CMS_edit"></i><span class="CMS_edit CMS_unwrap">Lorem Ipsum sodem</span></li>
+			<li class="CMS_repeat CMS_remove"><i class="fa fa-check-circle CMS_edit"></i><span class="CMS_edit CMS_unwrap">Lorem Ipsum sodem</span></li>
+		</ul>
+	</div>
 </div>
