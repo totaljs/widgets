@@ -1,3 +1,3 @@
-# Pricing
+# Pricing 2
 
 - content widget
