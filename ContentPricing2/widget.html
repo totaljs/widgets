@@ -1,0 +1,132 @@
+<style>
+	.wc141 {}
+	.wc141 h2 { margin-bottom: 10px; }
+	.wc141 p { margin-bottom: 25px; max-width: 800px; }
+	.wc141 table div { text-overflow: ellipsis; white-space: nowrap; overflow: hidden; width: 100%; }
+	.wc141 table { margin: 0; table-layout: fixed; }
+	.wc141-blue .wc141button a { background-color: #3075D1; }
+	.wc141-red .wc141button a { background-color: #C7292D; }
+	.wc141-dark .wc141button a { background-color: #303030; }
+	.wc141-green .wc141button a { background-color: #76BA16; }
+	.wc141name { width: 85%; }
+	.wc141price { text-align: center; color: #76BA16; }
+	.wc141 tfoot td { font-weight: bold; color: black; background-color: #F8F8F8; font-size: 16px; }
+	.wc141item { margin-top: 30px; }
+	.wc141item:first-child { margin-top: 0; }
+	.wc141button { border-bottom: 1px solid #E0E0E0; padding-bottom: 20px; margin: 15px 0 0; }
+	.wc141button a { color: white; display: block; width: 15%; border-radius: 3px; padding: 6px 0; margin: 0 0 0 auto; font-weight: bold; text-decoration: none !important; text-align: center; }
+	.wc141button a:hover { opacity: 0.8; }
+
+	@media(max-width: 1199px) {
+		.wc141name { width: 80%; }
+		.wc141button a { width: 20%; }
+	}
+
+	@media(max-width: 992px) {
+		.wc141name { width: 70%; }
+		.wc141button a { width: 30%; }
+	}
+
+</style>
+
+<script editor>
+
+	option('color', 'Color', 'blue', [{ text: 'Blue', value: 'blue' }, { text: 'Red', value: 'red' }, { text: 'Green', value: 'green' }, { text: 'Dark', value: 'dark' }]);
+
+	exports.configure = function(options, el) {
+		el.find('.wc141').rclass2('wc141-').aclass('wc141-' + options.color);
+	};
+
+</script>
+
+<div class="wbody wmargin wpadding">
+	<div class="wc141 wc141-blue">
+		<div class="wc141item CMS_repeat">
+			<h2 class="CMS_edit">Basic</h2>
+			<p class="CMS_edit">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione nulla officiis quod, dolore sint quidem fugiat. Optio dolor enim cumque, amet rerum autem explicabo id, tempora mollitia?</p>
+			<table class="table table-bordered">
+				<tbody>
+					<tr class="CMS_repeat">
+						<td class="wc141name"><div class="CMS_edit">Lorem ipsum</div></td>
+						<td class="wc141price"><i class="fa fa-check CMS_edit"></i></td>
+					</tr>
+					<tr class="CMS_repeat CMS_remove">
+						<td class="wc141name"><div class="CMS_edit">Lorem ipsum</div></td>
+						<td class="wc141price"><i class="fa fa-check CMS_edit"></i></td>
+					</tr>
+					<tr class="CMS_repeat CMS_remove">
+						<td class="wc141name"><div class="CMS_edit">Lorem ipsum</div></td>
+						<td class="wc141price"><i class="fa fa-check CMS_edit"></i></td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<td class="wc141name"><div class="CMS_edit">Price</div></td>
+						<td class="wc141price CMS_edit">99 &euro;</td>
+					</tr>
+				</tfoot>
+			</table>
+			<div class="wc141button CMS_remove">
+				<a href="#" class="CMS_edit">Buy</a>
+			</div>
+		</div>
+		<div class="wc141item CMS_repeat CMS_remove">
+			<h2 class="CMS_edit">Commercial</h2>
+			<p class="CMS_edit">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione nulla officiis quod, dolore sint quidem fugiat. Optio dolor enim cumque, amet rerum autem explicabo id, tempora mollitia?</p>
+			<table class="table table-bordered">
+				<tbody>
+					<tr class="CMS_repeat">
+						<td class="wc141name"><div class="CMS_edit">Lorem ipsum</div></td>
+						<td class="wc141price"><i class="fa fa-check CMS_edit"></i></td>
+					</tr>
+					<tr class="CMS_repeat CMS_remove">
+						<td class="wc141name"><div class="CMS_edit">Lorem ipsum</div></td>
+						<td class="wc141price"><i class="fa fa-check CMS_edit"></i></td>
+					</tr>
+					<tr class="CMS_repeat CMS_remove">
+						<td class="wc141name"><div class="CMS_edit">Lorem ipsum</div></td>
+						<td class="wc141price"><i class="fa fa-check CMS_edit"></i></td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<td class="wc141name"><div class="CMS_edit">Price</div></td>
+						<td class="wc141price CMS_edit">99 &euro;</td>
+					</tr>
+				</tfoot>
+			</table>
+			<div class="wc141button CMS_remove">
+				<a href="#" class="CMS_edit">Buy</a>
+			</div>
+		</div>
+		<div class="wc141item CMS_repeat CMS_remove">
+			<h2 class="CMS_edit">Enterprise</h2>
+			<p class="CMS_edit">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione nulla officiis quod, dolore sint quidem fugiat. Optio dolor enim cumque, amet rerum autem explicabo id, tempora mollitia?</p>
+			<table class="table table-bordered">
+				<tbody>
+					<tr class="CMS_repeat">
+						<td class="wc141name"><div class="CMS_edit">Lorem ipsum</div></td>
+						<td class="wc141price"><i class="fa fa-check CMS_edit"></i></td>
+					</tr>
+					<tr class="CMS_repeat CMS_remove">
+						<td class="wc141name"><div class="CMS_edit">Lorem ipsum</div></td>
+						<td class="wc141price"><i class="fa fa-check CMS_edit"></i></td>
+					</tr>
+					<tr class="CMS_repeat CMS_remove">
+						<td class="wc141name"><div class="CMS_edit">Lorem ipsum</div></td>
+						<td class="wc141price"><i class="fa fa-check CMS_edit"></i></td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<td class="wc141name"><div class="CMS_edit">Price</div></td>
+						<td class="wc141price CMS_edit">99 &euro;</td>
+					</tr>
+				</tfoot>
+			</table>
+			<div class="wc141button CMS_remove">
+				<a href="#" class="CMS_edit">Buy</a>
+			</div>
+		</div>
+	</div>
+</div>
