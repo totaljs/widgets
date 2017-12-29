@@ -1,23 +1,41 @@
 <style>
 	.wc110 { padding: 30px 0 0; text-align: center; }
 	.wc110 p { margin: 0; font-size: 14px; line-height: 16px; }
-    .wc110body { margin-bottom: 20px; }
+	.wc110body { margin-bottom: 20px; }
 	@media(max-width: 768px) {
 		.wc110 .col-sm-6 div { margin: 0 20px 0; }
 		.wc110 h2 { text-align: center !important; }
 	}
 </style>
 
+<script editor>
+
+	option('h', 'Heading', 'h2', ['h1', 'h2', 'h3']);
+	option('link', 'Link image', false);
+
+	exports.configure = function(options, el) {
+		var img = el.find('.wc110image');
+		var link = img.find('a').length;
+		if (options.link) {
+			!link && img.find('img').wrap('<a />');
+		} else if (link)
+			img.find('img').unwrap('a');
+		var h = el.find('.wc110h');
+		!h.is(options.h) && h.replaceWith('<{0} class="CMS_edit CMS_remove CMS_search wc110h">{1}</{0}>'.format(options.h, h.text()));
+	};
+
+</script>
+
 <div class="wbody wmargin wc110">
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 wc110body">
 			<div class="wmargin">
-				<h2 class="CMS_edit CMS_remove CMS_search">Lorem ipsum dolor</h2>
+				<h2 class="CMS_edit CMS_remove CMS_search wc110h">Lorem ipsum dolor</h2>
 				<p class="CMS_edit">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, magni? Tempora sunt debitis ullam sequi, inventore maiores ea nihil impedit distinctio quas. Cupiditate, in, rem!</p>
 			</div>
 		</div>
 	</div>
 	<div class="wc110image">
-		<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABEIAAAGQAQMAAACQwle5AAAAA1BMVEXW1taWrGEgAAAAS0lEQVR4Ae3BgQAAAADDoPtTH2TVAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABIOtegAAH7EZyFAAAAAElFTkSuQmCC" class="img-responsive CMS_edit" alt="" border="0" />
+		<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABLAAAAH0AQMAAAAXHkZRAAAAA1BMVEXMzMzKUkQnAAAAYElEQVR4Xu3CAQkAAADDoPdP/RwDxQUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHCb7AAFnBkdOAAAAAElFTkSuQmCC" class="img-responsive CMS_edit" alt="" border="0" />
 	</div>
 </div>
