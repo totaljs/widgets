@@ -1,5 +1,5 @@
 <style>
-	.wc142 { border-top: 3px solid white; padding-top: 25px; }
+	.wc142 { border-top: 3px solid white; padding: 25px 20px 0; }
 	.wc142 h2 .fa { margin-right: 6px; }
 	.wc142success { background-color: #8CC152; color: white; padding: 30px 20px; text-align: center; font-size: 16px; border-radius: 3px; }
 	.wc142success .fa { margin-right: 10px; }
@@ -33,6 +33,7 @@
 
 	@media(max-width: 992px) {
 		.wc142button { height: 50px; font-size: 14px; font-weight: bold; }
+		.wc142 { padding-left: 15px; padding-right: 15px; }
 	}
 
 </style>
@@ -40,10 +41,16 @@
 <script editor>
 
 	option('theme', 'Theme', 'yellow', [{ text: 'Silver', value: 'smoke' }, { text: 'Yellow', value: 'yellow' }, { text: 'Red', value: 'red' }, { text: 'Blue', value: 'blue' }, { text: 'Green', value: 'green' }, { text: 'Pink', value: 'pink' }, { text: 'Orange', value: 'orange' }, { text: 'Purple', value: 'purple' }, { text: 'Mint', value: 'mint' }, { text: 'Black', value: 'black' }, { text: 'White', value: 'white' }]);
+	option('fullwidth', 'Full width', false);
 
 	exports.configure = function(options, el) {
 		el.find('.wc142button').rclass2('wc142button-').aclass('wc142button-' + options.theme);
 		el.find('.wc142').rclass2('wc142-').aclass('wc142-' + options.theme);
+		var cls = 'col-md-10 col-md-offset-1 col-md-12';
+		if (options.fullwidth)
+			el.find('.col-md-10').tclass(cls);
+		else
+			el.find('.col-md-12').tclass(cls);
 	};
 
 </script>
@@ -94,7 +101,7 @@
 <div class="wbody wmargin wpadding">
 	<div class="wc142 wc142-yellow" data-jc-scope="?">
 		<div class="row">
-			<div class="col-md-10 col-md-offset-1" >
+			<div class="col-md-10 col-md-offset-1">
 				<h2><i class="fa fa-question-circle CMS_edit"></i><span class="CMS_edit CMS_unwrap">Ask a Question</span></h2>
 				<p class="CMS_edit wmargin">Do you have technical or other questions? Do you want to be our sponsor or partner? Are you an investor? Then, send us a short message and we will get in touch with you.</p>
 				<div class="row" data-b="?.response" data-b-visible="!value || !value.success" data-jc="enter" data-jc-path="?" data-jc-config="exec:feedback_submit">
