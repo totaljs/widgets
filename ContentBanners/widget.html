@@ -36,7 +36,7 @@
 
 <script editor>
 
-	option('delay', 'Interval', 4000);
+	option('delay', 'Timeout in seconds', 1, 'number', 50, 1);
 
 	exports.configure = function(options, el) {
 		el.attrd('jc-config', 'delay:' + options.delay);
@@ -44,7 +44,7 @@
 
 </script>
 
-<div class="wc117" data-jc="wc117" data-jc-config="delay:4000">
+<div class="wc117" data-jc="wc117" data-jc-config="delay:4">
 	<div class="wc117-images-container">
 		<div class="wc117-images">
 			<div class="wc117-image CMS_repeat">
@@ -118,7 +118,7 @@
 					index = 0;
 
 				self.show(index);
-			}, config.delay);
+			}, config.delay * 1000);
 		};
 
 		self.autosize = function() {
