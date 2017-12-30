@@ -1,42 +1,48 @@
 <style>
-	.wi126 {}
+	.wi126 table { table-layout: fixed; }
+	.wi126 table div {text-overflow: ellipsis; white-space: nowrap; overflow: hidden; }
 	.wi126diff { border-bottom: 1px solid #E0E0E0; padding: 0; height: 35px; }
 	.wi126diff .fa { font-size: 20px; }
-	.wi126name { background-color: #F8F8F8; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; }
+	.wi126name { background-color: #F8F8F8; }
 	.wi126diff1 { text-align: center; }
 	.wi126diff2 { text-align: center; }
 	.wi126container { border: 1px solid #E0E0E0; border-radius: 3px; }
 	.wi126 .fa-check { color: #97BE61; }
 	.wi126 .fa-times { color: red; }
+
+	@media(max-width: 767px) {
+		.wi126 table div { overflow-x: auto; text-overflow: clip; overflow-scrolling: touch; }
+	}
+
 </style>
 
 <div class="wmargin wi126">
 	<table class="table table-bordered">
 		<thead>
 			<tr>
-				<th style="width:60%" class="CMS_edit">Differences between</th>
-				<th style="width:20%" class="wi126diff1 CMS_edit">iOS</th>
-				<th style="width:20%" class="wi126diff2 CMS_edit">Android</th>
+				<th style="width:60%"><div class="CMS_edit">Differences between</div></th>
+				<th style="width:20%" class="wi126diff1"><div class="CMS_edit">iOS</div></th>
+				<th style="width:20%" class="wi126diff2"><div class="CMS_edit">Android</div></th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr class="CMS_repeat">
-				<td class="wi126name CMS_edit">Lorem ipsum dolor sit amet</td>
+				<td class="wi126name"><div class="CMS_edit">Lorem ipsum dolor sit amet</div></td>
 				<td class="wi126diff1"><i class="fa fa-check CMS_edit"></i></td>
 				<td class="wi126diff2"><i class="fa fa-times CMS_edit"></i></td>
 			</tr>
 			<tr class="CMS_repeat CMS_remove">
-				<td class="wi126name CMS_edit">Lorem ipsum dolor sit amet</td>
+				<td class="wi126name"><div class="CMS_edit">Lorem ipsum dolor sit amet</div></td>
 				<td class="wi126diff1"><i class="fa fa-check CMS_edit"></i></td>
 				<td class="wi126diff2"><i class="fa fa-times CMS_edit"></i></td>
 			</tr>
 			<tr class="CMS_repeat CMS_remove">
-				<td class="wi126name CMS_edit">Lorem ipsum dolor sit amet</td>
+				<td class="wi126name"><div class="CMS_edit">Lorem ipsum dolor sit amet</div></td>
 				<td class="wi126diff1"><i class="fa fa-times CMS_edit"></i></td>
 				<td class="wi126diff2"><i class="fa fa-check CMS_edit"></i></td>
 			</tr>
 			<tr class="CMS_repeat CMS_remove">
-				<td class="wi126name CMS_edit">Lorem ipsum dolor sit amet</td>
+				<td class="wi126name"><div class="CMS_edit">Lorem ipsum dolor sit amet</div></td>
 				<td class="wi126diff1"><i class="fa fa-times CMS_edit"></i></td>
 				<td class="wi126diff2"><i class="fa fa-check CMS_edit"></i></td>
 			</tr>
