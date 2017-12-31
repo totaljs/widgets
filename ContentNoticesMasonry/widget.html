@@ -14,13 +14,16 @@
 	option('category', 'Category', 'all', 'Notices');
 	option('count', 'Count', 3);
 	option('linkbutton', 'Button', 'Read more');
+	option('name', 'Show name', true);
+	option('date', 'Show date', true);
+	option('dateformat', 'Date format', 'yyyy-MM-dd');
 </script>
 
 <script total>
 
 	exports.render = function(options, html, next) {
 
-		var template = '<figure><h3>{0}</h3><div class="date"><i class="fa fa-clock-o"></i>{1}</div><div class="markdown">{2}</div>{3}</figure>';
+		var template = '<figure>' + (options.name ? '<h3>{0}</h3>' : '') + (options.date ? '<div class="date"><i class="fa fa-clock-o"></i>{1}</div>' : '') + '<div class="markdown">{2}</div>{3}</figure>';
 		var opt = {};
 		opt.limit = options.count || 3;
 		opt.category = options.category === 'all' ? null : options.category;
@@ -36,7 +39,7 @@
 
 			for (var i = 0, length = response.items.length; i < length; i++) {
 				var item = response.items[i];
-				builder.push(template.format(item.name, item.date.format('yyyy-MM-dd'), item.body, item.url ? '<a href="{0}" target="_blank" class="wc140link"><i class="fa fa-plus"></i>{1}</a>'.format(item.url, options.linkbutton) : ''));
+				builder.push(template.format(item.name, item.date.format(options.dateformat || 'yyyy-MM-dd'), item.body, item.url ? '<a href="{0}" target="_blank" class="wc140link"><i class="fa fa-plus"></i>{1}</a>'.format(item.url, options.linkbutton) : ''));
 			}
 
 			next('<div class="wpadding wmargin"><div class="wc140">{0}</div></div></div>'.format(builder.join('')));
