@@ -1,0 +1,55 @@
+<style>
+	.wc143 a { display: block; color: gray; font-size: 16px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; }
+	.wc143 a:hover { text-decoration: none; opacity: 0.8; }
+	.wc143 a span { display: block; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; }
+	.wc143link { text-align: center; padding-top: 20px; padding-bottom: 20px; }
+	.wc143 i { display: block; color: white; width: 120px; margin: 0 auto 10px; padding: 35px 0; border-radius: 3px; font-size: 50px; }
+	.wc143-smoke i { background-color: #E0E0E0; color: #505050 !important; }
+	.wc143-yellow i { background-color: #F6BB42; }
+	.wc143-orange i { background-color: #E9573F; }
+	.wc143-green i { background-color: #8CC152; }
+	.wc143-blue i { background-color: #3BAFDA; }
+	.wc143-red i { background-color: #DA4453; }
+	.wc143-pink i { background-color: #D770AD; }
+	.wc143-mint i { background-color: #37BC9B; }
+	.wc143-purple i { background-color: #967ADC; }
+	.wc143-white i { background-color: white; color: #505050 !important; }
+	.wc143-black i { background-color: #202020; }
+
+	@media(max-width: 992px) {
+		.wc143 a { font-size: 14px; }
+		.wc143 i { width: 100px; padding: 30px 0; font-size: 30px; }
+	}
+
+	@media(max-width: 762px) {
+		.wc143 a { font-size: 12px; }
+		.wc143 i { width: 80px; padding: 22px 0; font-size: 25px; }
+	}
+</style>
+
+<script editor>
+
+	option('color', 'Color', 'smoke', [{ text: 'Silver', value: 'smoke' }, { text: 'Yellow', value: 'yellow' }, { text: 'Red', value: 'red' }, { text: 'Blue', value: 'blue' }, { text: 'Green', value: 'green' }, { text: 'Pink', value: 'pink' }, { text: 'Orange', value: 'orange' }, { text: 'Purple', value: 'purple' }, { text: 'Mint', value: 'mint' }, { text: 'Black', value: 'black' }, { text: 'White', value: 'white' }]);
+
+	exports.configure = function(options, el) {
+		el.find('.wc143').rclass2('wc143-').aclass('wc143-' + options.size).aclass('wc143-' + options.color);
+	};
+
+</script>
+
+<div class="wbody wmargin wpadding wc143 wc143-smoke">
+	<div class="row">
+		<div class="wmargin col-sm-3 col-xs-3 wc143link CMS_repeat">
+			<a href="#"><i class="fa fa-facebook CMS_edit"></i><span class="wc143title CMS_edit">Facebook</span></a>
+		</div>
+		<div class="wmargin col-sm-3 col-xs-3 wc143link CMS_repeat CMS_remove">
+			<a href="#"><i class="fa fa-twitter CMS_edit"></i><span class="wc143title CMS_edit">Twitter</span></a>
+		</div>
+		<div class="wmargin col-sm-3 col-xs-3 wc143link CMS_repeat CMS_remove">
+			<a href="#"><i class="fa fa-google-plus CMS_edit"></i><span class="wc143title CMS_edit">Google</span></a>
+		</div>
+		<div class="wmargin col-sm-3 col-xs-3 wc143link CMS_repeat CMS_remove">
+			<a href="#"><i class="fa fa-linkedin CMS_edit"></i><span class="wc143title CMS_edit">LinkedIn</span></a>
+		</div>
+	</div>
+</div>
