@@ -1,5 +1,5 @@
 <style>
-	.paddingt { padding-top: 25px; }
+	.paddingv { padding-top: 30px; padding-bottom: 5px; }
 	.wc144rounded { border-radius: 3px; }
 	.wc144-yellow { background-color: #F9F1CA; color: #8A6D3B; }
 	.wc144-red { background-color: #EFDFDF; color: #9D4A45; }
@@ -12,13 +12,13 @@
 
 	option('color', 'Color', 'silver', [{ text: 'Silver', value: 'silver' },{ text: 'Yellow', value: 'yellow' }, { text: 'Red', value: 'red' }, { text: 'Blue', value: 'blue' }, { text: 'Green', value: 'green' }]);
 	option('rounded', 'Round corners', false);
-	option('paddingt', 'Top padding', false);
+	option('paddingv', 'Vertical padding', false);
 
 	exports.configure = function(options, el) {
 		el = el.find('.wc144');
 		el.rclass2('wc144-').aclass('wc144-' + options.color);
 		el.tclass('wc144rounded', options.rounded);
-		el.tclass('paddingt', options.paddingt);
+		el.tclass('paddingv', options.paddingv);
 	};
 </script>
 
