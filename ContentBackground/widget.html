@@ -1,0 +1,25 @@
+<style>
+	.wc144padding { padding: 15px; }
+	.wc144rounded { border-radius: 3px; }
+	.wc144-yellow { background-color: #F9F1CA; color: #8A6D3B; }
+	.wc144-red { background-color: #EFDFDF; color: #9D4A45; }
+	.wc144-green { background-color: #E2EFDA; color: #4A7443; }
+	.wc144-blue { background-color: #DDEDF6; color: #416F8C; }
+	.wc144-silver { background-color: #F0F0F0; }
+</style>
+
+<script editor>
+
+	option('color', 'Color', 'silver', [{ text: 'Silver', value: 'silver' },{ text: 'Yellow', value: 'yellow' }, { text: 'Red', value: 'red' }, { text: 'Blue', value: 'blue' }, { text: 'Green', value: 'green' }]);
+	option('rounded', 'Round corners', false);
+
+	exports.configure = function(options, el) {
+		el = el.find('.wc144');
+		el.rclass2('wc144-').aclass('wc144-' + options.color);
+		el.tclass('wc144rounded', options.rounded);
+	};
+</script>
+
+<div class="wmargin wpadding wc144 CMS_widgets wc144-silver" data-cms-category="Content,Columns">
+
+</div>
