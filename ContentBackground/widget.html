@@ -12,7 +12,7 @@
 
 	option('color', 'Color', 'silver', [{ text: 'Silver', value: 'silver' },{ text: 'Yellow', value: 'yellow' }, { text: 'Red', value: 'red' }, { text: 'Blue', value: 'blue' }, { text: 'Green', value: 'green' }]);
 	option('rounded', 'Round corners', false);
-	option('paddingv', 'Vertical padding', false);
+	option('paddingv', 'Vertical padding', true);
 
 	exports.configure = function(options, el) {
 		el = el.find('.wc144');
@@ -22,5 +22,5 @@
 	};
 </script>
 
-<div class="wmargin wpadding wc144 CMS_widgets wc144-silver" data-cms-category="Content,Columns">
+<div class="wmargin wpadding wc144 CMS_widgets wc144-silver paddingv" data-cms-category="Content,Columns">
 </div>
