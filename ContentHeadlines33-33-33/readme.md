@@ -3,3 +3,4 @@
 - content widget
 - supports several background colors
 - supports several link button colors
+- supports large buttons

@@ -26,6 +26,8 @@
 	.wc118link-white { background-color: white; color: black !important; }
 	.wc118link-black { background-color: #202020; }
 
+	.wc118linklarge { display: block; text-align: center; padding: 13px 0; font-size: 14px; }
+
 	.wc118swipe { margin-top: 10px; text-align: center; font-size: 11px; color: #A0A0A0; display: none; }
 	.wc118swipe span { margin: 0 10px; }
 	.CMS_preview .wc118swipe { display: block; }
@@ -42,6 +44,7 @@
 	option('color', 'Theme', 'smoke', [{ text: 'Silver', value: 'smoke' }, { text: 'Yellow', value: 'yellow' }, { text: 'Red', value: 'red' }, { text: 'Blue', value: 'blue' }, { text: 'Green', value: 'green' }, { text: 'Black', value: 'black' }, { text: 'White', value: 'white' }]);
 	option('colorlink', 'Link button color', 'yellow', [{ text: 'Silver', value: 'smoke' }, { text: 'Yellow', value: 'yellow' }, { text: 'Red', value: 'red' }, { text: 'Blue', value: 'blue' }, { text: 'Green', value: 'green' }, { text: 'Pink', value: 'pink' }, { text: 'Orange', value: 'orange' }, { text: 'Purple', value: 'purple' }, { text: 'Mint', value: 'mint' }, { text: 'Black', value: 'black' }, { text: 'White', value: 'white' }]);
 	option('mobilecarousel', 'Enable carousel (XS)', false);
+	option('largebuttons', 'Large buttons', false);
 
 	exports.configure = function(options, el) {
 
@@ -51,6 +54,8 @@
 			$(this).rclass2('wc118body-').aclass('wc118body-' + options.color);
 			$(this).find('.wc118link').rclass2('wc118link-').aclass('wc118link-' + options.colorlink);
 		});
+
+		el.find('.wc118link').tclass('wc118linklarge', options.largebuttons);
 
 		var container = el.find('.wc118container');
 		if (options.mobilecarousel) {
