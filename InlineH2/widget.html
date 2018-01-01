@@ -2,7 +2,28 @@
 	.wi105 {}
 	.wi105 .fa { margin-right: 8px; }
 	.wi105 p { margin: 0; line-height: 18px; }
+	.wi105-center * { text-align: center; }
+	.wi105-right * { text-align: right; }
 </style>
+
+<script editor>
+
+	option('align', 'Align', 'left', ['left', 'center', 'right']);
+
+	exports.configure = function(options, el) {
+		var container = el.find('.wi105');
+		switch (options.align) {
+			case 'left':
+				container.rclass2('wi105-');
+				break;
+			case 'right':
+			case 'center':
+				container.rclass2('wi105-').aclass('wi105-' + options.align);
+				break;
+		}
+	};
+
+</script>
 
 <div class="wmargin wi105">
 	<h2 class="CMS_search"><i class="fa fa-home CMS_edit CMS_remove"></i><span class="CMS_edit CMS_unwrap">Lorem ipsum sodem</span></h2>

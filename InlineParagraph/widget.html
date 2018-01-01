@@ -1,3 +1,29 @@
+<style>
+	.wi113-center { text-align: center; }
+	.wi113-right { text-align: right; }
+	.wi113-justify { text-align: justify; }
+</style>
+
+<script editor>
+
+	option('align', 'Align', 'left', ['left', 'center', 'right', 'justify']);
+
+	exports.configure = function(options, el) {
+		var container = el.find('.wi113');
+		switch (options.align) {
+			case 'left':
+				container.rclass2('wi113-');
+				break;
+			case 'right':
+			case 'center':
+			case 'justify':
+				container.rclass2('wi113-').aclass('wi113-' + options.align);
+				break;
+		}
+	};
+
+</script>
+
 <div class="wi113">
 	<p class="CMS_repeat CMS_edit wmargin">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit ipsa distinctio reiciendis iste pariatur iure corporis aperiam quasi quisquam sint.</p>
 </div>
