@@ -4,11 +4,12 @@
 	.wi107 p { margin: 0; line-height: 18px; }
 	.wi107-center * { text-align: center; }
 	.wi107-right * { text-align: right; }
+	.wi107-justify * { text-align: justify; }
 </style>
 
 <script editor>
 
-	option('align', 'Align', 'left', ['left', 'center', 'right']);
+	option('align', 'Align', 'left', ['left', 'center', 'right', 'justify']);
 
 	exports.configure = function(options, el) {
 		var container = el.find('.wi107');

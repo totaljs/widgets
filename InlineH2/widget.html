@@ -4,11 +4,12 @@
 	.wi105 p { margin: 0; line-height: 18px; }
 	.wi105-center * { text-align: center; }
 	.wi105-right * { text-align: right; }
+	.wi105-justify * { text-align: right; }
 </style>
 
 <script editor>
 
-	option('align', 'Align', 'left', ['left', 'center', 'right']);
+	option('align', 'Align', 'left', ['left', 'center', 'right', 'justify']);
 
 	exports.configure = function(options, el) {
 		var container = el.find('.wi105');
@@ -18,6 +19,7 @@
 				break;
 			case 'right':
 			case 'center':
+			case 'justify':
 				container.rclass2('wi105-').aclass('wi105-' + options.align);
 				break;
 		}

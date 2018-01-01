@@ -2,11 +2,12 @@
     .wc135 p { margin-bottom: 0; }
 	.wc135-center * { text-align: center; }
 	.wc135-right * { text-align: right; }
+	.wc135-justify * { text-align: justify; }
 </style>
 
 <script editor>
 
-	option('align', 'Align', 'left', ['left', 'center', 'right']);
+	option('align', 'Align', 'left', ['left', 'center', 'right', 'justify']);
 
 	exports.configure = function(options, el) {
 		var container = el.find('.wc135');
@@ -16,6 +17,7 @@
 				break;
 			case 'right':
 			case 'center':
+			case 'justify':
 				container.rclass2('wc135-').aclass('wc135-' + options.align);
 				break;
 		}
