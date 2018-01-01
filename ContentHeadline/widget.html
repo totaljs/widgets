@@ -1,6 +1,27 @@
 <style>
     .wc135 p { margin-bottom: 0; }
+	.wc135-center * { text-align: center; }
+	.wc135-right * { text-align: right; }
 </style>
+
+<script editor>
+
+	option('align', 'Align', 'left', ['left', 'center', 'right']);
+
+	exports.configure = function(options, el) {
+		var container = el.find('.wc135');
+		switch (options.align) {
+			case 'left':
+				container.rclass2('wc135-');
+				break;
+			case 'right':
+			case 'center':
+				container.rclass2('wc135-').aclass('wc135-' + options.align);
+				break;
+		}
+	};
+
+</script>
 
 <div class="wbody wmargin wpadding wc135">
     <h1 class="CMS_edit"><b>Lorem ipsum</b> sodal</h1>
