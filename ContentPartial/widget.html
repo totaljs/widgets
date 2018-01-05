@@ -1,0 +1,42 @@
+<script editor>
+	option('id', 'Partial page', '', 'Partial');
+
+	exports.configure = function(options, el) {
+
+		var text = 'not defined';
+
+		if (options.id) {
+			var item = this.id.findItem('value', options.id);
+			item && (text = item.text);
+		}
+
+		el.find('.totaljs').text('Partial: ' + text);
+
+	};
+
+</script>
+
+<script total>
+
+	exports.render = function(options, html, next) {
+
+		if (!options.id)
+			return next('');
+
+		var item = F.global.partial.findItem('id', options.id);
+		if (!item)
+			return next('');
+
+		NOSQL('pages').one().where('id', options.id).fields('body', 'widgets').callback(function(err, response) {
+			if (response)
+				response.body.CMSrender(response.widgets, body => next(html.substring(0, html.indexOf('<div class="totaljs')) + body + '</div>'));
+			else
+				next('');
+		});
+	};
+
+</script>
+
+<div class="wbody wmargin wpadding wc146">
+	<div class="totaljs">Partial page</div>
+</div>
