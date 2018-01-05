@@ -17,6 +17,10 @@
 	.wi109 a {  color: white; text-align: center; border-radius: 3px; display: inline-block; position: relative; }
 	.wi109 a:hover { text-decoration: none; opacity: 0.9; }
 	.wi109 .fa { margin-right: 5px; }
+
+	@media(max-width: 768px) {
+		.wi109-block-xs a { width: 100%; display: block; }
+	}
 </style>
 
 <script editor>
@@ -24,11 +28,12 @@
 	option('block', 'Full width', false);
 	option('size', 'Size', 'medium', ['small', 'medium', 'large']);
 	option('color', 'Color', 'smoke', [{ text: 'Silver', value: 'smoke' }, { text: 'Yellow', value: 'yellow' }, { text: 'Red', value: 'red' }, { text: 'Blue', value: 'blue' }, { text: 'Green', value: 'green' }, { text: 'Pink', value: 'pink' }, { text: 'Orange', value: 'orange' }, { text: 'Purple', value: 'purple' }, { text: 'Mint', value: 'mint' }, { text: 'Black', value: 'black' }, { text: 'White', value: 'white' }]);
+	option('blockxs', 'Full width in XS', false);
 
 	exports.configure = function(options, el) {
 		el = el.find('.wi109');
 		el.rclass2('wi109-').aclass('wi109-' + options.size).aclass('wi109-' + options.color);
-		el.tclass('wi109-block', options.block);
+		el.tclass('wi109-block', options.block).tclass('wi109-block-xs', options.blockxs);
 	};
 
 </script>
