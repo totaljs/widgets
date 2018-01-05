@@ -1,7 +1,7 @@
 <style>
 	.wc145 { padding-bottom: 0; }
 	.wc145item { border-bottom: 1px solid #E9E9E9; padding: 8px 0; }
-	.wc145title { margin-bottom: 0; cursor: pointer; font-size: 16px; }
+	.wc145title { margin-bottom: 0; cursor: pointer; font-size: 16px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; }
 	.wc145title .fa { width: 16px; }
 	.wc145title .fa:before { content: '\f0da'; }
 	.wc145body { margin-top: 10px; line-height: 18px; display: none; padding-left: 16px; }
@@ -10,6 +10,10 @@
 	.wc145show .wc145title { font-weight: bold; }
 	.wc145show .wc145body { display: block; }
 	.CMS_preview .wc145body { display: block; }
+
+	@media(max-width: 767px) {
+		.wc145title { overflow-x: auto; text-overflow: clip; overflow-scrolling: touch; }
+	}
 </style>
 
 <div class="wbody wmargin wpadding wc145">
