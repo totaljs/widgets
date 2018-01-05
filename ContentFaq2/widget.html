@@ -1,0 +1,42 @@
+<style>
+	.wc145 { padding-bottom: 0; }
+	.wc145item { border-bottom: 1px solid #E9E9E9; padding: 8px 0; }
+	.wc145title { margin-bottom: 0; cursor: pointer; font-size: 16px; }
+	.wc145title .fa { width: 16px; }
+	.wc145title .fa:before { content: '\f0da'; }
+	.wc145body { margin-top: 10px; line-height: 18px; display: none; padding-left: 16px; }
+	.wc145show { padding-bottom: 0; }
+	.wc145show .wc145title .fa:before { content: '\f0d7'; }
+	.wc145show .wc145title { font-weight: bold; }
+	.wc145show .wc145body { display: block; }
+	.CMS_preview .wc145body { display: block; }
+</style>
+
+<div class="wbody wmargin wpadding wc145">
+	<h2 class="CMS_edit CMS_remove">Lorem ipsum sodem</h2>
+	<div class="wc145item CMS_repeat">
+		<div class="wc145title"><i class="fa"></i><span class="CMS_unwrap CMS_search CMS_edit">Lorem ipsum sodem</span></div>
+		<div class="wc111body CMS_widgets wc145body" data-cms-category="Inline">
+			<p class="wmargin CMS_edit wc145bodyp">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid iusto eos molestias, modi quibusdam doloremque similique dignissimos odio a amet.</p>
+		</div>
+	</div>
+	<div class="wc145item CMS_repeat CMS_remove">
+		<div class="wc145title"><i class="fa"></i><span class="CMS_unwrap CMS_search CMS_edit">Lorem ipsum sodem</span></div>
+		<div class="wc111body CMS_widgets wc145body" data-cms-category="Inline">
+			<p class="wmargin CMS_edit wc145bodyp">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid iusto eos molestias, modi quibusdam doloremque similique dignissimos odio a amet.</p>
+		</div>
+	</div>
+	<div class="wc145item CMS_repeat CMS_remove">
+		<div class="wc145title"><i class="fa"></i><span class="CMS_unwrap CMS_search CMS_edit">Lorem ipsum sodem</span></div>
+		<div class="wc111body CMS_widgets wc145body" data-cms-category="Inline">
+			<p class="wmargin CMS_edit wc145bodyp">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid iusto eos molestias, modi quibusdam doloremque similique dignissimos odio a amet.</p>
+		</div>
+	</div>
+</div>
+
+<script>
+	$(document).on('click', '.wc145title', function() {
+		var el = $(this);
+		el.parent().tclass('wc145show');
+	});
+</script>

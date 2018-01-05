@@ -7,7 +7,7 @@
 ## Last counter
 
 - layout `wl100`
-- columns/content `wc144`
+- columns/content `wc145`
 - inline `wi127`
 
 ## Good to know
