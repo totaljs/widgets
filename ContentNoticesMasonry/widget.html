@@ -46,7 +46,7 @@
 				builder.push(template.format(item.name, item.date.format(options.dateformat || 'yyyy-MM-dd'), item.body, item.url ? '<a href="{0}" target="_blank" class="wc140link"><i class="fa fa-plus"></i>{1}</a>'.format(item.url, options.linkbutton) : ''));
 			}
 
-			next('<div class="wpadding wmargin"><div class="wc140">{0}</div></div></div>'.format(builder.join('')));
+			next('<div class="wpadding wmargin"><div class="wc140">{0}</div></div>'.format(builder.join('')));
 		});
 	};
 
