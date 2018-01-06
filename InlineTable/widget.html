@@ -13,6 +13,12 @@
 		var columns = options.columns.split(',').trim();
 		var count = columns.length;
 
+		var g = el.find('colgroup');
+		g.find('col').remove();
+
+		for (var i = 0; i < count; i++)
+			g.append('<col style="width:{0}" />'.format(columns[i] || 'auto'));
+
 		el.find('tbody').find('tr').each(function(index) {
 
 			var tr = $(this);
@@ -25,13 +31,6 @@
 				for (var i = 0; i < (td.length - count); i++)
 					tr.find('td:last-child').remove();
 			}
-
-			// Set sizes
-			!index && tr.find('td').each(function(index) {
-				var size = columns[index];
-				$(this).css('width', size || 'auto');
-			});
-
 		});
 
 		if (options.head) {
@@ -60,6 +59,10 @@
 
 <div class="wmargin">
 	<table class="wi101">
+		<colgroup>
+			<col style="width:50%" />
+			<col style="width:50%" />
+		</colgroup>
 		<tbody>
 			<tr class="CMS_repeat">
 				<td class="CMS_edit">Lorem Ipsum</td>
