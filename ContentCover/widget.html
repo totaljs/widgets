@@ -1,13 +1,20 @@
 <script editor>
+
 	option('link', 'Enable link', false);
+	option('rounded', 'Rounded corners', false);
+
 	exports.configure = function(options, el) {
 		var link = el.find('a');
+
 		if (options.link) {
 			!link.length && el.find('img').wrap('<a href="/" class="CMS_edit"></a>');
 		} else {
 			link.length && el.find('img').unwrap('a');
 		}
+
+		el.find('img').tclass('img-rounded', options.rounded);
 	};
+
 </script>
 
 <div class="wbody wmargin wc134">
