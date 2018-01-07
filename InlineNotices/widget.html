@@ -44,7 +44,7 @@
 				builder.push('<div class="wi119notice wi119-{5}{6}"><div class="wi119title"><i class="fa fa-{2}"></i><b>{0}</b><span>Created: {4}</span></div><div class="wi119-body">{1}</div>{3}</div>'.format(item.name, item.body, item.icon, item.event ? '<div class="wi119eventdate"><div><i class="fa fa-calendar"></i>Date: <b>{0}</b></div></div>'.format(item.event.format('dd.MM.yyyy')) : '', item.date.format('dd.MM.yyyy'), item.idcategory, item.ispinned ? ' wi119pinned' : ''));
 			}
 
-			next('<div class="wmargin wi119">{0}</div>'.format(builder.join('')));
+			next('<div class="wmargininline wi119">{0}</div>'.format(builder.join('')));
 		});
 	};
 </script>
