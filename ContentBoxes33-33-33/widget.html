@@ -27,13 +27,19 @@
 		var swipe = el.find('.wc128swipe');
 		if (options.mobilecarousel) {
 			container.attr({ 'data-jc': 'mobilecarousel@1', 'data-jc-config': 'selector:.col-sm-4' });
-			!swipe.length && el.find('.wc128').append('<div class="wc128swipe wmargin"><i class="fa fa-long-arrow-left CMS_edit"></i><span class="CMS_edit">Swipe content</span><i class="fa fa-long-arrow-right CMS_edit"></i></div>');
+			!swipe.length && el.find('.wc128').append('<div class="wc128swipe wmargin"><i class="fa fa-long-arrow-left CMS_edit"></i><span class="CMS_edit">$swipecontent</span><i class="fa fa-long-arrow-right CMS_edit"></i></div>');
 		} else {
 			swipe.remove();
 			container.rattr('data-jc').rattr('data-jc-config');
 		}
 	};
 
+</script>
+
+<script total>
+	exports.install = function() {
+		this.globals('swipecontent', 'Swipe content');
+	};
 </script>
 
 <div class="wbody wpadding wc128">

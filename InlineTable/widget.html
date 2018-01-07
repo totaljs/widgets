@@ -8,11 +8,13 @@
 
 	option('head', 'Head', false);
 	option('columns', 'Columns', '50%, 50%');
+	option('align', 'Align', 'left, left');
 	option('nowrap', 'No wrap', false);
 
 	exports.configure = function(options, el) {
 
 		var columns = options.columns.split(',').trim();
+		var align = options.align.split(',').trim();
 		var count = columns.length;
 
 		var g = el.find('colgroup');
@@ -33,6 +35,7 @@
 				for (var i = 0; i < (td.length - count); i++)
 					tr.find('td:last-child').remove();
 			}
+
 		});
 
 		if (options.head) {
@@ -48,7 +51,7 @@
 				var th = tr.find('th');
 				if (th.length < count) {
 					for (var i = th.length; i < count; i++)
-						tr.append('<th><div class="CMS_edit">Lorem Ipsum</div></th>');
+						tr.append('<th{0}><div class="CMS_edit">Lorem Ipsum</div></th>');
 				} else if (th.length > count) {
 					for (var i = 0; i < (th.length - count); i++)
 						tr.find('th:last-child').remove();
@@ -56,6 +59,16 @@
 			});
 		} else
 			el.find('thead').remove();
+
+		el.find('tr').each(function() {
+			$(this).find('td,th').each(function(index) {
+				var el = $(this);
+				if (!align[index] || align[index] === 'left')
+					el.rclass();
+				else
+					el.rclass().aclass(align[index]);
+			});
+		});
 
 		el.find('table').find('div').tclass('wnowrap', options.nowrap);
 	};
