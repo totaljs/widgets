@@ -1,16 +1,21 @@
 <style>
 	.paddingv { padding-top: 30px; padding-bottom: 5px; }
 	.wc144rounded { border-radius: 3px; }
-	.wc144-yellow { background-color: #F9F1CA; color: #8A6D3B; }
-	.wc144-red { background-color: #EFDFDF; color: #9D4A45; }
-	.wc144-green { background-color: #E2EFDA; color: #4A7443; }
-	.wc144-blue { background-color: #DDEDF6; color: #416F8C; }
+	.wc144-yellow { background-color: #F9F1CA; }
+	.wc144-yellow.wc144font { color: #8A6D3B; }
+	.wc144-red { background-color: #EFDFDF; }
+	.wc144-red.wc144font { color: #9D4A45; }
+	.wc144-green { background-color: #E2EFDA; }
+	.wc144-green.wc144font { color: #4A7443; }
+	.wc144-blue { background-color: #DDEDF6; }
+	.wc144-blue.wc144font { color: #416F8C; }
 	.wc144-silver { background-color: #F0F0F0; }
 </style>
 
 <script editor>
 
 	option('color', 'Color', 'silver', [{ text: 'Silver', value: 'silver' },{ text: 'Yellow', value: 'yellow' }, { text: 'Red', value: 'red' }, { text: 'Blue', value: 'blue' }, { text: 'Green', value: 'green' }]);
+	option('fontcolor', 'Font colors', false);
 	option('rounded', 'Round corners', false);
 	option('paddingv', 'Vertical padding', true);
 
@@ -19,6 +24,7 @@
 		el.rclass2('wc144-').aclass('wc144-' + options.color);
 		el.tclass('wc144rounded', options.rounded);
 		el.tclass('paddingv', options.paddingv);
+		el.tclass('wc144font', options.fontcolor);
 	};
 </script>
 
