@@ -1,12 +1,14 @@
 <style>
 	.wi101 { table-layout: fixed; width: 100%; margin: 0; }
-	.wi101 th { border: 1px solid #E0E0E0; padding: 5px 10px; font-weight: bold; background-color: #F8F8F8; }
+	.wi101 th { border: 1px solid #E0E0E0; padding: 10px 10px; font-weight: bold; background-color: #F8F8F8; }
 	.wi101 td { border: 1px solid #E0E0E0; padding: 5px 10px; }
 </style>
 
 <script editor>
+
 	option('head', 'Head', false);
 	option('columns', 'Columns', '50%, 50%');
+	option('nowrap', 'No wrap', false);
 
 	exports.configure = function(options, el) {
 
@@ -26,7 +28,7 @@
 
 			if (td.length < count) {
 				for (var i = td.length; i < count; i++)
-					tr.append('<td class="CMS_edit">Lorem Ipsum</td>');
+					tr.append('<td><div class="CMS_edit">Lorem Ipsum</div></td>');
 			} else if (td.length > count) {
 				for (var i = 0; i < (td.length - count); i++)
 					tr.find('td:last-child').remove();
@@ -46,7 +48,7 @@
 				var th = tr.find('th');
 				if (th.length < count) {
 					for (var i = th.length; i < count; i++)
-						tr.append('<th class="CMS_edit">Lorem Ipsum</th>');
+						tr.append('<th><div class="CMS_edit">Lorem Ipsum</div></th>');
 				} else if (th.length > count) {
 					for (var i = 0; i < (th.length - count); i++)
 						tr.find('th:last-child').remove();
@@ -54,6 +56,8 @@
 			});
 		} else
 			el.find('thead').remove();
+
+		el.find('table').find('div').tclass('wnowrap', options.nowrap);
 	};
 </script>
 
