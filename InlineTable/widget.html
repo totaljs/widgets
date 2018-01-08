@@ -51,7 +51,7 @@
 				var th = tr.find('th');
 				if (th.length < count) {
 					for (var i = th.length; i < count; i++)
-						tr.append('<th{0}><div class="CMS_edit">Lorem Ipsum</div></th>');
+						tr.append('<th><div class="CMS_edit">Lorem Ipsum</div></th>');
 				} else if (th.length > count) {
 					for (var i = 0; i < (th.length - count); i++)
 						tr.find('th:last-child').remove();
