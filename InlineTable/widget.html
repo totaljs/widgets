@@ -1,7 +1,7 @@
 <style>
-	.wi101 { table-layout: fixed; width: 100%; margin: 0; }
+	.wi101 { table-layout: fixed; margin: 0; width: 100%; }
 	.wi101 th { border: 1px solid #E0E0E0; padding: 10px 10px; font-weight: bold; background-color: #F8F8F8; }
-	.wi101 td { border: 1px solid #E0E0E0; padding: 5px 10px; }
+	.wi101 td { border: 1px solid #E0E0E0; padding: 5px 10px; overflow: hidden; white-space: nowrap; }
 </style>
 
 <script editor>
@@ -42,7 +42,7 @@
 			var head = el.find('thead');
 
 			if (!head.length) {
-				el.find('table').prepend('<thead><tr></tr></thead>');
+				$('<thead><tr></tr></thead>').insertBefore(el.find('tbody'));
 				head = el.find('thead');
 			}
 
@@ -82,7 +82,7 @@
 		</colgroup>
 		<tbody>
 			<tr class="CMS_repeat">
-				<td><div class="CMS_edit">Lorem Ipsum</div></td>
+				<td><div class="CMS_edit">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores non repellat harum impedit quis officiis atque, magni ullam reiciendis assumenda?</div></td>
 				<td><div class="CMS_edit">Lorem Ipsum</div></td>
 			</tr>
 			<tr class="CMS_repeat CMS_remove">
