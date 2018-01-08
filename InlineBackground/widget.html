@@ -1,16 +1,21 @@
 <style>
-	.wi121padding { padding: 15px; }
+	.wi121paddingv { padding-top: 30px; padding-bottom: 5px; }
 	.wi121rounded { border-radius: 3px; }
-	.wi121-yellow { background-color: #F9F1CA; color: #8A6D3B; }
-	.wi121-red { background-color: #EFDFDF; color: #9D4A45; }
-	.wi121-green { background-color: #E2EFDA; color: #4A7443; }
-	.wi121-blue { background-color: #DDEDF6; color: #416F8C; }
+	.wi121-yellow { background-color: #FFFED9; }
+	.wi121-yellow.wi121font { color: #8A6D3B; }
+	.wi121-red { background-color: #EFDFDF; }
+	.wi121-red.wi121font { color: #9D4A45; }
+	.wi121-green { background-color: #E2EFDA; }
+	.wi121-green.wi121font { color: #4A7443; }
+	.wi121-blue { background-color: #DDEDF6; }
+	.wi121-blue.wi121font { color: #416F8C; }
 	.wi121-silver { background-color: #F0F0F0; }
 </style>
 
 <script editor>
 
 	option('color', 'Color', 'silver', [{ text: 'Silver', value: 'silver' },{ text: 'Yellow', value: 'yellow' }, { text: 'Red', value: 'red' }, { text: 'Blue', value: 'blue' }, { text: 'Green', value: 'green' }]);
+	option('fontcolor', 'Font colors', false);
 	option('padding', 'Padding', true);
 	option('rounded', 'Round corners', true);
 
@@ -19,6 +24,7 @@
 		el.rclass2('wi121-').aclass('wi121-' + options.color);
 		el.tclass('wi121padding', options.padding);
 		el.tclass('wi121rounded', options.rounded);
+		el.tclass('wi121font', options.fontcolor);
 	};
 </script>
 
