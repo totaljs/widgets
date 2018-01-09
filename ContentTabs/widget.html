@@ -45,7 +45,7 @@
 		if (length < count) {
 			for (var i = length; i < count; i++) {
 				ul.append('<li class="wc147tab" data-index="{0}"><i class="fa fa-home CMS_edit CMS_remove"></i><span class="CMS_edit CMS_unwrap">Tab {1}</span></li>'.format(i, i + 1));
-				container.append('<div data-index="{0}" class="wc147body"><div class="wb wp wm CMS_widgets" data-cms-widgets="Content,Columns"></div></div>'.format(i));
+				container.append('<div data-index="{0}" class="wc147body"><div class="wb wp wm CMS_widgets" data-cms-category="Content,Columns"></div></div>'.format(i));
 			}
 		} else {
 			for (var i = 0; i < (length - count); i++) {
@@ -81,9 +81,9 @@
 		</ul>
 	</div>
 	<div data-index="0" class="wc147body wc147selected">
-		<div class="CMS_widgets" data-cms-widgets="Content,Columns"></div>
+		<div class="CMS_widgets" data-cms-category="Content,Columns"></div>
 	</div>
 	<div data-index="1" class="wc147body">
-		<div class="CMS_widgets" data-cms-widgets="Content,Columns"></div>
+		<div class="CMS_widgets" data-cms-category="Content,Columns"></div>
 	</div>
 </div>
