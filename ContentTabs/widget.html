@@ -1,0 +1,89 @@
+<style>
+	.wc147tabs { text-align: center; height: 50px; margin-bottom: 20px; }
+	.wc147 ul { list-style-type: none; padding: 0; margin: 0; display: inline-block; position: relative; white-space: nowrap; overflow-x: auto; overflow-y: hidden; text-align: center; border-radius: 20px; border: 0; height: 40px; }
+	.wc147 li { font-size: 14px; float: left; border: 1px solid #E0E0E0; margin: 0; border-left-width: 0; background-color: white; text-align: center; padding: 10px 20px 0; cursor: pointer; height: 40px; max-width: 150px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; }
+	.wc147 li:first-child { border-top-left-radius: 20px; border-bottom-left-radius: 20px; border-left-width: 1px; }
+	.wc147 li:last-child { border-top-right-radius: 20px; border-bottom-right-radius: 20px; }
+	.wc147 li.wc147selected { color: white; }
+
+	.wc147-blue li.wc147selected { background-color: #3BAFDA; }
+	.wc147-red li.wc147selected { background-color: #4FC1E9; }
+	.wc147-green li.wc147selected { background-color: #8CC152; }
+	.wc147-yellow li.wc147selected { background-color: #F6BB42; }
+	.wc147-orange li.wc147selected { background-color: #E9573F; }
+	.wc147-red li.wc147selected { background-color: #DA4453; }
+	.wc147-pink li.wc147selected { background-color: #D770AD; }
+	.wc147-mint li.wc147selected { background-color: #37BC9B; }
+	.wc147-purple li.wc147selected { background-color: #967ADC; }
+	.wc147-black li.wc147selected { background-color: black; }
+
+	.wc147body { display: none; }
+	.wc147body.wc147selected { display: block; }
+	.wc147 .fa { margin-right: 5px; }
+	.CMS_preview .wc147body { display: block !important; }
+	.CMS_preview .wc147body:before { content: '[Tab:' attr(data-index) ']'; font-size: 11px; margin-bottom: 5px; color: #A0A0A0; }
+
+</style>
+
+<script editor>
+
+	option('color', 'Color', 'blue', [{ text: 'Yellow', value: 'yellow' }, { text: 'Red', value: 'red' }, { text: 'Blue', value: 'blue' }, { text: 'Green', value: 'green' }, { text: 'Pink', value: 'pink' }, { text: 'Orange', value: 'orange' }, { text: 'Purple', value: 'purple' }, { text: 'Mint', value: 'mint' }, { text: 'Black', value: 'black' }, { text: 'White', value: 'white' }]);
+	option('count', 'Count of tabs', 2);
+
+	exports.configure = function(options, el) {
+
+		var count = options.count;
+		var container = el.find('.wc147');
+		var ul = container.find('ul');
+		var length = ul.find('li').length;
+
+		container.rclass2('wc147-').aclass('wc147-' + options.color);
+
+		if (count === length)
+			return;
+
+		if (length < count) {
+			for (var i = length; i < count; i++) {
+				ul.append('<li class="wc147tab" data-index="{0}"><i class="fa fa-home CMS_edit CMS_remove"></i><span class="CMS_edit CMS_unwrap">Tab {1}</span></li>'.format(i, i + 1));
+				container.append('<div data-index="{0}" class="wc147body"><div class="wb wp wm CMS_widgets" data-cms-widgets="Content,Columns"></div></div>'.format(i));
+			}
+		} else {
+			for (var i = 0; i < (length - count); i++) {
+				var li = ul.find('li:last-child');
+				li.remove();
+				container.find('div[data-index="{0}"]'.format(li.attrd('index'))).remove();
+			}
+		}
+
+		container.find('[data-index="0"]').aclass('wc147selected');
+	};
+</script>
+
+<script>
+	$(document).on('click', '.wc147tab', function() {
+		var cls = 'wc147selected';
+		var li = $(this);
+		var ul = li.parent();
+		var prev = ul.find('.' + cls).rclass(cls);
+		var container = ul.closest('.wc147');
+		var sel = '.wc147body[data-index="{0}"]';
+		container.find(sel.format(prev.attrd('index'))).rclass(cls);
+		container.find(sel.format(li.attrd('index'))).aclass(cls);
+		li.aclass(cls);
+	});
+</script>
+
+<div class="wm wp wb wc147 wc147-blue">
+	<div class="wc147tabs">
+		<ul>
+			<li class="wc147tab wc147selected" data-index="0"><i class="fa fa-info-circle CMS_edit CMS_remove"></i><span class="CMS_edit CMS_unwrap">Tab 1</span></li>
+			<li class="wc147tab" data-index="1"><i class="fa fa-cog CMS_edit CMS_remove"></i><span class="CMS_edit CMS_unwrap">Tab 2</span></li>
+		</ul>
+	</div>
+	<div data-index="0" class="wc147body wc147selected">
+		<div class="CMS_widgets" data-cms-widgets="Content,Columns"></div>
+	</div>
+	<div data-index="1" class="wc147body">
+		<div class="CMS_widgets" data-cms-widgets="Content,Columns"></div>
+	</div>
+</div>
