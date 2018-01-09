@@ -1,3 +1,4 @@
-# List
+# Panels 33% 33% 33%
 
-- inline widget
+- content widget
+- supports several background colors

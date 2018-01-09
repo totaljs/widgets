@@ -10,9 +10,14 @@
 	.wc115body .fa { margin-right: 8px; }
 	.wc115body p { margin: 0; line-height: 18px; }
 	.wc115 b, .wc115 strong { line-height: 16px; }
+	.wc115swipe { text-align: center; font-size: 11px; color: #A0A0A0; display: none; }
+	.wc115swipe span { margin: 0 10px; }
+	.CMS_preview .wc115swipe { display: block; }
 
 	@media(max-width: 980px) and (min-width: 768px) {
 		.wc115body { padding: 15px 15px 5px; }
+		.wc115swipe { display: block; }
+		.ui-mobilecarousel .wc115body { margin-bottom: 0 !important; }
 	}
 
 </style>
@@ -20,38 +25,58 @@
 <script editor>
 
 	option('color', 'Theme', 'smoke', [{ text: 'Silver', value: 'smoke' }, { text: 'Yellow', value: 'yellow' }, { text: 'Red', value: 'red' }, { text: 'Blue', value: 'blue' }, { text: 'Green', value: 'green' }, { text: 'Black', value: 'black' }, { text: 'White', value: 'white' }]);
+	option('mobilecarousel', 'Enable carousel (XS)', false);
 
 	exports.configure = function(options, el) {
 		el.find('.wc115body').each(function() {
 			$(this).rclass2('wc115body-').aclass('wc115body-' + options.color);
 		});
+
+		var swipe = el.find('.wc115swipe');
+
+		var container = el.find('.wc115container');
+		if (options.mobilecarousel) {
+			container.attr({ 'data-jc': 'mobilecarousel@1', 'data-jc-config': 'selector:.col-sm-4' });
+			!swipe.length && el.find('.wc115').append('<div class="wc115swipe wm"><i class="fa fa-long-arrow-left CMS_edit"></i><span class="CMS_edit">$swipecontent</span><i class="fa fa-long-arrow-right CMS_edit"></i></div>');
+		} else {
+			swipe.remove();
+			container.rattr('data-jc').rattr('data-jc-config');
+		}
 	};
 
 </script>
 
+<script total>
+	exports.install = function() {
+		this.globals('swipecontent', 'Swipe content');
+	};
+</script>
+
 <div class="wm wp wb wc115">
-	<div class="row">
-		<div class="col-sm-4 CMS_repeat wm">
-			<div class="wc115body wc115body-smoke CMS_widgets" data-cms-category="Inline">
-				<div class="wm">
-					<h3 class="CMS_search"><i class="fa fa-lock CMS_edit CMS_remove"></i><span class="CMS_edit CMS_unwrap">Lorem ipsum dolor</span></h3>
-					<p class="CMS_edit">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, assumenda.</p>
+	<div class="wc115container">
+		<div class="row">
+			<div class="col-sm-4 CMS_repeat wm">
+				<div class="wc115body wc115body-smoke CMS_widgets" data-cms-category="Inline">
+					<div class="wm">
+						<h3 class="CMS_search"><i class="fa fa-lock CMS_edit CMS_remove"></i><span class="CMS_edit CMS_unwrap">Lorem ipsum dolor</span></h3>
+						<p class="CMS_edit">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, assumenda.</p>
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="col-sm-4 CMS_repeat CMS_remove wm">
-			<div class="wc115body wc115body-smoke CMS_widgets" data-cms-category="Inline">
-				<div class="wm">
-					<h3 class="CMS_search"><i class="fa fa-lock CMS_edit CMS_remove"></i><span class="CMS_edit CMS_unwrap">Lorem ipsum dolor</span></h3>
-					<p class="CMS_edit">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, assumenda.</p>
+			<div class="col-sm-4 CMS_repeat CMS_remove wm">
+				<div class="wc115body wc115body-smoke CMS_widgets" data-cms-category="Inline">
+					<div class="wm">
+						<h3 class="CMS_search"><i class="fa fa-lock CMS_edit CMS_remove"></i><span class="CMS_edit CMS_unwrap">Lorem ipsum dolor</span></h3>
+						<p class="CMS_edit">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, assumenda.</p>
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="col-sm-4 CMS_repeat CMS_remove wm">
-			<div class="wc115body wc115body-smoke CMS_widgets" data-cms-category="Inline">
-				<div class="wm">
-					<h3 class="CMS_search"><i class="fa fa-lock CMS_edit CMS_remove"></i><span class="CMS_edit CMS_unwrap">Lorem ipsum dolor</span></h3>
-					<p class="CMS_edit">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, assumenda.</p>
+			<div class="col-sm-4 CMS_repeat CMS_remove wm">
+				<div class="wc115body wc115body-smoke CMS_widgets" data-cms-category="Inline">
+					<div class="wm">
+						<h3 class="CMS_search"><i class="fa fa-lock CMS_edit CMS_remove"></i><span class="CMS_edit CMS_unwrap">Lorem ipsum dolor</span></h3>
+						<p class="CMS_edit">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, assumenda.</p>
+					</div>
 				</div>
 			</div>
 		</div>
