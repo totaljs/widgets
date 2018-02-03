@@ -1,0 +1,39 @@
+<style>
+	.wl103paddingv { padding-top: 80px; padding-bottom: 50px; }
+	.wl103-yellow { background-color: #FFE845; }
+	.wl103-yellow.wl103font { color: black; }
+	.wl103-red { background-color: #CA2828; }
+	.wl103-red.wl103font { color: white; }
+	.wl103-green { background-color: #51C12A; }
+	.wl103-green.wl103font { color: white; }
+	.wl103-blue { background-color: #005CCD; }
+	.wl103-blue.wl103font { color: white; }
+	.wl103-silver { background-color: #F0F0F0; }
+	.wl103-silver.wl103font { background-color: black; }
+	.wl103-black { background-color: black; }
+	.wl103-black.wl103font { color: white; }
+	.wl103-white { background-color: white; }
+	.wl103-white.wl103font { color: black; }
+
+	@media(max-width: 768px) {
+		.wl103paddingv { padding-top: 30px; padding-bottom: 5px; }
+	}
+
+</style>
+
+<script editor>
+
+	option('color', 'Color', 'silver', [{ text: 'Silver', value: 'silver' },{ text: 'Yellow', value: 'yellow' }, { text: 'Red', value: 'red' }, { text: 'Blue', value: 'blue' }, { text: 'Green', value: 'green' }, { text: 'Black', value: 'black' }, { text: 'White', value: 'white' }]);
+	option('fontcolor', 'Font colors', false);
+	option('paddingv', 'Vertical padding', true);
+
+	exports.configure = function(options, el) {
+		el = el.find('.wl103');
+		el.rclass2('wl103-').aclass('wl103-' + options.color);
+		el.tclass('wl103rounded', options.rounded);
+		el.tclass('wl103paddingv', options.paddingv);
+	};
+</script>
+
+<div class="container wl103 CMS_widgets wl103-silver wl103paddingv" data-cms-category="Content,Columns">
+</div>

@@ -1,0 +1,39 @@
+<style>
+	.wl100paddingv { padding-top: 80px; padding-bottom: 50px; }
+	.wl100-yellow { background-color: #FFE845; }
+	.wl100-yellow.wl100font { color: black; }
+	.wl100-red { background-color: #CA2828; }
+	.wl100-red.wl100font { color: white; }
+	.wl100-green { background-color: #51C12A; }
+	.wl100-green.wl100font { color: white; }
+	.wl100-blue { background-color: #005CCD; }
+	.wl100-blue.wl100font { color: white; }
+	.wl100-silver { background-color: #F0F0F0; }
+	.wl100-silver.wl100font { background-color: black; }
+	.wl100-black { background-color: black; }
+	.wl100-black.wl100font { color: white; }
+	.wl100-white { background-color: white; }
+	.wl100-white.wl100font { color: black; }
+
+	@media(max-width: 768px) {
+		.wl100paddingv { padding-top: 30px; padding-bottom: 5px; }
+	}
+
+</style>
+
+<script editor>
+
+	option('color', 'Color', 'silver', [{ text: 'Silver', value: 'silver' },{ text: 'Yellow', value: 'yellow' }, { text: 'Red', value: 'red' }, { text: 'Blue', value: 'blue' }, { text: 'Green', value: 'green' }, { text: 'Black', value: 'black' }, { text: 'White', value: 'white' }]);
+	option('fontcolor', 'Font colors', false);
+	option('paddingv', 'Vertical padding', true);
+
+	exports.configure = function(options, el) {
+		el = el.find('.wl100');
+		el.rclass2('wl100-').aclass('wl100-' + options.color);
+		el.tclass('wl100rounded', options.rounded);
+		el.tclass('wl100paddingv', options.paddingv);
+	};
+</script>
+
+<div class="container-fluid wl100 CMS_widgets wl100-silver wl100paddingv" data-cms-category="Content,Columns">
+</div>

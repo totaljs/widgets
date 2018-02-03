@@ -73,5 +73,10 @@
 	"ContentBackground",
 	"ContentFaq2",
 	"ContentPartial",
-	"ContentTabs"
+	"ContentTabs",
+	"ContentImageButtonCentered",
+	"LayoutsFixed",
+	"LayoutsFixedBackground",
+	"LayoutsFluid",
+	"LayoutsFluidBackground"
 ]
