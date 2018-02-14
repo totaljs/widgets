@@ -118,7 +118,7 @@
 			AJAX('POST /api/contact/', scope.get(), function(response) {
 				scope.set('response', response);
 				if (response.success) {
-					DEFAULT(scope.path + '.*');
+					scope.default();
 					scope.set('response', null, 5000);
 				}
 			});
