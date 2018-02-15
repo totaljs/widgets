@@ -1,19 +1,22 @@
 <style>
+	.noscroll { overflow: hidden !important; overflow-scrolling: auto !important; }
 	.wc133 {}
 	.wc133 img { border-radius: 3px; cursor: pointer; }
 	.wc133body { margin-bottom: 25px; }
-	.wc133preview { position: fixed; left: 0; top: 0; bottom: 0; right: 0; background-color: rgba(255,255,255,0.8); }
+	.wc133preview { position: fixed; left: 0; top: 0; bottom: 0; right: 0; background-color: rgba(255,255,255,0.8); height: 100%; z-index: 10; overflow: hidden; }
 	.wc133table { width: 100%; height: 100%; display: table; }
 	.wc133cell { vertical-align: middle; align-self: center; display: table-cell; }
 	.wc133cell img { margin: 0 auto; border-radius: 4px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); width: auto; max-height: 100%; height: 100%; display: block; }
-	.wc133cell div { padding: 0 20px 50px; }
-	.wc133preview button { position: absolute; width: 50px; height: 80px; background-color: #369CE6; color: white; font-size: 20px; border: 0; top: 50%; margin-top: -60px; outline: 0; }
+	.wc133cell div { position: absolute; bottom: 20px; top: 20px; right: 20px; left: 20px; z-index: 2; }
+	.wc133preview button { position: absolute; width: 50px; height: 80px; background-color: #369CE6; color: white; font-size: 20px; border: 0; top: 50%; margin-top: -60px; outline: 0; cursor: pointer; z-index: 5; }
+	.wc133preview button * { cursor: pointer; }
 	.wc133preview button:hover { opacity: 0.9; }
 	.wc133preview button[name="next"] { right: 0; border-radius: 3px 0 0 3px; }
 	.wc133preview button[name="prev"] { border-radius: 0 3px 3px 0; }
 
 	@media(max-width: 980px) {
-		.wc133cell img { width: 100%; max-height: auto; height: auto; max-width: 100%; display: block; }
+		.wc133cell img { width: 100%; max-height: auto; height: auto; max-width: 100%; display: block; border-radius: 0; }
+		.wc133cell div { position: relative; bottom: 0; top: 0; right: 0; left: 0; display: block; }
 	}
 </style>
 
@@ -104,10 +107,15 @@
 				var img = $(this);
 				self.show(+img.attrd('index'));
 			});
+
+			container.on('touchmove', function(e) {
+				e.preventDefault();
+			});
 		};
 
 		self.close = function() {
 			container.aclass('hidden');
+			$('html,body').rclass('noscroll');
 			window.wc133instance = null;
 		};
 
@@ -121,6 +129,8 @@
 			// Loads image
 			container.find('img').attr('src', $(img).attrd('cms-original'));
 			container.rclass('hidden');
+			container.css('height', $(window).height() + 5);
+			$('html,body').aclass('noscroll');
 		};
 
 		self.next = function() {
