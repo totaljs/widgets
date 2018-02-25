@@ -79,5 +79,7 @@
 	"LayoutsFixedBackground",
 	"LayoutsFluid",
 	"LayoutsFluidBackground",
-	"ContentContact"
+	"ContentContact",
+	"InlinePart",
+	"ContentPart"
 ]

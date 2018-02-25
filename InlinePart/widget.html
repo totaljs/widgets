@@ -1,0 +1,24 @@
+<div class="wmi wpi wbi wi128">
+	<div class="totaljs">Inline part</div>
+</div>
+
+<script editor>
+	option('id', 'Part', '', 'inlineparts');
+
+	exports.configure = function(options, el) {
+		var text = 'not defined';
+
+		if (options.id) {
+			var item = this.id.findItem('value', options.id);
+			item && (text = item.text);
+		}
+
+		el.find('.totaljs').text('Inline part: ' + text);
+	};
+</script>
+
+<script total>
+	exports.render = function(options, html, next) {
+		$WORKFLOW('Part', 'render', options, (err, response) => next(response || ''));
+	};
+</script>
