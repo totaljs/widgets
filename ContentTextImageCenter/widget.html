@@ -1,7 +1,8 @@
 <style>
-	.wc110 { padding: 30px 0 0; text-align: center; }
+	.wc110 { padding: 0; text-align: center; }
 	.wc110 p { margin: 0; font-size: 14px; line-height: 16px; }
 	.wc110body { margin-bottom: 20px; }
+	.wc110pt { padding-top: 30px; }
 	@media(max-width: 768px) {
 		.wc110 .col-sm-6 div { margin: 0 20px 0; }
 		.wc110 h2 { text-align: center !important; }
@@ -12,6 +13,7 @@
 
 	option('h', 'Heading', 'h2', ['h1', 'h2', 'h3']);
 	option('link', 'Link image', false);
+	option('Top padding', 'paddingtop', true);
 
 	exports.configure = function(options, el) {
 		var img = el.find('.wc110image');
@@ -20,6 +22,7 @@
 			!link && img.find('img').wrap('<a />');
 		} else if (link)
 			img.find('img').unwrap('a');
+		el.find('wc110').tclass('wc110pt', options.paddingtop);
 		var h = el.find('.wc110h');
 		!h.is(options.h) && h.replaceWith('<{0} class="CMS_edit CMS_remove CMS_search wc110h">{1}</{0}>'.format(options.h, h.text()));
 	};
