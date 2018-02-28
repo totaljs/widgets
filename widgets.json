@@ -82,5 +82,6 @@
 	"ContentContact",
 	"InlinePart",
 	"ContentPart",
-	"ContentContainer"
+	"ContentContainer",
+	"ContentImage"
 ]

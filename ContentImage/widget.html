@@ -1,0 +1,22 @@
+<style>
+	.wc152 img { border-radius: 4px; }
+</style>
+
+<script editor>
+
+	option('link', 'Enable link', false);
+	option('rounded', 'Rounded corners', false);
+
+	exports.configure = function(options, el) {
+		var link = el.find('a');
+		if (options.link) {
+			!link.length && el.find('img').wrap('<a href="/" class="CMS_edit"></a>');
+		} else {
+			link.length && el.find('img').unwrap('a');
+		}
+		el.find('img').tclass('img-rounded', options.rounded);
+	};
+
+</script>
+
+<div class="wmi wpi wbi wc152"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABHQAAAEsAQMAAACYJ3bIAAAAA1BMVEXW1taWrGEgAAAAQElEQVR4Ae3BMQEAAADCIPuntsUuYOQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOCowAABhgBYigAAAABJRU5ErkJggg==" class="img-responsive CMS_edit" alt="" border="0" /></div>
