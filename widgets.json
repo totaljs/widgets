@@ -81,5 +81,6 @@
 	"LayoutsFluidBackground",
 	"ContentContact",
 	"InlinePart",
-	"ContentPart"
+	"ContentPart",
+	"ContentContainer"
 ]
