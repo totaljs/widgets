@@ -1,0 +1,3 @@
+# Legend
+
+- inline widget

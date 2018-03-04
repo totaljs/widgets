@@ -83,5 +83,6 @@
 	"InlinePart",
 	"ContentPart",
 	"ContentContainer",
-	"ContentImage"
+	"ContentImage",
+	"InlineLegend"
 ]
