@@ -104,18 +104,18 @@
 			<div class="col-md-10 col-md-offset-1">
 				<h2><i class="fa fa-question-circle CMS_edit"></i><span class="CMS_edit CMS_unwrap">Ask a Question</span></h2>
 				<p class="CMS_edit wmi">Do you have technical or other questions? Do you want to be our sponsor or partner? Are you an investor? Then, send us a short message and we will get in touch with you.</p>
-				<div class="row" data-b="?.response" data-b-visible="!value || !value.success" data-jc="enter" data-jc-path="?" data-jc-config="exec:feedback_submit">
+				<div class="row" data-bind="?.response__show:!value || !value.success" data-jc="enter__?__exec:feedback_submit">
 					<div class="col-md-3 wmi">
-						<div data-jc="textbox" data-jc-path="email" data-jc-value="'@'" data-jc-config="maxlength:120;required:true;type:email" class="CMS_edit">Email address</div>
+						<div data-jc="textbox__email__maxlength:120;required:true;type:email__'@'" class="CMS_edit">Email address</div>
 					</div>
 					<div class="col-md-7">
-						<div data-jc="textbox" data-jc-path="body" data-jc-config="maxlength:1000;required:true" class="CMS_edit">Your question</div>
+						<div data-jc="textbox__body__maxlength:1000;required:true" class="CMS_edit">Your question</div>
 					</div>
-					<div class="col-md-2" data-jc="validation" data-jc-path="?">
+					<div class="col-md-2" data-jc="validation__?">
 						<button name="submit" disabled="disabled" data-exec="feedback_submit" class="wc142button wc142button-yellow exec"><i class="fa fa-send CMS_edit CMS_remove"></i><span class="CMS_unwrap CMS_edit">SUBMIT</span></button>
 					</div>
 				</div>
-				<div data-b="?.response" data-b-visible="value && value.success" class="wc142success hidden CMS_visible">
+				<div data-bind="?.response__show:value && value.success" class="wc142success hidden CMS_visible">
 					<i class="fa fa-check-circle CMS_edit"></i><span class="CMS_unwrap CMS_edit">Thank you. Your message has been sent successfully.</span>
 				</div>
 			</div>
