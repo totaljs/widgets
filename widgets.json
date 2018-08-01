@@ -85,5 +85,8 @@
 	"ContentContainer",
 	"ContentImage",
 	"InlineLegend",
-	"ContentPartners"
+	"ContentPartners",
+	"ContentInsight",
+	"ContentPromo",
+	"ContentLinks"
 ]

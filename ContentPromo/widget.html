@@ -1,0 +1,44 @@
+<style>
+	.wc155padding { padding: 0 10px; }
+	.wc155item { padding: 5px; }
+</style>
+
+<div class="wb wc155">
+	<div class="wc155padding">
+		<div class="row">
+			<div class="col-xs-6 wc155item CMS_repeat">
+				<a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlgAAAHCAQMAAAAJvSUnAAAAA1BMVEXW1taWrGEgAAAAOElEQVQYGe3BMQEAAADCIPunXg0PYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGcChZgAAbijQr8AAAAASUVORK5CYII=" class="img-responsive CMS_edit" data-cms-width="600" data-cms-height="450" alt="" border="0" /></a>
+			</div>
+			<div class="col-xs-6 wc155item CMS_repeat CMS_remove">
+				<a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlgAAAHCAQMAAAAJvSUnAAAAA1BMVEXW1taWrGEgAAAAOElEQVQYGe3BMQEAAADCIPunXg0PYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGcChZgAAbijQr8AAAAASUVORK5CYII=" class="img-responsive CMS_edit" data-cms-width="600" data-cms-height="450" alt="" border="0" /></a>
+			</div>
+			<div class="col-xs-6 wc155item CMS_repeat CMS_remove">
+				<a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlgAAAHCAQMAAAAJvSUnAAAAA1BMVEXW1taWrGEgAAAAOElEQVQYGe3BMQEAAADCIPunXg0PYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGcChZgAAbijQr8AAAAASUVORK5CYII=" class="img-responsive CMS_edit" data-cms-width="600" data-cms-height="450" alt="" border="0" /></a>
+			</div>
+			<div class="col-xs-6 wc155item CMS_repeat CMS_remove">
+				<a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlgAAAHCAQMAAAAJvSUnAAAAA1BMVEXW1taWrGEgAAAAOElEQVQYGe3BMQEAAADCIPunXg0PYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGcChZgAAbijQr8AAAAASUVORK5CYII=" class="img-responsive CMS_edit" data-cms-width="600" data-cms-height="450" alt="" border="0" /></a>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<script editor>
+
+	option('size', 'Image size', 'normal', ['normal', 'large']);
+
+	exports.configure = function(options, el) {
+		el.find('img').each(function() {
+
+			var w = '600';
+			var h = '450';
+
+			if (options.size === 'large') {
+				w = '1280';
+				h = '768';
+			}
+
+			$(this).attr('data-cms-width', w).attr('data-cms-height', h);
+		});
+	};
+</script>

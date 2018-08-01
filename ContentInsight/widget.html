@@ -1,0 +1,80 @@
+<style>
+	.wc154item { margin: 0; background-color: #F0F0F0; font-size: 18px; display: table; table-layout: fixed; margin-bottom: 10px; }
+	.wc154item p { margin-bottom: 20px; line-height: 22px; }
+	.wc154img { display: table-cell; width: 30%; vertical-align: top; }
+	.wc154body { display: table-cell; width: 70%; vertical-align: middle; }
+	.wc154padding { padding: 0 25px; }
+	.wc154padding > a .fa { margin-left: 6px; }
+
+	@media(max-width: 998px) {
+		.wc154item { font-size: 16px; }
+		.wc154item p { line-height: 18px; }
+		.wc154img { width: 40%; }
+		.wc154body { width: 60%; }
+	}
+
+	@media(max-width: 768px) {
+		.wc154padding { padding: 25px; }
+		.wc154body { display: block; width: 100%; }
+		.wc154img { display: block; width: 100%; }
+		.wc154item { display: block; font-size: 16px; }
+	}
+</style>
+
+<div class="wb wc154">
+	<div class="CMS_repeat wc154item">
+		<div class="wc154body">
+			<div class="wc154padding">
+				<h2 class="CMS_edit">Lorem ipsum dolor</h2>
+				<p class="CMS_edit">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate natus pariatur, est, eius iure neque commodi adipisci aliquam culpa porro.</p>
+				<a href="#"><span class="CMS_edit CMS_unwrap">Watch the film</span><i class="fa fa-play-circle CMS_edit"></i></a>
+			</div>
+		</div>
+		<div class="wc154img">
+			<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfQAAAFeAQMAAABJn39BAAAAA1BMVEWRkZG0+feUAAAALElEQVQYGe3BAQ0AAADCIPunfg8HDAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4FV4AAAf538hYAAAAASUVORK5CYII=" class="img-responsive CMS_edit" data-cms-width="500" data-cms-height="350" border="0" alt="" />
+		</div>
+	</div>
+
+	<div class="CMS_repeat wc154item CMS_remove">
+		<div class="wc154body">
+			<div class="wc154padding">
+				<h2 class="CMS_edit">Lorem ipsum dolor</h2>
+				<p class="CMS_edit">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate natus pariatur, est, eius iure neque commodi adipisci aliquam culpa porro.</p>
+				<a href="#"><span class="CMS_edit CMS_unwrap">Watch the film</span><i class="fa fa-play-circle CMS_edit"></i></a>
+			</div>
+		</div>
+		<div class="wc154img">
+			<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfQAAAFeAQMAAABJn39BAAAAA1BMVEWRkZG0+feUAAAALElEQVQYGe3BAQ0AAADCIPunfg8HDAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4FV4AAAf538hYAAAAASUVORK5CYII=" class="img-responsive CMS_edit" data-cms-width="500" data-cms-height="350" border="0" alt="" />
+		</div>
+	</div>
+
+	<div class="CMS_repeat wc154item CMS_remove">
+		<div class="wc154body">
+			<div class="wc154padding">
+				<h2 class="CMS_edit">Lorem ipsum dolor</h2>
+				<p class="CMS_edit">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate natus pariatur, est, eius iure neque commodi adipisci aliquam culpa porro.</p>
+				<a href="#"><span class="CMS_edit CMS_unwrap">Watch the film</span><i class="fa fa-play-circle CMS_edit"></i></a>
+			</div>
+		</div>
+		<div class="wc154img">
+			<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfQAAAFeAQMAAABJn39BAAAAA1BMVEWRkZG0+feUAAAALElEQVQYGe3BAQ0AAADCIPunfg8HDAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4FV4AAAf538hYAAAAASUVORK5CYII=" class="img-responsive CMS_edit" data-cms-width="500" data-cms-height="350" border="0" alt="" />
+		</div>
+	</div>
+</div>
+
+<script editor>
+	option('align', 'Align image', 'right', ['left', 'right']);
+	exports.configure = function(options, el) {
+		el.find('.wc154item').each(function() {
+			var item = $(this);
+			var img = item.find('.wc154img');
+			var clone = img.clone();
+			img.remove();
+
+			if (options.align === 'right')
+				item.append(clone);
+			else
+				item.prepend(clone);
+		});
+	};
+</script>
