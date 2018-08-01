@@ -84,5 +84,6 @@
 	"ContentPart",
 	"ContentContainer",
 	"ContentImage",
-	"InlineLegend"
+	"InlineLegend",
+	"ContentPartners"
 ]
