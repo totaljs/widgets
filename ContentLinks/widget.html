@@ -1,7 +1,11 @@
 <style>
 	.wc156item { border-top: 1px solid #E0E0E0; padding: 50px 0; }
-	.wc156links a { display: block; font-size: 16px; }
+	.wc156links a { display: block; font-size: 16px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 	.wc156links a .fa { margin-right: 8px; }
+
+	@media(max-width: 768px) {
+		.wc156item { padding: 20px 0; }
+	}
 </style>
 
 <div class="wb wc156">
