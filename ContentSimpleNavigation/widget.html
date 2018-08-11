@@ -1,0 +1,54 @@
+<style>
+	.wc159 { border-top: 1px solid #E0E0E0; padding: 10px 0; border-bottom: 1px solid #E0E0E0; }
+	.wc159 a { position: relative; display: inline-block; margin-left: 15px; vertical-align: middle; }
+	.wc159 a:first-child { margin-left: 0; }
+	.wc159 a .fa { margin-right: 8px; }
+	.wc159-selected { font-weight: bold; }
+	@media(max-width: 768px) {
+		.wc159 { padding: 20px 0; }
+	}
+</style>
+
+<script editor>
+
+	option('nav', 'Navigation', '', 'navigations');
+
+	exports.configure = function(options, el) {
+		el = el.find('.wc159');
+		if (options.nav) {
+			var nav = this.nav.findItem('id', options.nav);
+			el.find('nav').html('<div class="totaljs" style="padding:5px 10px;text-align:center">{0}</div>'.format(nav ? nav.name : options.nav));
+		}
+	};
+
+</script>
+
+<script total>
+	exports.render = function(options, html, next) {
+
+		if (!options.nav)
+			return next(html);
+
+		var nav = F.global.navigations[options.nav];
+		var builder = [];
+
+		for (var i = 0; i < nav.children.length; i++) {
+			var item = nav.children[i];
+			if (item)
+				builder.push('<a href="{0}"{2}>{1}</a>'.format(item.url, item.name, this.url && item.contains(this.url, true) ? ' class="wc159-selected"' : ''));
+		}
+
+		next(html.replace(/<nav>.*?<\/nav>/g, '<nav>' + builder.join('') + '</nav>'));
+	};
+</script>
+
+<div class="wb wp wm wc159">
+	<nav>
+		<!-- <div class="totaljs" style="padding:5px 10px;text-align:center">Choose a navigation</div>-->
+		<a href="/" class="wc159-selected">Item 1</a>
+		<a href="/">Item 2</a>
+		<a href="/">Item 3</a>
+		<a href="/">Item 4</a>
+		<a href="/">Item 5</a>
+	</nav>
+</div>
