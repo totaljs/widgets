@@ -1,0 +1,81 @@
+<style>
+
+	.wc157 { padding: 0 20px; }
+	.wc157box { }
+	.wc157item { background-color: #292C34; text-align: center; padding: 40px 10px; color: white; margin-bottom: 2px; }
+	.wc157item span { font-size: 60px; font-weight: bold; line-height: 70px; }
+	.wc157item div { font-size: 24px; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; text-transform: uppercase; }
+	.wc157number { opacity: 0; }
+	.wc157visible { opacity: 1 !important; }
+
+	.CMS_preview .wc157number { opacity: 1; }
+
+	@media(min-width: 1198px) {
+		.wc157item { padding: 70px 10px; }
+		.wc157item span { font-size: 80px; line-height: 90px; }
+		.wc157item div { font-size: 30px; }
+	}
+
+	@media(max-width: 998px) {
+		.wc157item { padding: 30px 10px; }
+		.wc157item span { font-size: 50px; }
+		.wc157item div { font-size: 18px; }
+	}
+
+	@media(max-width: 768px) {
+		.wc157box { margin-top: 30px; }
+		.wc157box:first-child { margin-top: 0; }
+		.wc157box:nth-child(2) { margin-top: 0; }
+	}
+
+</style>
+
+<div class="wm wp wb" data-jc="wc157">
+	<div class="row">
+		<div class="col-sm-3 col-xs-6 wc157box">
+			<div class="wc157item">
+				<span class="CMS_edit wc157number">59</span>
+				<div class="CMS_edit">Item</div>
+			</div>
+		</div>
+		<div class="col-sm-3 col-xs-6 wc157box">
+			<div class="wc157item">
+				<span class="CMS_edit wc157number">1100</span>
+				<div class="CMS_edit">Item</div>
+			</div>
+		</div>
+		<div class="col-sm-3 col-xs-6 wc157box">
+			<div class="wc157item">
+				<span class="CMS_edit wc157number">448</span>
+				<div class="CMS_edit">Item</div>
+			</div>
+		</div>
+		<div class="col-sm-3 col-xs-6 wc157box">
+			<div class="wc157item">
+				<span class="CMS_edit wc157number">44</span>
+				<div class="CMS_edit">Item</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	COMPONENT('wc157', function(self) {
+
+		self.make = function() {
+			self.find('.wc157number').each(function(index) {
+				var el = $(this);
+				(function(count, el, index) {
+					var sum = 0;
+					count.async(function(index, next) {
+						el.html(sum++);
+						index && setTimeout(next, index < 5 ? 200 : index < 10 ? 100 : 5);
+					});
+				})(+el.html(), el, index);
+				el.html(0);
+				el.aclass('wc157visible');
+			});
+		};
+
+	});
+</script>
