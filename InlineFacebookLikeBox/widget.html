@@ -1,0 +1,33 @@
+<script>
+	ON('ready', function() {
+		if ($('.wi131').length) {
+			$(document.body).append('<div id="fb-root"></div>');
+			IMPORT('ONCE https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.1 .js');
+		}
+	});
+</script>
+
+<script editor>
+
+	option('url', 'Facebook URL', 'https://www.facebook.com/totaljs.web.framework/');
+	option('tabs', 'Tabs', '');
+	option('small', 'Small header', false);
+	option('cover', 'Hide cover photo', false);
+	option('faces', 'Show friend\'s faces', true);
+
+	exports.configure = function(options, el) {
+		el.find('.totaljs').html(options.url);
+	};
+
+</script>
+
+<script total>
+	exports.render = function(options, html, next) {
+		var index = html.indexOf('<div class="totaljs">');
+		next(html.substring(0, index) + '<div class="fb-page" data-href="{url}" data-tabs="{tabs}" data-small-header="{small}" data-adapt-container-width="true" data-hide-cover="{cover}" data-show-facepile="{faces}"></div></div>'.arg(options));
+	};
+</script>
+
+<div class="wmi wpi wbi wi131">
+	<div class="totaljs">Facebook Like Box</div>
+</div>
