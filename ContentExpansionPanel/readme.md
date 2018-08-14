@@ -1,0 +1,3 @@
+# Expansion Panel
+
+- content widget

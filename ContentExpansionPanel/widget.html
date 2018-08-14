@@ -1,0 +1,42 @@
+<style>
+	.wc167items { margin: 0; padding: 0; border: 1px solid #E0E0E0; border-radius: 4px; }
+	.wc167item { list-style-type: none; padding: 0; margin: 0; border-top: 1px solid #E0E0E0; }
+	.wc167item:first-child { border-top: 0; }
+	.wc167item:first-child .wc167title { border-radius: 3px 3px 0 0; }
+	.wc167title { padding: 15px 15px; cursor: pointer; font-size: 18px; }
+	.wc167title:hover { background-color: #F0F0F0; }
+	.wc167body { display: none; }
+	.wc167selected .wc167title { background-color: #4E82F7; font-weight: bold; color: white; }
+	.wc167selected .wc167body { display: block; }
+	.CMS_preview .wc167body { display: block !important; }
+	@media(max-width: 980px) {
+		.wc167title { font-size: 16px; }
+	}
+</style>
+
+<div class="wb wm wp wc167">
+	<div class="wc167items">
+		<div class="CMS_repeat CMS_remove wc167item">
+			<div class="wc167title nowrap CMS_edit">Lorem ipsum dolor sit amet</div>
+			<div class="wc167body CMS_widgets" data-cms-category="Content,Column"></div>
+		</div>
+		<div class="CMS_repeat CMS_remove wc167item">
+			<div class="wc167title nowrap CMS_edit">Lorem ipsum dolor sit amet</div>
+			<div class="wc167body CMS_widgets" data-cms-category="Content,Column"></div>
+		</div>
+		<div class="CMS_repeat CMS_remove wc167item">
+			<div class="wc167title nowrap CMS_edit">Lorem ipsum dolor sit amet</div>
+			<div class="wc167body CMS_widgets" data-cms-category="Content,Column"></div>
+		</div>
+	</div>
+</div>
+
+<script>
+	$(document).on('click', '.wc167item', function() {
+		var cls = 'wc167selected';
+		var el = $(this);
+		var container = el.closest('.wc167items');
+		container.find('.' + cls).rclass(cls);
+		el.aclass(cls);
+	});
+</script>
