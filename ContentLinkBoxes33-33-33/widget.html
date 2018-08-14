@@ -18,6 +18,7 @@
 <script editor>
 
 	option('mobilecarousel', 'Enable carousel (XS)', false);
+	option('imagelinks', 'Enable image links', true);
 
 	exports.configure = function(options, el) {
 		var container = el.find('.wc161container');
@@ -29,6 +30,15 @@
 			swipe.remove();
 			container.rattr('data-jc').rattr('data-jc-config');
 		}
+
+		el.find('.wc161image').each(function() {
+			var el = $(this);
+			var a = el.find('a');
+			if (options.imagelinks) {
+				!a.length && el.find('img').wrap('<a href="#"></a>');
+			} else
+				a.length && el.find('img').unwrap();
+		});
 	};
 
 </script>
@@ -43,7 +53,7 @@
 	<div class="wc161container">
 		<div class="row">
 			<div class="col-sm-4 CMS_repeat CMS_remove">
-				<div class="wc161image"><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfQAAAEsAQMAAAAPddOLAAAAA1BMVEXMzMzKUkQnAAAAKUlEQVR4Ae3BMQEAAADCIPuntsUuYAAAAAAAAAAAAAAAAAAAAAAAABA6SwAAAXWr0YQAAAAASUVORK5CYII=" class="CMS_edit img-responsive" border="0" alt="Unknown image" data-cms-width="500" data-cms-height="300"  /></a></div>
+				<div class="wc161image"><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfQAAAEsAQMAAAAPddOLAAAAA1BMVEXMzMzKUkQnAAAAKUlEQVR4Ae3BMQEAAADCIPuntsUuYAAAAAAAAAAAAAAAAAAAAAAAABA6SwAAAXWr0YQAAAAASUVORK5CYII=" class="CMS_edit img-responsive" border="0" alt="Unknown image" data-cms-width="500" data-cms-height="300" /></a></div>
 				<div class="wm wc161body">
 					<h3 class="CMS_edit CMS_remove CMS_search">Lorem ipsum sodem</h3>
 					<nav>
@@ -57,7 +67,7 @@
 				</div>
 			</div>
 			<div class="col-sm-4 CMS_repeat CMS_remove">
-				<div class="wc161image"><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfQAAAEsAQMAAAAPddOLAAAAA1BMVEXMzMzKUkQnAAAAKUlEQVR4Ae3BMQEAAADCIPuntsUuYAAAAAAAAAAAAAAAAAAAAAAAABA6SwAAAXWr0YQAAAAASUVORK5CYII=" class="CMS_edit img-responsive" border="0" alt="Unknown image" data-cms-width="500" data-cms-height="300"  /></a></div>
+				<div class="wc161image"><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfQAAAEsAQMAAAAPddOLAAAAA1BMVEXMzMzKUkQnAAAAKUlEQVR4Ae3BMQEAAADCIPuntsUuYAAAAAAAAAAAAAAAAAAAAAAAABA6SwAAAXWr0YQAAAAASUVORK5CYII=" class="CMS_edit img-responsive" border="0" alt="Unknown image" data-cms-width="500" data-cms-height="300" /></a></div>
 				<div class="wm wc161body">
 					<h3 class="CMS_edit CMS_remove CMS_search">Lorem ipsum sodem</h3>
 					<nav>
@@ -71,7 +81,7 @@
 				</div>
 			</div>
 			<div class="col-sm-4 CMS_repeat CMS_remove">
-				<div class="wc161image"><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfQAAAEsAQMAAAAPddOLAAAAA1BMVEXMzMzKUkQnAAAAKUlEQVR4Ae3BMQEAAADCIPuntsUuYAAAAAAAAAAAAAAAAAAAAAAAABA6SwAAAXWr0YQAAAAASUVORK5CYII=" class="CMS_edit img-responsive" border="0" alt="Unknown image" data-cms-width="500" data-cms-height="300"  /></a></div>
+				<div class="wc161image"><a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfQAAAEsAQMAAAAPddOLAAAAA1BMVEXMzMzKUkQnAAAAKUlEQVR4Ae3BMQEAAADCIPuntsUuYAAAAAAAAAAAAAAAAAAAAAAAABA6SwAAAXWr0YQAAAAASUVORK5CYII=" class="CMS_edit img-responsive" border="0" alt="Unknown image" data-cms-width="500" data-cms-height="300" /></a></div>
 				<div class="wm wc161body">
 					<h3 class="CMS_edit CMS_remove CMS_search">Lorem ipsum sodem</h3>
 					<nav>
