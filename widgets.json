@@ -102,5 +102,6 @@
 	"ContentList",
 	"ContentTabs2x",
 	"ContentTestimonial",
-	"InlineListGroup"
+	"InlineListGroup",
+	"InlineExpansionPanel"
 ]
