@@ -1,0 +1,113 @@
+<style>
+	.wc166scroller { overflow: hidden; }
+	.wc166items { width: 50000px; overflow: hidden; }
+	.wc166item { text-align: center; float: left; display: inline-block; width: 100%; padding: 0 80px 0 50px; }
+	.wc166body { margin-bottom: 20px; font-size: 18px; }
+	.wc166author { font-weight: bold; }
+	.wc166company { font-size: 12px; color: gray; }
+	.wc166 { position: relative; }
+	.wc166controls button { position: absolute; border: 0; background-color: transparent; top: 50%; margin-top: -5px; height: 40px; width: 40px; font-size: 30px; transition: background 0.3s; padding: 0; border-radius: 3px; outline: 0; color: gray; }
+	.wc166controls button:hover { background-color: rgba(100,100,100,0.1); color: black; }
+	.wc166controls button:first-child { left: 0; padding-right: 3px; }
+	.wc166controls button:last-child { right: 0; padding-left: 3px; }
+	.wc166logo { display: block; }
+	.wc166logo img { margin-left: auto; margin-right: auto; }
+	.CMS_preview .wc166controls { display: none; }
+	.CMS_preview .wc166items { width: auto !important; }
+	.CMS_preview .wc166item { float: none; display: block; }
+
+</style>
+
+<div class="wb wp wm wc166" data-jc="wc166">
+	<div class="wc166controls">
+		<button name="prev"><i class="fa fa-chevron-left"></i></button>
+		<button name="next"><i class="fa fa-chevron-right"></i></button>
+	</div>
+	<div class="wc166scroller">
+		<div class="wc166items">
+			<div class="wc166item CMS_repeat CMS_remove">
+				<a href="#" class="wc166logo CMS_remove"><img src="data:image/png;base64,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" data-cms-width="300" data-cms-height="100" border="0" class="img-responsive CMS_edit" /></a>
+				<div class="wc166body CMS_edit">1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium iusto non harum. Blanditiis ipsa assumenda fugiat fugit labore autem, temporibus aspernatur, mollitia cum ut deleniti, earum accusamus! Culpa, veniam, minus.</div>
+				<div class="wc166meta">
+					<div class="nowrap wc166author CMS_edit">Peter Širka</div>
+					<div class="nowrap wc166company CMS_edit">Total.js Contributor</div>
+				</div>
+			</div>
+			<div class="wc166item CMS_repeat CMS_remove">
+				<a href="#" class="wc166logo CMS_remove"><img src="data:image/png;base64,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" data-cms-width="300" data-cms-height="100" border="0" class="img-responsive CMS_edit" /></a>
+				<div class="wc166body CMS_edit">2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium iusto non harum. Blanditiis ipsa assumenda fugiat fugit labore autem, temporibus aspernatur, mollitia cum ut deleniti, earum accusamus! Culpa, veniam, minus.</div>
+				<div class="wc166meta">
+					<div class="nowrap wc166author CMS_edit">Peter Širka</div>
+					<div class="nowrap wc166company CMS_edit">Total.js Contributor</div>
+				</div>
+			</div>
+			<div class="wc166item CMS_repeat CMS_remove">
+				<a href="#" class="wc166logo CMS_remove"><img src="data:image/png;base64,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" data-cms-width="300" data-cms-height="100" border="0" class="img-responsive CMS_edit" /></a>
+				<div class="wc166body CMS_edit">3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium iusto non harum. Blanditiis ipsa assumenda fugiat fugit labore autem, temporibus aspernatur, mollitia cum ut deleniti, earum accusamus! Culpa, veniam, minus.</div>
+				<div class="wc166meta">
+					<div class="nowrap wc166author CMS_edit">Peter Širka</div>
+					<div class="nowrap wc166company CMS_edit">Total.js Contributor</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	COMPONENT('wc166', function(self) {
+
+		var items, container, scroller, w;
+
+		self.readonly();
+
+		self.destroy = function() {
+			$(window).off('resize', self.resize);
+		};
+
+		self.make = function() {
+			scroller = self.find('.wc166scroller');
+			items = self.find('.wc166item');
+			container = self.find('.wc166items');
+			container.prepend(items.eq(items.length - 1).clone());
+			container.append(items.eq(0).clone());
+			items = self.find('.wc166item');
+			$(window).on('resize', self.resize);
+			self.resize();
+			scroller.prop('scrollLeft', w);
+
+			self.event('click', 'button', function() {
+				self[this.name]();
+			});
+		};
+
+		self.resize = function() {
+			w = self.width();
+			container.css('width', w * (items.length + 1));
+			items.css('width', w);
+			scroller.scrollLeft(w);
+		};
+
+		self.next = function() {
+			var el = scroller;
+			var off = el.prop('scrollLeft') + w;
+			if (off >= (items.length - 1) * w) {
+				el.animate({ 'scrollLeft': off }, 500, function() {
+					el.prop('scrollLeft', w);
+				});
+			} else
+				el.animate({ 'scrollLeft': off }, 500);
+		};
+
+		self.prev = function() {
+			var el = scroller;
+			var off = el.prop('scrollLeft') - w;
+			if (off <= 0) {
+				el.animate({ 'scrollLeft': off }, 500, function() {
+					el.prop('scrollLeft', (items.length - 2) * w);
+				});
+			} else
+				el.animate({ 'scrollLeft': off }, 500);
+		};
+
+	});
+</script>
