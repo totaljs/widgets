@@ -1,5 +1,4 @@
-# Links 2
+# Links 3
 
 - inline widget
-- supports multiple `title` colors
 - supports navigation rendering
