@@ -1,0 +1,3 @@
+# Expansion Panel
+
+- inline widget

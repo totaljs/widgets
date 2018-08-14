@@ -1,0 +1,38 @@
+<style>
+	.wi133items { margin: 0; padding: 0; border: 1px solid #E0E0E0; border-radius: 4px; }
+	.wi133item { list-style-type: none; padding: 0; margin: 0; border-top: 1px solid #E0E0E0; }
+	.wi133item:first-child { border-top: 0; }
+	.wi133item:first-child .wi133title { border-radius: 3px 3px 0 0; }
+	.wi133title { padding: 10px 15px; cursor: pointer; }
+	.wi133body { display: none; }
+	.wi133selected .wi133title { background-color: #4E82F7; font-weight: bold; color: white; }
+	.wi133selected .wi133body { display: block; }
+	.CMS_preview .wi133body { display: block !important; }
+</style>
+
+<div class="wbi wmi wpi wi133">
+	<div class="wi133items">
+		<div class="CMS_repeat CMS_remove wi133item">
+			<div class="wi133title nowrap CMS_edit">Lorem ipsum dolor sit amet</div>
+			<div class="wi133body CMS_widgets" data-cms-category="Inline"></div>
+		</div>
+		<div class="CMS_repeat CMS_remove wi133item">
+			<div class="wi133title nowrap CMS_edit">Lorem ipsum dolor sit amet</div>
+			<div class="wi133body CMS_widgets" data-cms-category="Inline"></div>
+		</div>
+		<div class="CMS_repeat CMS_remove wi133item">
+			<div class="wi133title nowrap CMS_edit">Lorem ipsum dolor sit amet</div>
+			<div class="wi133body CMS_widgets" data-cms-category="Inline"></div>
+		</div>
+	</div>
+</div>
+
+<script>
+	$(document).on('click', '.wi133item', function() {
+		var cls = 'wi133selected';
+		var el = $(this);
+		var container = el.closest('.wi133items');
+		container.find('.' + cls).rclass(cls);
+		el.aclass(cls);
+	});
+</script>
