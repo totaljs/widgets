@@ -1,0 +1,70 @@
+<style>
+	.wc165 { background-color: #0F5180; color: white; }
+	.wc165title { font-size: 40px; text-align: center; margin-bottom: 20px; font-weight: bold; }
+	.wc165claim { font-size: 24px; text-align: center; line-height: 28px; margin: 0 auto; display: block; max-width: 800px; padding: 0; }
+	.wc165padding { padding: 50px 20px; }
+	.wc165 ul { margin: 0; width: 100%; padding: 0; display: block; text-align: center; }
+	.wc165 li { margin: 0 10px; padding: 15px 10px 10px; display: inline-block; max-width: 300px; width: 100%; list-style-type: none; background-color: rgba(255,255,255,0.2); vertical-align: bottom; cursor: pointer; color: white; }
+	.wc165 li strong { display: block; font-size: 24px; line-height: 30px; }
+	.wc165 li span { font-size: 12px; }
+	.wc165 .wc165selected { padding-top: 25px; padding-bottom: 15px; background-color: white; color: black; }
+	.wc165 .wc165selected span { color: gray; }
+	.wc165image img { margin-left: auto; margin-right: auto; }
+	.wc165image { margin-bottom: 15px; }
+	.wc165content { display: none; }
+	.wc165visible { display: block !important; }
+	.CMS_preview .wc165content { display: block !important; }
+
+	@media(min-width: 769px) and (max-width: 980px) {
+		.wc165title { font-size: 34px; }
+		.wc165claim { font-size: 18px; line-height: 24px; max-width: 600px }
+		.wc165 li { max-width: 260px; }
+		.wc165 li strong { display: block; font-size: 18px; line-height: 24px; }
+		.wc165 li span { font-size: 11px; }
+	}
+
+	@media(max-width: 768px) {
+		.wc165title { font-size: 34px; }
+		.wc165claim { font-size: 18px; line-height: 24px; max-width: 600px }
+		.wc165 li { max-width: 600px; width: 44%; margin: 0 5px; }
+		.wc165 .wc165selected { padding-top: 15px; padding-bottom: 10px; background-color: white; color: black; }
+		.wc165 li strong { display: block; font-size: 16px; line-height: 18px; }
+		.wc165 li span { font-size: 10px; }
+	}
+
+</style>
+
+<div class="wm wb">
+	<div class="wc165 CMS_attribute">
+		<div class="wc165padding">
+			<div class="wc165image CMS_remove"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfQAAACWAQMAAAASU+gsAAAAA1BMVEX///+nxBvIAAAAAXRSTlO/Gzh2ewAAACBJREFUeAHtwTEBAAAAwiD7p7bDbmAJAAAAAAAAAAAAByWAAAE0glLZAAAAAElFTkSuQmCC" class="CMS_edit img-responsive" border="0" /></div>
+			<div class="nowrap wc165title CMS_edit CMS_search">PRICING</div>
+			<p class="nowrap wc165claim CMS_edit">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id voluptate nobis delectus, ducimus debitis eum!</p>
+		</div>
+		<ul>
+			<li class="wc165tab wc165selected">
+				<strong class="CMS_edit">Bundles</strong>
+				<span class="CMS_edit CMS_remove">Lorem ipsum dolor sit amet</span>
+			</li>
+			<li class="wc165tab">
+				<strong class="CMS_edit">All products</strong>
+				<span class="CMS_edit CMS_remove">Lorem ipsum dolor sit amet</span>
+			</li>
+		</ul>
+	</div>
+	<div class="CMS_widgets wc165content wc165visible" data-cms-widgets="Content,Column"></div>
+	<div class="CMS_widgets wc165content" data-cms-widgets="Content,Column"></div>
+</div>
+
+<script>
+	$(document).on('click', '.wc165tab', function() {
+		var cls = 'wc165selected';
+		var vis = 'wc165visible';
+		var el = $(this);
+		el.parent().find('.' + cls).rclass(cls);
+		el.aclass(cls);
+		var p = el.closest('.wb');
+		p.find('> .' + vis).rclass(vis);
+		p.find('> .wc165content').eq(el.index()).aclass(vis);
+	});
+</script>
