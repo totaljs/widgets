@@ -1,0 +1,52 @@
+<style>
+	.wi132 a { display: block; text-decoration: none; color: #505050; margin-bottom: 5px; }
+	.wi132 a:hover { color: black; }
+	.wi132 .fa { width: 14px; text-align: center; margin-right: 5px; }
+	.wi132title { font-size: 16px; font-weight: bold; margin-bottom: 15px; }
+</style>
+
+<script editor>
+
+	option('nav', 'Navigation', '', 'navigations');
+
+	exports.configure = function(options, el) {
+		el = el.find('.wi132');
+		if (options.nav) {
+			var nav = this.nav.findItem('id', options.nav);
+			el.find('nav').html('<div class="totaljs" style="padding:5px 10px;text-align:center">{0}</div>'.format(nav ? nav.name : options.nav));
+		} else {
+			el = el.find('.totaljs');
+			el.length && el.parent().html('<a href="#" class="wnowrap CMS_repeat"><i class="fa fa-caret-right CMS_edit"></i> <span class="CMS_edit CMS_unwrap">Lorem ipsum dolor</span></a>');
+		}
+	};
+
+</script>
+
+<script total>
+	exports.render = function(options, html, next) {
+
+		if (!options.nav)
+			return next(html);
+
+		var nav = F.global.navigations[options.nav];
+		var builder = [];
+
+		for (var i = 0; i < nav.children.length; i++) {
+			var item = nav.children[i];
+			if (item)
+				builder.push('<a href="{0}" class="wnowrap{2}"><i class="fa fa-{3}"></i> {1}</a>'.format(item.url, item.name, this.url && item.contains(this.url, true) ? ' wi132-selected' : ''), item.icon || 'caret-right');
+		}
+
+		next(html.replace(/<nav>.*?<\/nav>/g, '<nav>' + builder.join('') + '</nav>'));
+	};
+</script>
+
+<div class="wmi wpi wbi wi132">
+	<div class="wnowrap wi132title CMS_edit">Business tools</div>
+	<nav>
+		<a href="#" class="wnowrap CMS_repeat"><i class="fa fa-home CMS_edit"></i> <span class="CMS_edit CMS_unwrap">Lorem ipsum dolor</span></a>
+		<a href="#" class="wnowrap CMS_repeat CMS_remove"><i class="fa fa-envelope-o CMS_edit"></i> <span class="CMS_edit CMS_unwrap">Lorem ipsum dolor</span></a>
+		<a href="#" class="wnowrap CMS_repeat CMS_remove"><i class="fa fa-car CMS_edit"></i> <span class="CMS_edit CMS_unwrap">Lorem ipsum dolor</span></a>
+		<a href="#" class="wnowrap CMS_repeat CMS_remove"><i class="fa fa-cog CMS_edit"></i> <span class="CMS_edit CMS_unwrap">Lorem ipsum dolor</span></a>
+	</nav>
+</div>
