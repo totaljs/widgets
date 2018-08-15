@@ -46,7 +46,7 @@
 
 <script>
 
-	COMPONENT('wc133', function(self, config) {
+	COMPONENT('wc133', function(self) {
 
 		var images, container, current = 0;
 
@@ -61,7 +61,7 @@
 			$(window).on('resize', function() {
 				setTimeout2('wc133', function() {
 					var w = $(window);
-					$('.wc133preview').css({ width: w.width(), height: w.height() })
+					$('.wc133preview').css({ width: w.width(), height: w.height() });
 				}, 500);
 			});
 
