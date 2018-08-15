@@ -1,5 +1,5 @@
 <style>
-	.wi133items { margin: 0; padding: 0; border: 1px solid #E0E0E0; border-radius: 4px; }
+	.wi133items { margin: 0; padding: 0; border: 1px solid #E0E0E0; border-radius: 4px; background-color: white; }
 	.wi133item { list-style-type: none; padding: 0; margin: 0; border-top: 1px solid #E0E0E0; }
 	.wi133item:first-child { border-top: 0; }
 	.wi133item:first-child .wi133title { border-radius: 3px 3px 0 0; }
@@ -32,6 +32,12 @@
 	$(document).on('click', '.wi133item', function() {
 		var cls = 'wi133selected';
 		var el = $(this);
+
+		if (el.hlass(cls)) {
+			el.rclass(cls);
+			return;
+		}
+
 		var container = el.closest('.wi133items');
 		container.find('.' + cls).rclass(cls);
 		el.aclass(cls);
