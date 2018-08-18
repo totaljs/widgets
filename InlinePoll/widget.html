@@ -30,6 +30,7 @@
 		NEWSCHEMA('Poll', function(schema) {
 
 			schema.define('id', 'String(50)', true);
+			schema.define('name', 'String(80)', true);
 			schema.define('selected', '[Number]', true);
 
 			schema.setSave(function($) {
@@ -44,6 +45,9 @@
 
 				obj['+count'] = 1;
 				obj.updated = NOW;
+
+				// Creates an event
+				$SAVE('Event', { type: 'polls', id: model.id, body: $.model.name }, NOOP, $);
 
 				NOSQL('polls').modify(obj, true).first().where('id', model.id).callback($.done()).insert(function(doc) {
 					obj.id = model.id;
@@ -174,6 +178,7 @@
 			var obj = {};
 			obj.selected = [];
 			obj.id = id;
+			obj.name = self.find('.wi135-question').text();
 			self.find('.wi135-selected').each(function() {
 				var el = $(this);
 				obj.selected.push(el.index());

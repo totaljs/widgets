@@ -16,17 +16,23 @@
 
 		NEWSCHEMA('Like', function(schema) {
 
-			schema.define('id', 'String(100)', true);
+			schema.define('id', 'String(50)', true);
+			schema.define('name', 'String(70)');
 
 			schema.setSave(function($) {
 				var model = $.model;
 				var obj = {};
+
 				obj['+count'] = 1;
 				obj.updated = NOW;
+
 				NOSQL('likes').modify(obj, true).first().where('id', model.id).callback($.done()).insert(function(doc) {
 					obj.id = model.id;
 					doc.created = NOW;
 				});
+
+				// Creates an event
+				$SAVE('Event', { type: 'likes', id: model.id, body: model.name }, NOOP, $);
 			});
 
 			schema.setRead(function($) {
@@ -96,7 +102,13 @@
 				if (!self.hclass('wi136-liked') && !isPRIVATEMODE) {
 					localStorage.setItem(id, '1');
 					self.aclass('wi136-liked');
-					AJAX('POST /api/likes/', { id: ID }, self.stats);
+
+					var name = document.title;
+					var index = name.lastIndexOf('-');
+					if (index !== -1)
+						name = name.substring(0, index).trim();
+
+					AJAX('POST /api/likes/', { id: ID, name: name }, self.stats);
 					SETTER('wi136', 'like');
 				}
 			});
