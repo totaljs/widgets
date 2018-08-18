@@ -1,0 +1,187 @@
+<style>
+	$wi135color  : #5499F5;
+	.wi135 { display: none; }
+	.CMS_preview .wi135, .wi135-ready { display: block; }
+	.wi135-border { border: 1px solid #E0E0E0; border-radius: 3px; background-color: white; }
+	.wi135-border .wi135-body { padding: 0 15px 15px; }
+	.wi135-border .wi135-question { padding: 20px 15px; border-bottom: 1px solid #E0E0E0; }
+	.wi135-question { font-size: 16px; line-height: 18px; margin-bottom: 15px; font-weight: bold; }
+	.wi135-answer { margin-bottom: 5px; cursor: pointer; }
+	.wi135-answer-name:before { width: 16px; height: 16px; background-color: #D0D0D0; float: left; margin: 2px 5px 0 0; border-radius: 3px; content: ' '; font-family: 'Font Awesome 5 Free', FontAwesome; font-style: normal; font-weight: 900; text-align: center; padding: 9px 0 0 1px; font-size: 11px; display: block; line-height: 0; }
+	.wi135-selected { color: $wi135color; }
+	.wi135-selected .wi135-answer-name:before { background-color: $wi135color; content: '\f00c'; color: white; }
+	.wi135-single .wi135-answer-name:before { border-radius: 100%; }
+	.wi135-voted button { display: none; }
+	.wi135-voted .wi135-answer { cursor: inherit !important; }
+	.wi135-result { margin: 5px 0 10px; background-color: #F0F0F0; border-radius: 3px; }
+	.wi135-result div { height: 10px; background-color: $wi135color; border-radius: 3px; }
+	.wi135 button { width: 100%; height: 32px; background-color: $wi135color; color: white; border-radius: 3px; border: 0; margin-top: 10px; padding: 0 15px; outline: 0; font-size: 12px; }
+	.wi135 button:hover { opacity: 0.8; }
+	.wi135 button:disabled { background-color: #E0E0E0; color: gray; opacity: 1 !important; }
+	.wi135-votes { font-size: 11px; color: gray; border-top: 1px solid #E0E0E0; padding: 5px 0 0; margin-top: 15px; }
+</style>
+
+<script total>
+	exports.install = function() {
+
+		ROUTE('POST /api/poll/       *Poll --> @save', ['id:poll']);
+		ROUTE('GET  /api/poll/{id}/  *Poll --> @read', ['id:poll']);
+
+		NEWSCHEMA('Poll', function(schema) {
+
+			schema.define('id', 'String(50)', true);
+			schema.define('selected', '[Number]', true);
+
+			schema.setSave(function($) {
+
+				var obj = {};
+				var model = $.model;
+
+				for (var i = 0; i < model.selected.length; i++) {
+					var index = model.selected[i];
+					obj['+answer' + index] = 1;
+				}
+
+				obj['+count'] = 1;
+				obj.updated = NOW;
+
+				NOSQL('polls').modify(obj, true).first().where('id', model.id).callback($.done()).insert(function(doc) {
+					obj.id = model.id;
+					doc.created = NOW;
+				});
+			});
+
+			schema.setRead(function($) {
+				NOSQL('polls').one().where('id', $.id).callback($.callback);
+			});
+		});
+	};
+
+	exports.uninstall = function() {
+		UNINSTALL('route', 'id:poll');
+		UNINSTALL('schema', 'Poll');
+	};
+
+</script>
+
+<script editor>
+	option('type', 'Type', 'single', ['single', 'multiple']);
+	option('border', 'Border', true);
+	option('plural', 'Pluralization', '# votes, # vote, # votes, # votes');
+
+	exports.configure = function(options, el) {
+		var container = el.find('.wi135');
+		var a = options.type;
+		var r;
+
+		if (options.type === 'single')
+			r = 'multiple';
+		else
+			r = 'single';
+
+		container.tclass('wi135-border', options.border);
+		container.rclass('wi135-' + r).aclass('wi135-' + a);
+		container.attrd('plural', options.plural);
+	};
+</script>
+
+<div class="wmi wpi wbi">
+	<div class="wi135 wi135-single wi135-border" data-jc="wi135" data-jc-class="wi135-ready" data-plural="# votes, # vote, # votes, # votes">
+		<div class="wi135-question CMS_edit">Lorem ipsum dolor sit amet?</div>
+		<div class="wi135-body">
+			<div class="wi135-answers">
+				<div class="wi135-answer CMS_repeat">
+					<div class="nowrap wi135-answer-name CMS_edit">Answer 1</div>
+				</div>
+				<div class="wi135-answer CMS_repeat">
+					<div class="nowrap wi135-answer-name CMS_edit">Answer 2</div>
+				</div>
+				<div class="wi135-answer CMS_repeat">
+					<div class="nowrap wi135-answer-name CMS_edit">Answer 3</div>
+				</div>
+			</div>
+			<div><button class="CMS_edit" disabled="disabled">Vote now</button></div>
+		</div>
+	</div>
+</div>
+
+<script>
+
+	COMPONENT('wi135', function(self) {
+
+		var id;
+		var plural;
+
+		self.make = function() {
+
+			id = 'cmspoll' + HASH(self.html());
+			plural = self.attrd('plural').split(',').trim();
+
+			var vote = localStorage.getItem(id);
+			if (vote || isPRIVATEMODE) {
+				self.aclass('wi135-voted');
+				var voted = (vote || '').split(',');
+				self.find('.wi135-answer').each(function(index) {
+					if (voted.indexOf(index.toString()) !== -1)
+						$(this).aclass('wi135-selected');
+				});
+				self.stats();
+			}
+
+			self.event('click', '.wi135-answer', function() {
+				if (!self.hclass('wi135-voted')) {
+					var el = $(this);
+					var index = el.index();
+					var cls = 'wi135-selected';
+					self.hclass('wi135-single') && self.find('.' + cls).rclass(cls);
+					el.tclass(cls);
+					self.find('button').prop('disabled', !self.find('.' + cls).length);
+				}
+			});
+
+			self.event('click', 'button', function() {
+				if (!self.hclass('wi135-voted'))
+					self.vote();
+			});
+		};
+
+		self.stats = function() {
+			AJAX('GET /api/poll/{0}/'.format(id), function(response, status) {
+
+				if (status)
+					return;
+
+				var sum = 0;
+
+				Object.keys(response).forEach(function(key) {
+					if (key.substring(0, 6) === 'answer')
+						sum += (response[key] || 0);
+				});
+
+				self.find('.wi135-answer').each(function(index) {
+					var el = $(this);
+					var val = response['answer' + index] || 0;
+					var p = (val / sum) * 100;
+					el.html(el.text() + ' <b>({0}%)</b>'.format(p.format(1)));
+					el.append('<div class="wi135-result" data-index="{0}"><div style="width:{0}%"></div></div>'.format(p, index));
+				});
+
+				self.find('.wi135-body').append('<div class="wi135-votes">{0}</div>'.format(response.count.pluralize.apply(response.count, plural)));
+			});
+		};
+
+		self.vote = function() {
+			var obj = {};
+			obj.selected = [];
+			obj.id = id;
+			self.find('.wi135-selected').each(function() {
+				var el = $(this);
+				obj.selected.push(el.index());
+			});
+			self.aclass('wi135-voted');
+			localStorage.setItem(id, obj.selected.join(','));
+			AJAX('POST /api/poll/', obj, self.stats);
+		};
+	});
+
+</script>
