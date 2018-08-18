@@ -106,5 +106,6 @@
 	"InlineListGroup",
 	"ContentExpansionPanel",
 	"ContentTeam2",
-	"InlinePoll"
+	"InlinePoll",
+	"InlineLike"
 ]

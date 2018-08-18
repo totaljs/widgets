@@ -1,0 +1,120 @@
+<style>
+	$wi136color  : #1A88E0;
+	.wi136 { display: none; height: 40px; color: black; cursor: pointer; }
+	.CMS_preview .wi136, .wi136-ready { display: block; }
+	.wi136-button { border: 2px solid black; width: 40px; height: 40px; text-align: center; font-size: 18px; border-radius: 100px; padding: 6px 0 0; float: left; }
+	.wi136:hover .wi136-button { border-color: $wi136color; color: $wi136color; }
+	.wi136-liked .wi136-button { border-color: $wi136color; background-color: $wi136color; color: white !important; border-width: 4px; padding-top: 3px; }
+	.wi136-liked { color: $wi136color; cursor: inherit; }
+	.wi136-count { font-size: 14px; padding: 10px 0 0 0; margin-left: 50px; }
+</style>
+
+<script total>
+	exports.install = function() {
+
+		ROUTE('POST /api/likes/ *Like --> @save', ['id:like']);
+
+		NEWSCHEMA('Like', function(schema) {
+
+			schema.define('id', 'String(100)', true);
+
+			schema.setSave(function($) {
+				var model = $.model;
+				var obj = {};
+				obj['+count'] = 1;
+				obj.updated = NOW;
+				NOSQL('likes').modify(obj, true).first().where('id', model.id).callback($.done()).insert(function(doc) {
+					obj.id = model.id;
+					doc.created = NOW;
+				});
+			});
+
+			schema.setRead(function($) {
+				NOSQL('likes').one().where('id', $.options.id || $.id).callback($.callback);
+			});
+		});
+	};
+
+	exports.render = function(options, html, next, template) {
+
+		var self = this;
+		var id = self.url.hash().toString().replace('-', 'X');
+		var key = 'like' + id;
+
+		// Cache for multiple usage in the same page
+		if (self.repository[key]) {
+			next(html.replace('data-count="0"', 'data-count="{0}"'.format(self.repository[key])))
+			return;
+		}
+
+		$GET('Like', { id: id }, function(err, response) {
+			var val = self.repository[key] = response ? (response.count || 0) : 0;
+			next(html.replace('data-count="0"', 'data-count="{0}"'.format(val)));
+		});
+	};
+
+	exports.uninstall = function() {
+		UNINSTALL('route', 'id:like');
+		UNINSTALL('schema', 'Like');
+	};
+
+</script>
+
+<script editor>
+	option('plural', 'Pluralization', '# likes, # like, # likes, # likes');
+
+	exports.configure = function(options, el) {
+		var container = el.find('.wi136');
+		container.attrd('plural', options.plural);
+	};
+</script>
+
+<div class="wmi wpi wbi">
+	<div class="wi136" data-jc="wi136" data-jc-class="wi136-ready" data-count="0" data-plural="# likes, # like, # likes, # likes">
+		<div class="wi136-button"><i class="fa fa-hand-peace CMS_edit"></i></div>
+		<div class="wi136-count CMS_edit">Have liked this page?</div>
+	</div>
+</div>
+
+<script>
+
+	COMPONENT('wi136', function(self) {
+		var ID, id;
+
+		self.make = function() {
+
+			ID = HASH(NAV.url).toString().replace('-', 'X');
+			id = 'cmslike' + ID;
+
+			var count = +self.attrd('count');
+			self.likes(count);
+
+			var vote = isPRIVATEMODE ? '-1' : localStorage.getItem(id);
+			vote && self.aclass('wi136-liked');
+
+			self.event('click', function() {
+				if (!self.hclass('wi136-liked') && !isPRIVATEMODE) {
+					localStorage.setItem(id, '1');
+					self.aclass('wi136-liked');
+					AJAX('POST /api/likes/', { id: ID }, self.stats);
+					SETTER('wi136', 'like');
+				}
+			});
+		};
+
+		self.like = function() {
+			self.aclass('wi136-liked');
+			self.stats();
+		};
+
+		self.likes = function(count) {
+			count && self.find('.wi136-count').html(count.pluralize.apply(count, self.attrd('plural').split(',').trim()));
+		};
+
+		self.stats = function() {
+			var count = +self.attrd('count');
+			self.likes(count + 1);
+		};
+	});
+
+</script>

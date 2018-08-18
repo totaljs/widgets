@@ -1,5 +1,5 @@
 <style>
-	$wi135color  : #5499F5;
+	$wi135color  : #1A88E0;
 	.wi135 { display: none; }
 	.CMS_preview .wi135, .wi135-ready { display: block; }
 	.wi135-border { border: 1px solid #E0E0E0; border-radius: 3px; background-color: white; }
@@ -24,8 +24,8 @@
 <script total>
 	exports.install = function() {
 
-		ROUTE('POST /api/poll/       *Poll --> @save', ['id:poll']);
-		ROUTE('GET  /api/poll/{id}/  *Poll --> @read', ['id:poll']);
+		ROUTE('POST /api/polls/       *Poll --> @save', ['id:poll']);
+		ROUTE('GET  /api/polls/{id}/  *Poll --> @read', ['id:poll']);
 
 		NEWSCHEMA('Poll', function(schema) {
 
@@ -117,8 +117,8 @@
 			id = 'cmspoll' + HASH(self.html());
 			plural = self.attrd('plural').split(',').trim();
 
-			var vote = localStorage.getItem(id);
-			if (vote || isPRIVATEMODE) {
+			var vote = isPRIVATEMODE ? '-1' : localStorage.getItem(id);
+			if (vote) {
 				self.aclass('wi135-voted');
 				var voted = (vote || '').split(',');
 				self.find('.wi135-answer').each(function(index) {
@@ -129,7 +129,7 @@
 			}
 
 			self.event('click', '.wi135-answer', function() {
-				if (!self.hclass('wi135-voted')) {
+				if (!self.hclass('wi135-voted') && !isPRIVATEMODE) {
 					var el = $(this);
 					var index = el.index();
 					var cls = 'wi135-selected';
@@ -146,7 +146,7 @@
 		};
 
 		self.stats = function() {
-			AJAX('GET /api/poll/{0}/'.format(id), function(response, status) {
+			AJAX('GET /api/polls/{0}/'.format(id), function(response, status) {
 
 				if (status)
 					return;
@@ -180,7 +180,7 @@
 			});
 			self.aclass('wi135-voted');
 			localStorage.setItem(id, obj.selected.join(','));
-			AJAX('POST /api/poll/', obj, self.stats);
+			AJAX('POST /api/polls/', obj, self.stats);
 		};
 	});
 
