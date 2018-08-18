@@ -47,7 +47,7 @@
 				obj.updated = NOW;
 
 				// Creates an event
-				$SAVE('Event', { type: 'polls', id: model.id, body: $.model.name }, NOOP, $);
+				$SAVE('Event', { type: 'polls/add', id: model.id, body: $.model.name }, NOOP, $);
 
 				NOSQL('polls').modify(obj, true).first().where('id', model.id).callback($.done()).insert(function(doc) {
 					obj.id = model.id;

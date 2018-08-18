@@ -32,7 +32,7 @@
 				});
 
 				// Creates an event
-				$SAVE('Event', { type: 'likes', id: model.id, body: model.name }, NOOP, $);
+				$SAVE('Event', { type: 'likes/add', id: model.id, body: model.name }, NOOP, $);
 			});
 
 			schema.setRead(function($) {
