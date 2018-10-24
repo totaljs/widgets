@@ -12,6 +12,7 @@
 <script editor>
 
 	option('nav', 'Navigation', '', 'navigations');
+	option('lng', 'Language', '', 'languages');
 
 	exports.configure = function(options, el) {
 		el = el.find('.wc159');
@@ -34,8 +35,10 @@
 
 		for (var i = 0; i < nav.children.length; i++) {
 			var item = nav.children[i];
-			if (item)
-				builder.push('<a href="{0}"{2}>{1}</a>'.format(item.url, item.name, this.url && item.contains(this.url, true) ? ' class="wc159-selected"' : ''));
+			if (item) {
+				if (!options.lng || item.language === options.lng)
+					builder.push('<a href="{0}"{2}>{1}</a>'.format(item.url, item.name, this.url && item.contains(this.url, true) ? ' class="wc159-selected"' : ''));
+			}
 		}
 
 		next(html.replace(/<nav>.*?<\/nav>/g, '<nav>' + builder.join('') + '</nav>'));
