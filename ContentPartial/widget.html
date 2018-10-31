@@ -17,24 +17,16 @@
 </script>
 
 <script total>
-
 	exports.render = function(options, html, next) {
-
 		if (!options.id)
 			return next('');
-
-		var item = F.global.partial.findItem('id', options.id);
-		if (!item)
-			return next('');
-
-		NOSQL('pages').one().where('id', options.id).fields('body', 'widgets').callback(function(err, response) {
-			if (response)
-				response.body.CMSrender(response.widgets, body => next(html.substring(0, html.indexOf('<div class="totaljs')) + body + '</div>'));
+		this.CMSpartial(options.id, function(err, response) {
+			if (response && response.body)
+				next(html.substring(0, html.indexOf('<div class="totaljs')) + response.body + '</div>');
 			else
 				next('');
 		});
 	};
-
 </script>
 
 <div class="wm wp wb wc146">
