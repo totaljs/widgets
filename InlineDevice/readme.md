@@ -1,0 +1,3 @@
+# Device
+
+- inline widget

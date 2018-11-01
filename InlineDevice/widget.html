@@ -1,0 +1,36 @@
+<div class="wm wp wb wi138 CMS_widgets" data-cms-category="Inline"></div>
+
+<script editor>
+	option('xs', 'Extra small display', true);
+	option('sm', 'Small display', true);
+	option('md', 'Medium display', true);
+	option('lg', 'Large display', true);
+
+	exports.configure = function(options, el) {
+
+		var cls = [];
+		var info = [];
+
+		if (options.xs)
+			info.push('XS');
+		else
+			cls.push('hidden-xs');
+
+		if (options.sm)
+			info.push('SM');
+		else
+			cls.push('hidden-sm');
+
+		if (options.md)
+			info.push('MD');
+		else
+			cls.push('hidden-md');
+
+		if (options.lg)
+			info.push('LG');
+		else
+			cls.push('hidden-lg');
+
+		el.find('.wi138').rclass2('hidden-').aclass(cls.join(' ')).attrd('cms-info', info.join(', '));
+	};
+</script>

@@ -116,5 +116,7 @@
 	"ContentHistory",
 	"ContentMembers",
 	"ContentPeople",
-	"ContentChapters"
+	"ContentChapters",
+	"ContentDevice",
+	"InlineDevice"
 ]
