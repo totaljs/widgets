@@ -2,7 +2,7 @@
 	.wc114 { padding: 0 20px; margin-bottom: 20px; }
 	.wc114-item { border-left: 1px solid #E0E0E0; padding: 25px 0 5px; min-height: 110px; overflow: hidden; }
 	.wc114-icon { float: left; width: 90px; font-size: 40px; text-align: center; }
-	.wc114-icon .fa { padding-top: 5px; }
+	.wc114-icon i { padding-top: 5px; }
 	.wc114-text { margin-left: 90px; padding-right: 10px; line-height: 16px; }
 	.wc114-item h3 { font-size: 16px; margin: 2px 0 5px; }
 	.wc114-item p { margin: 0 0 20px; line-height: 16px; }
@@ -32,7 +32,7 @@
 		var icon = '<i class="fa fa-home CMS_edit"></i>';
 		el.find('.wc114-icon').each(function() {
 			var el = $(this);
-			var fa = el.find('.fa');
+			var fa = el.find('i');
 			if (options.type === 'icons') {
 				!fa.length && el.html(icon);
 			} else {
