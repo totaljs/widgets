@@ -118,5 +118,7 @@
 	"ContentPeople",
 	"ContentChapters",
 	"ContentDevice",
-	"InlineDevice"
+	"InlineDevice",
+	"ContentView",
+	"InlineView"
 ]
