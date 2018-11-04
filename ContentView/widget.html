@@ -1,10 +1,10 @@
 <script editor>
 
-	option('view', 'View name', '');
+	option('name', 'View name', '');
 
 	exports.configure = function(options, el) {
-		el.attrd('cms-info', options.view);
-		el.find('.totaljs').html('View: ' + options.view);
+		el.attrd('cms-info', options.name);
+		el.find('.totaljs').html('View: ' + options.name);
 	};
 
 </script>
@@ -14,7 +14,7 @@
 		var self = this;
 		var layout = self.layoutName;
 		self.layoutName = '';
-		var html = template.substring(0, template.indexOf('>') + 1) + self.view(options.view, null, true) + '</div>';
+		var html = template.substring(0, template.indexOf('>') + 1) + self.view(options.name, null, true) + '</div>';
 		self.layoutName = layout;
 		next(html);
 	};
