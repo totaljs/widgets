@@ -120,5 +120,7 @@
 	"ContentDevice",
 	"InlineDevice",
 	"ContentView",
-	"InlineView"
+	"InlineView",
+	"ContentComponent",
+	"InlineComponent"
 ]

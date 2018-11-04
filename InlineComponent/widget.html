@@ -1,0 +1,18 @@
+<script editor>
+	option('name', 'Component', '');
+	exports.configure = function(options, el) {
+		el.attrd('cms-info', options.name);
+		el.find('.totaljs').html('Component: ' + options.name);
+	};
+
+</script>
+
+<script total>
+	exports.render = function(options, html, next, template) {
+		next(template.substring(0, template.indexOf('>') + 1) + this.component(options.name) + '</div>');
+	};
+</script>
+
+<div class="wm wp wb wi140">
+	<div class="totaljs">Component</div>
+</div>
