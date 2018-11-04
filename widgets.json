@@ -122,5 +122,6 @@
 	"ContentView",
 	"InlineView",
 	"ContentComponent",
-	"InlineComponent"
+	"InlineComponent",
+	"ContentPromo2"
 ]
