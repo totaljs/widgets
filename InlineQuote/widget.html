@@ -1,0 +1,33 @@
+<style>
+	.wi141 blockquote { font-size: 25px; }
+	.wi141align-left { padding-left: 20px; border-left: 5px solid black; }
+	.wi141align-center { text-align: center;  padding-left: 20px; border-left: 5px solid black; }
+	.wi141align-right { text-align: right; padding: 0; border: none; padding-right: 20px; border-right: 5px solid black; }
+	.wi141background-yellow { border-color: #F2E010; }
+	.wi141background-red { border-color: #E10505; }
+	.wi141background-green { border-color: #20BC50; }
+	.wi141background-blue { border-color: #75A1f2; }
+	.wi141 small:before { content: '\2014\00A0'; }
+	.wi141 small { font-size: 15px; color: #7d8083; }
+
+</style>
+
+<script editor>
+
+	option('align', 'Align', 'left', ['left', 'center', 'right']);
+	option('color', 'Color', 'blue', [{ text: 'Yellow', value: 'yellow' }, { text: 'Red', value: 'red' }, { text: 'Blue', value: 'blue' }, { text: 'Green', value: 'green' }]);
+
+	exports.configure = function(options, el) {
+		var container = el.find('.wi141 blockquote');
+		container.rclass2('wi141background-').aclass('wi141background-' + options.color);
+		container.rclass2('wi141align-').aclass('wi141align-' + options.align);
+	};
+
+</script>
+
+<div class="wmi wpi wbi wi141">
+	<blockquote class="wi141background-blue wi141align-left">
+		<p class="nmb CMS_edit">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+		<small class="CMS_edit CMS_remove">John Doe</small>
+	</blockquote>
+</div>
