@@ -123,5 +123,6 @@
 	"InlineView",
 	"ContentComponent",
 	"InlineComponent",
-	"ContentPromo2"
+	"ContentPromo2",
+	"InlineQuote"
 ]
