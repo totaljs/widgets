@@ -1,6 +1,7 @@
 <style>
-	.wc181 { padding-bottom: 0; color: white; background-color: #202020; height: 210px; }
-	.wc181link { line-height: 16px; display: block; margin-top: 15px; }
+	.wc181 { padding-bottom: 0; color: white; background-color: #202020; height: 240px; padding: 30px; }
+	.wc181link { line-height: 16px; display: block; float: left; width: 250px; margin-left: 20px; }
+	.wc181link:first-child { margin-left: 0; }
 	.wc181link img { margin-bottom: 10px; }
  	.wc181link b { color: white; }
  	.wc181link * { display: block; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; }
@@ -8,43 +9,41 @@
  	.wc181link:hover { text-decoration: none !important; }
  	.wc181headline { font-weight: bold; }
  	.wc181claim { color: yellow; }
- 	.wc181meta { font-size: 28px; line-height: 32px; padding: 75px 0 0 18px; }
+ 	.wc181meta { font-size: 28px; line-height: 32px; padding: 55px 0 0 10px; float: left; width: 500px; }
+ 	.wc181links { float: right; }
 
 	@media(max-width: 1191px) {
-		.wc181 { height: 182px; }
-	 	.wc181meta { padding-top: 60px; }
+		.wc181 { height: 175px; padding: 25px; }
+	 	.wc181meta { padding-top: 30px; width: 400px; font-size: 26px; }
+	 	.wc181link { width: 155px; }
 	}
 
 	@media(max-width: 991px) {
-		.wc181 { height: 150px; }
-	 	.wc181meta { padding-top: 54px; font-size: 22px; line-height: 26px; }
+		.wc181 { height: 150px; padding: 15px; }
+	 	.wc181meta { padding-top: 35px; font-size: 22px; line-height: 26px; width: 350px;  }
+	 	.wc181link { width: 140px; }
 	}
 
 	@media(max-width: 768px) {
-		.wc181meta { padding: 0; }
+		.wc181meta { padding: 0; float: none; width: 100%; margin-bottom: 20px; }
+		.wc181links { float: none; }
+		.wc181link { float: left; width: 50%; margin: 0 0 10px 0; padding: 0 10px; }
+		.wc181link:first-child { padding-left: 0; }
+		.wc181link:last-child { padding-right: 0; }
 		.wc181 { height: auto; padding: 10px 20px; }
 	}
 </style>
 
 <div class="wm wb wp wc181 CMS_attribute">
 	<div class="wc181body">
-		<div class="row">
-			<div class="col-sm-6">
-				<div class="wc181meta">
-					<div class="wc181headline CMS_edit">Get a free game to play</div>
-					<div class="wc181claim CMS_edit">every week</div>
-				</div>
-			</div>
-			<div class="col-sm-6">
-				<div class="row">
-					<div class="col-xs-6">
-						<a href="#" class="wc181link"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAV4AAADIAQMAAACarRuzAAAAA1BMVEXW1taWrGEgAAAAHklEQVR4Ae3BgQAAAADDoPtTH2TVAgAAAAAAAAAA4CMoAAHpI/lbAAAAAElFTkSuQmCC" alt="" class="img-responsive CMS_edit" data-cms-width="350" data-cms-height="200" /><b class="CMS_edit">Last Day of June</b><span class="CMS_edit">Free Now - Jul 04</span></a>
-					</div>
-					<div class="col-xs-6">
-						<a href="#" class="wc181link"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAV4AAADIAQMAAACarRuzAAAAA1BMVEXW1taWrGEgAAAAHklEQVR4Ae3BgQAAAADDoPtTH2TVAgAAAAAAAAAA4CMoAAHpI/lbAAAAAElFTkSuQmCC" alt="" class="img-responsive CMS_edit" data-cms-width="350" data-cms-height="200" /><b class="CMS_edit">Last Day of June</b><span class="CMS_edit">Free Now - Jul 04</a>
-					</div>
-				</div>
-			</div>
+		<div class="wc181meta">
+			<div class="wc181headline CMS_edit">Get a free game to play</div>
+			<div class="wc181claim CMS_edit">every week</div>
+		</div>
+		<div class="wc181links">
+			<a href="#" class="wc181link"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAV4AAADIAQMAAACarRuzAAAAA1BMVEXW1taWrGEgAAAAHklEQVR4Ae3BgQAAAADDoPtTH2TVAgAAAAAAAAAA4CMoAAHpI/lbAAAAAElFTkSuQmCC" alt="" class="img-responsive CMS_edit" data-cms-width="350" data-cms-height="200" /><b class="CMS_edit">Last Day of June</b><span class="CMS_edit">Free Now - Jul 04</span></a>
+			<a href="#" class="wc181link"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAV4AAADIAQMAAACarRuzAAAAA1BMVEXW1taWrGEgAAAAHklEQVR4Ae3BgQAAAADDoPtTH2TVAgAAAAAAAAAA4CMoAAHpI/lbAAAAAElFTkSuQmCC" alt="" class="img-responsive CMS_edit" data-cms-width="350" data-cms-height="200" /><b class="CMS_edit">Last Day of June</b><span class="CMS_edit">Free Now - Jul 04</a>
 		</div>
 	</div>
+	<div class="clearfix"></div>
 </div>
