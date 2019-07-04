@@ -124,5 +124,7 @@
 	"ContentComponent",
 	"InlineComponent",
 	"ContentPromo2",
-	"InlineQuote"
+	"InlineQuote",
+	"ContentCard",
+	"ContentBanner"
 ]
