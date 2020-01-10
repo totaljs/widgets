@@ -82,7 +82,7 @@
 				builder.push('<b>Email address:</b><br />' + model.email);
 				builder.push('<b>Question:</b><br />' + model.body);
 
-				F.logmail(F.global.config.emailcontactform, 'Ask a Question', builder.join('\n\n')).reply(model.email, true);
+				F.logmail(F.global.config ? F.global.config.emailcontactform : PREF.emailcontactform, 'Ask a Question', builder.join('\n\n')).reply(model.email, true);
 				$.success();
 			});
 

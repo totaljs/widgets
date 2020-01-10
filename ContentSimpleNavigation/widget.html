@@ -30,7 +30,7 @@
 		if (!options.nav)
 			return next(html);
 
-		var nav = F.global.navigations[options.nav];
+		var nav = F.global.navigations ? F.global.navigations[options.nav] : MAIN.navigations[options.nav];
 		var builder = [];
 
 		for (var i = 0; i < nav.children.length; i++) {
