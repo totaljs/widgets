@@ -8,7 +8,7 @@
 
 - layout `wl103`
 - columns/content `wc185`
-- inline `wi141`
+- inline `wi142`
 
 ## Good to know
 
