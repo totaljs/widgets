@@ -4,17 +4,40 @@
 	.wc172title { text-align: center; font-weight: bold; color: black; }
 	.wc172title a { color: black; }
 	.wc172item p { font-size: 11px; color: #A0A0A0; text-align: center; line-height: 14px; max-width: 250px; margin: 10px auto 0; display: block; }
+	.wc172-smoke .wc172icon { background-color: #E0E0E0; color: black !important; }
+	.wc172-yellow .wc172icon { background-color: #F6BB42; }
+	.wc172-orange .wc172icon { background-color: #E9573F; }
+	.wc172-green .wc172icon { background-color: #8CC152; }
+	.wc172-blue .wc172icon { background-color: #3BAFDA; }
+	.wc172-red .wc172icon { background-color: #DA4453; }
+	.wc172-pink .wc172icon { background-color: #D770AD; }
+	.wc172-mint .wc172icon { background-color: #37BC9B; }
+	.wc172-purple .wc172icon { background-color: #967ADC; }
+	.wc172-white .wc172icon { background-color: white; color: black !important; }
+	.wc172-black .wc172icon { background-color: #202020; }
 
 	@media(min-width: 768px) {
 		.wc172item:nth-last-child(1) { margin-bottom: 0; }
 		.wc172item:nth-last-child(2) { margin-bottom: 0; }
 		.wc172item:nth-last-child(3) { margin-bottom: 0; }
 	}
+
 	@media(max-width: 767px) {
 		.wc172item:nth-last-child(1) { margin-bottom: 0; }
 		.wc172item:nth-last-child(2) { margin-bottom: 0; }
 	}
+
 </style>
+
+<script editor>
+
+	option('color', 'Color', 'black', [{ text: 'Silver', value: 'smoke' }, { text: 'Yellow', value: 'yellow' }, { text: 'Red', value: 'red' }, { text: 'Blue', value: 'blue' }, { text: 'Green', value: 'green' }, { text: 'Pink', value: 'pink' }, { text: 'Orange', value: 'orange' }, { text: 'Purple', value: 'purple' }, { text: 'Mint', value: 'mint' }, { text: 'Black', value: 'black' }, { text: 'White', value: 'white' }]);
+
+	exports.configure = function(options, el) {
+		el.rclass2('wc172-').aclass('wc172-' + options.color);
+	};
+
+</script>
 
 <div class="wm wp wb wc172">
 	<div class="row">
