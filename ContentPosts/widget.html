@@ -1,16 +1,12 @@
 <style>
-	.wc183 { }
 	.wc183item { background-color: #F8F8F8; border: 1px solid #E0E0E0; margin-bottom: 30px; }
-	.wc183title {}
 	.wc183link { height: 76px; display: block; overflow: hidden; line-height: 16px; padding: 10px 10px 0; margin-bottom: 10px; color: gray; }
 	.wc183link strong { color: black; }
 	.wc183link span { margin-left: 5px; }
 	.wc183link:hover, .wc183link:hover * { text-decoration: none !important; }
-
 	@media (min-width: 768px) and (max-width: 991px) {
 		.wc183link { font-size: 12px; }
 	}
-
 </style>
 
 <script editor>
@@ -23,8 +19,7 @@
 
 </script>
 
-
-<div class="wm wp wb wc149">
+<div class="wm wp wb wc183">
 	<div class="row">
 		<div class="col-sm-3 CMS_repeat CMS_remove">
 			<div class="wc183item">
@@ -52,21 +47,3 @@
 		</div>
 	</div>
 </div>
-
-<script>
-
-	function wc149_submit(el) {
-		var scope = el.scope();
-		if (scope && scope.can()) {
-			scope.reset();
-			AJAX('POST /api/contact/', scope.get(), function(response) {
-				scope.set('response', response);
-				if (response.success) {
-					scope.default();
-					scope.set('response', null, 5000);
-				}
-			});
-		}
-	}
-
-</script>
