@@ -127,5 +127,6 @@
 	"InlineQuote",
 	"ContentCard",
 	"ContentBanner",
-	"ContentPosts"
+	"ContentPosts",
+	"ContentBufferwall"
 ]

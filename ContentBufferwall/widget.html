@@ -1,0 +1,66 @@
+<style>
+
+	.wc184item { background-color: #F8F8F8; border: 1px solid #E0E0E0; margin-bottom: 25px; }
+	.wc184link { height: 76px; display: block; overflow: hidden; line-height: 16px; padding: 10px 10px 0; color: gray; }
+	.wc184link strong { color: black; }
+	.wc184link span { margin-left: 5px; }
+	.wc184link:hover, .wc184link:hover * { text-decoration: none !important; }
+	.wc184date { font-size: 12px; color: gray; padding: 3px 10px 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+	@media (min-width: 768px) and (max-width: 991px) {
+		.wc184link { font-size: 12px; }
+	}
+
+</style>
+
+<script editor>
+	option('layout', 'Layout', 'col-sm-3', [{ text: '4', value: 'col-sm-3' }, { text: '3', value: 'col-sm-4' }]);
+	option('token', 'Token', '');
+	option('count', 'Count', 4);
+	option('language', 'Language', 'en');
+	option('tag', 'Tag', '');
+	option('detail', 'URL to detail', 'https://blog.totaljs.com/posts/{0}/');
+</script>
+
+<script total>
+
+	exports.install = function() {
+		this.variables('bufferwall', 'YOUR_DEFAULT_TOKEN');
+	};
+
+	exports.render = function(options, html, next) {
+
+		if (!options.token && !MAIN.variables.bufferwall)
+			return next('');
+
+		RESTBuilder.make(function(builder) {
+
+			var filter = {};
+
+			filter.limit = options.count || 8;
+			options.tag && (filter.tag = options.tag);
+			filter.languageid = options.language || 'en';
+
+			builder.url('https://bufferwall.com/api/ex/posts/'.format(options.type));
+			builder.get(filter);
+			builder.header('x-token', options.token || MAIN.variables.bufferwall);
+			builder.timeout(1500);
+			builder.exec(function(err, data) {
+				var builder = ['<div class="row">'];
+				if (data && data.items) {
+					for (var i = 0; i < data.items.length; i++) {
+						var item = data.items[i];
+						var name = item.name.encode();
+						var url = (options.detail || 'https://blog.totaljs.com/posts/{0}/').format(item.id);
+						builder.push('<div class="' + (options.layout || 'col-sm-3') + '"><div class="wc184item"><a href="' + url + '" class="wc184image"><img src="' + item.picture + '" alt="' + name + '" class="img-responsive" border="0" /></a><a href="' + url + '" class="wc184link"><strong>' + name + '</strong><span>' + item.summary.encode() + '</span></a><div class="wc184date">' + item.dtpublished.format('dd MMM. yyyy') + (item.readingtime ? (', ' + item.readingtime + ' min. read') : '') + '</div></div></div>');
+					}
+				}
+				next(html.substring(0, html.indexOf('<div class="totaljs')) + builder.join('') + '</div></div></div>');
+			});
+		});
+	};
+</script>
+
+<div class="wm wp wb wc184">
+	<div class="totaljs" style="padding:5px 10px;text-align:center">Bufferwall posts</div>
+</div>
