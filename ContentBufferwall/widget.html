@@ -52,7 +52,7 @@
 						var item = data.items[i];
 						var name = item.name.encode();
 						var url = (options.detail || 'https://blog.totaljs.com/posts/{0}/').format(item.id);
-						builder.push('<div class="' + (options.layout || 'col-sm-3') + '"><div class="wc184item"><a href="' + url + '" class="wc184image"><img src="' + item.picture + '" alt="' + name + '" class="img-responsive" border="0" /></a><a href="' + url + '" class="wc184link"><strong>' + name + '</strong><span>' + item.summary.encode() + '</span></a><div class="wc184date">' + item.dtpublished.format('dd MMM. yyyy') + (item.readingtime ? (', ' + item.readingtime + ' min. read') : '') + '</div></div></div>');
+						builder.push('<div class="' + (options.layout || 'col-sm-3') + '"><div class="wc184item"><a href="' + url + '" class="wc184image" target="_blank"><img src="' + item.picture + '" alt="' + name + '" class="img-responsive" border="0" /></a><a href="' + url + '" class="wc184link" target="_blank"><strong>' + name + '</strong><span>' + item.summary.encode() + '</span></a><div class="wc184date">' + item.dtpublished.format('dd MMM. yyyy') + (item.readingtime ? (', ' + item.readingtime + ' min. read') : '') + '</div></div></div>');
 					}
 				}
 				next(html.substring(0, html.indexOf('<div class="totaljs')) + builder.join('') + '</div></div></div>');
