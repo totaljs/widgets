@@ -1,14 +1,14 @@
 <style>
 	.wc149 { padding-bottom: 0; position: relative; }
 	.wc149kv { margin-bottom: 15px; border-radius: 3px; padding: 8px 15px; background-color: #F0F0F0; }
-	.wc149kv .fa { margin-right: 5px; }
+	.wc149kv i { margin-right: 5px; }
 	.wc149kvk { font-size: 12px; font-weight: bold; }
 	.wc149kvv { font-size: 16px; }
 	.wc149kvv a { color: black; display: block; }
 	.wc149 button[name="submit"] { border: 1px solid #D0D0D0; background-color: #F0F0F0; color: black; border-radius: 3px; height: 40px; width: 100%; cursor: pointer; outline: 0; font-weight: bold; }
 	.wc149 button[name="submit"]:hover { background-color: #E0E0E0; }
 	.wc149 button[name="submit"]:disabled { background-color: white; color: #A0A0A0; }
-	.wc149 button[name="submit"] .fa { margin-right: 5px; }
+	.wc149 button[name="submit"] i { margin-right: 5px; }
 	.wc149meta { border: 1px solid #E0E0E0; border-radius: 3px; }
 	.wc149meta1 img { border-radius: 3px 3px 0 0; }
 	.wc149meta2 img { border-radius: 0 0 3px 3px; }
@@ -74,30 +74,30 @@
 				<h3 class="CMS_edit">Contact form</h3>
 				<p class="CMS_edit">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, fugit itaque labore! Consequatur, quibusdam officia ex doloribus corporis sint quaerat.</p>
 			</div>
-			<div data-jc-scope="?" class="wm hidden CMS_visible" data-jc-class="hidden">
+			<div data-scope="?" class="wm hidden CMS_visible" data-jc-class="hidden">
 				<div class="row">
 					<div class="col-md-5 col-sm-6 wmi">
-						<div data-jc="textbox__firstname__required:true;maxlength:30__''" class="CMS_edit">First name</div>
+						<div data---="input__?.firstname__required:true;maxlength:30__''" class="CMS_edit CMS_input">First name</div>
 					</div>
 					<div class="col-md-5 col-sm-6 wmi">
-						<div data-jc="textbox__lastname__required:true;maxlength:30__''" class="CMS_edit">Last name</div>
+						<div data---="input__?.lastname__required:true;maxlength:30__''" class="CMS_edit CMS_input">Last name</div>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-5 col-sm-6 wmi">
-						<div data-jc="textbox__email__required:true;maxlength:120;type:email__'@'" class="CMS_edit">Email</div>
+						<div data---="input__?.email__required:true;maxlength:120;type:email__'@'" class="CMS_edit CMS_input">Email</div>
 					</div>
 					<div class="col-md-5 col-sm-6 wmi">
-						<div data-jc="textbox__phone__maxlength:30__''" class="CMS_edit">Phone number</div>
+						<div data---="textbox__?.phone__maxlength:30__''" class="CMS_edit CMS_input">Phone number</div>
 					</div>
 				</div>
 				<div class="wm">
-					<div data-jc="textarea__body__required:true;height:80__''" class="CMS_edit">Questions</div>
+					<div data---="textarea__body__required:true;height:80__''" class="CMS_edit CMS_input">Questions</div>
 				</div>
 				<div data-bind="?.response__show:value && value.success" class="wc149success hidden CMS_visible">
 					<i class="fa fa-check-circle CMS_edit"></i><span class="CMS_unwrap CMS_edit">Thank you. Your message has been sent successfully.</span>
 				</div>
-				<div data-jc="validation__?" class="row">
+				<div data---="validation__?" class="row">
 					<div class="col-md-4 col-sm-6">
 						<button name="submit" class="button exec" data-exec="wc149_submit"><i class="fa fa-send"></i><span class="CMS_unwrap CMS_edit">SUBMIT</span></button>
 					</div>
