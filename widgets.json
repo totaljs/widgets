@@ -126,5 +126,6 @@
 	"ContentPromo2",
 	"InlineQuote",
 	"ContentCard",
-	"ContentBanner"
+	"ContentBanner",
+	"ContentPost"
 ]
