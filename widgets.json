@@ -131,5 +131,6 @@
 	"ContentBufferwall",
 	"ContentContactForm",
 	"InlinePair",
-	"ContentSummary"
+	"ContentSummary",
+	"InlineCaption"
 ]
