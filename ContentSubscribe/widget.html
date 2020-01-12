@@ -20,11 +20,11 @@
 </style>
 
 <script>
-	COMPONENT('wc130', '', function(self, config) {
+	COMPONENT('wc130', function(self, config) {
 		self.blind();
 		self.make = function() {
 			self.event('keydown', 'input', function(e) {
-				if (e.keyCode === 13) {
+				if (e.which === 13) {
 					e.preventDefault();
 					e.stopPropagation();
 					self.find('button').trigger('click');
