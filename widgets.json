@@ -129,5 +129,6 @@
 	"ContentBanner",
 	"ContentPosts",
 	"ContentBufferwall",
-	"ContentContactForm"
+	"ContentContactForm",
+	"InlinePair"
 ]

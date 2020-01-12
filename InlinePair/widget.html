@@ -1,0 +1,44 @@
+<style>
+	.wi142-smaller { font-size: 12px; }
+	.wi142-smaller.wi142-noborder .wi142-container { line-height: 18px; }
+	.wi142-container { line-height: 24px; border-bottom: 1px solid #E0E0E0; }
+	.wi142-noborder .wi142-container { border-bottom: 0; line-height: 22px; }
+	.wi142-key { float: left; width: 150px; color: gray; }
+	.wi142-value { margin-left: 150px; }
+	.wi142-align-right .wi142-value { text-align: right; }
+	.wi142-align-center .wi142-value { text-align: center; }
+</style>
+
+<script editor>
+
+	option('smaller', 'Smaller', false);
+	option('noborder', 'Disable border', false);
+	option('align', 'Align', 'left', ['left', 'center', 'right']);
+
+	exports.configure = function(options, el) {
+		el.tclass('wi142-noborder', options.noborder);
+		el.tclass('wi142-smaller', options.smaller);
+		el.rclass2('wi142-align-');
+		el.aclass('wi142-align-' + options.align);
+	};
+
+</script>
+
+<div class="wmi wpi wbi wi142">
+	<div class="wi142-container CMS_repeat CMS_remove">
+		<div class="wi142-key wnowrap">Company</div>
+		<div class="wi142-value wnowrap">Total Avengers</div>
+	</div>
+	<div class="wi142-container CMS_repeat CMS_remove">
+		<div class="wi142-key wnowrap">Email</div>
+		<div class="wi142-value wnowrap">info@totaljs.com</div>
+	</div>
+	<div class="wi142-container CMS_repeat CMS_remove">
+		<div class="wi142-key wnowrap">Phone</div>
+		<div class="wi142-value wnowrap">+421903163302</div>
+	</div>
+	<div class="wi142-container CMS_repeat CMS_remove">
+		<div class="wi142-key wnowrap">Website</div>
+		<div class="wi142-value wnowrap">www.totaljs.com</div>
+	</div>
+</div>
