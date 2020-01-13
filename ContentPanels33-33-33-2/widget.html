@@ -1,0 +1,73 @@
+<style>
+	.wc188 {}
+	.wc188body { color: white; padding: 25px; border-radius: 2px; margin-bottom: 20px; }
+	.wc188swipe { text-align: center; font-size: 11px; color: #A0A0A0; display: none; }
+	.wc188swipe span { margin: 0 10px; }
+	.wc188body h3 { margin: 0 0 10px; padding: 0; font-size: 24px; }
+	.wc188body i { margin-right: 8px; }
+	.wc188body p { margin: 0 0 20px; line-height: 18px; }
+	.wc188body > a { display: block; text-align: right; color: white; }
+	.wc188body > a > i { margin-left: 5px; }
+
+	.CMS_preview .wc188swipe { display: block; }
+
+	@media (max-width: 768px) {
+		.wc188swipe { display: block; }
+		.ui-mobilecarousel .wc115body { margin-bottom: 0 !important; }
+	}
+
+</style>
+
+<script editor>
+
+	option('mobilecarousel', 'Enable carousel (XS)', false);
+
+	exports.configure = function(options, el) {
+
+		var swipe = el.find('.wc188swipe');
+
+		var container = el.find('.wc188container');
+		if (options.mobilecarousel) {
+			container.attr({ 'data---': 'mobilecarousel__null__selector:.col-sm-4' });
+			!swipe.length && el.find('.wc188').append('<div class="wc188swipe wm"><i class="fa fa-long-arrow-left CMS_edit"></i><span class="CMS_edit">$swipecontent</span><i class="fa fa-long-arrow-right CMS_edit"></i></div>');
+		} else {
+			swipe.remove();
+			container.rattr('data---');
+		}
+	};
+
+</script>
+
+<script total>
+	exports.install = function() {
+		this.globals('swipecontent', 'Swipe content');
+	};
+</script>
+
+<div class="wm wp wb wc188">
+	<div class="wc188container">
+		<div class="row">
+			<div class="col-sm-4">
+				<div class="wc188body CMS_attribute" data-cms-category="Inline" style="background-color:#D33115">
+					<h3 class="CMS_search CMS_nowrap"><span class="CMS_edit CMS_unwrap">Lorem ipsum</span></h3>
+					<p class="CMS_edit">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, assumenda.</p>
+					<a href="#"><span class="CMS_edit">Learn more</span><i class="fa fa-arrow-right CMS_edit"></i></a>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="wc188body CMS_attribute" data-cms-category="Inline" style="background-color:#009CE0">
+					<h3 class="CMS_search CMS_nowrap"><span class="CMS_edit CMS_unwrap">Lorem ipsum</span></h3>
+					<p class="CMS_edit">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, assumenda.</p>
+					<a href="#"><span class="CMS_edit">Learn more</span><i class="fa fa-arrow-right CMS_edit"></i></a>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="wc188body CMS_attribute" data-cms-category="Inline" style="background-color:#808080">
+					<h3 class="CMS_search CMS_nowrap"><span class="CMS_edit CMS_unwrap">Lorem ipsum</span></h3>
+					<p class="CMS_edit">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, assumenda.</p>
+					<a href="#"><span class="CMS_edit">Learn more</span><i class="fa fa-arrow-right CMS_edit"></i></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
