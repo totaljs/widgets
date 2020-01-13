@@ -11,9 +11,8 @@
 	.wc133preview button { position: absolute; width: 50px; height: 80px; background-color: #369CE6; color: white; font-size: 20px; border: 0; top: 50%; margin-top: -60px; outline: 0; cursor: pointer; z-index: 5; }
 	.wc133preview button * { cursor: pointer; }
 	.wc133preview button:hover { opacity: 0.9; }
-	.wc133preview button[name="next"] { right: 0; border-radius: 3px 0 0 3px; }
-	.wc133preview button[name="prev"] { border-radius: 0 3px 3px 0; }
-
+	.wc133preview button[name='next'] { right: 0; border-radius: 3px 0 0 3px; }
+	.wc133preview button[name='prev'] { border-radius: 0 3px 3px 0; }
 	@media(max-width: 980px) {
 		.wc133cell img { width: 100%; max-height: auto; height: auto; max-width: 100%; display: block; border-radius: 0; }
 		.wc133cell div { position: relative; bottom: 0; top: 0; right: 0; left: 0; display: block; }
@@ -49,25 +48,27 @@
 	COMPONENT('wc133', function(self) {
 
 		var images, container, current = 0;
+		var $W = $(window);
 
 		self.readonly();
 		self.blind();
 
 		self.init = function() {
+
 			$('body').append('<div class="wc133preview hidden"><button name="prev"><i class="fa fa-caret-left"></i></button><button name="next"><i class="fa fa-caret-right"></i></button><div class="wc133table"><div class="wc133cell"><div><img src="" alt="" /></div></div></div></div>');
 
-			window.wc133container = $('.wc133preview');
+			W.wc133container = $('.wc133preview');
 
-			$(window).on('resize', function() {
+			$W.on('resize', function() {
 				setTimeout2('wc133', function() {
-					var w = $(window);
+					var w = $W;
 					$('.wc133preview').css({ width: w.width(), height: w.height() });
 				}, 500);
 			});
 
-			$(window).on('keydown', function(e) {
+			$W.on('keydown', function(e) {
 
-				if (!window.wc133instance || window.wc133container.hclass('hidden'))
+				if (!W.wc133instance || W.wc133container.hclass('hidden'))
 					return;
 
 				switch (e.which) {
@@ -83,12 +84,12 @@
 				}
 			});
 
-			window.wc133container.on('click', 'button', function() {
-				window.wc133instance && window.wc133instance[this.name]();
+			W.wc133container.on('click', 'button', function() {
+				W.wc133instance && W.wc133instance[this.name]();
 			});
 
-			window.wc133container.on('click', 'img', function() {
-				window.wc133instance && window.wc133instance.close();
+			W.wc133container.on('click', 'img', function() {
+				W.wc133instance && W.wc133instance.close();
 			});
 		};
 
@@ -116,12 +117,12 @@
 		self.close = function() {
 			container.aclass('hidden');
 			$('html,body').rclass('noscroll');
-			window.wc133instance = null;
+			W.wc133instance = null;
 		};
 
 		self.show = function(index) {
 
-			window.wc133instance = self;
+			W.wc133instance = self;
 
 			current = index;
 			var img = images[current];
@@ -129,7 +130,7 @@
 			// Loads image
 			container.find('img').attr('src', $(img).attrd('cms-src'));
 			container.rclass('hidden');
-			container.css('height', $(window).height() + 5);
+			container.css('height', WH + 5);
 			$('html,body').aclass('noscroll');
 		};
 
