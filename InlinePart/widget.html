@@ -19,6 +19,6 @@
 
 <script total>
 	exports.render = function(options, html, next) {
-		$WORKFLOW('Part', 'render', options, (err, response) => next(response || ''));
+		$WORKFLOW('Part' + (MAIN.version ? 's' : ''), 'render', options, (err, response) => next(response || ''));
 	};
 </script>
