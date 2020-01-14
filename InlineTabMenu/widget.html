@@ -1,0 +1,84 @@
+<style>
+	.wi144 { background-color: white; padding: 10px 0 0; }
+	.wi144 ul { padding: 0; margin: 0; display: block; position: relative; font-size: 12px; border: 0; list-style-type: none; height: 36px; overflow: hidden; user-select: none; }
+	.wi144 li { background-color: #F0F0F0; margin: 0; text-align: center; padding: 0 7px; line-height: 26px; height: 26px; color: #6d6d6d; cursor: pointer; min-width: 70px; max-width: 150px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; float: left; }
+	.wi144 li:hover { color: #252525; }
+	.wi144 li:first-child { border-radius: 2px 0 0 2px; border-left: 0; }
+	.wi144 li:last-child { border-radius: 0 2px 2px 0; }
+	li.wi144selected { color: white !important; background-color: #4285F4; }
+	.wi144 i { margin-right: 8px; }
+	.wi144-smoke li.wi144selected { background-color: #D0D0D0; color: black !important; }
+	.wi144-yellow li.wi144selected { background-color: #F6BB42; }
+	.wi144-orange li.wi144selected { background-color: #E9573F; }
+	.wi144-green li.wi144selected { background-color: #8CC152; }
+	.wi144-blue li.wi144selected { background-color: #3BAFDA; }
+	.wi144-red li.wi144selected { background-color: #DA4453; }
+	.wi144-pink li.wi144selected { background-color: #D770AD; }
+	.wi144-mint li.wi144selected { background-color: #37BC9B; }
+	.wi144-purple li.wi144selected { background-color: #967ADC; }
+	.wi144-white li.wi144selected { background-color: white; color: black !important; }
+	.wi144-black li.wi144selected { background-color: #202020; }
+	.CMS_preview .wi144body { display: block !important; }
+</style>
+
+<script editor>
+
+	option('count', 'Count of tabs', 3);
+	option('color', 'Color', 'blue', [{ text: 'Silver', value: 'smoke' }, { text: 'Yellow', value: 'yellow' }, { text: 'Red', value: 'red' }, { text: 'Blue', value: 'blue' }, { text: 'Green', value: 'green' }, { text: 'Pink', value: 'pink' }, { text: 'Orange', value: 'orange' }, { text: 'Purple', value: 'purple' }, { text: 'Mint', value: 'mint' }, { text: 'Black', value: 'black' }, { text: 'White', value: 'white' }]);
+
+	exports.configure = function(options, el) {
+
+		var count = options.count;
+		var container = el.find('.wi144');
+		var ul = container.find('ul');
+		var length = ul.find('li').length;
+
+		console.log(options);
+
+		container.rclass2('wi144-').aclass('wi144-' + options.color);
+
+		if (count === length)
+			return;
+
+		if (length < count) {
+			for (var i = length; i < count; i++) {
+				ul.append('<li class="wi144tab" data-index="{0}"><i class="fa fa-home CMS_edit CMS_remove"></i><span class="CMS_edit CMS_unwrap">Tab {1}</span></li>'.format(i, i + 1));
+				container.append('<div data-index="{0}"  data-cms-info="{1}" class="wi144body CMS_widgets"></div>'.format(i, i + 1));
+			}
+		} else {
+			for (var i = 0; i < (length - count); i++) {
+				var li = ul.find('li:last-child');
+				li.remove();
+				container.find('div[data-index="{0}"]'.format(li.attrd('index'))).remove();
+			}
+		}
+
+		container.find('[data-index="0"]').aclass('wi144selected');
+	};
+</script>
+
+<script>
+	$(document).on('click', '.wi144tab', function() {
+		var cls = 'wi144selected';
+		var li = $(this);
+		var ul = li.parent();
+		var prev = ul.find('.' + cls).rclass(cls);
+		var container = ul.parent();
+		var sel = '.wi144body[data-index="{0}"]';
+		container.find(sel.format(prev.attrd('index'))).rclass(cls);
+		container.find(sel.format(li.attrd('index'))).aclass(cls);
+		li.aclass(cls);
+	});
+</script>
+
+
+<div class="wmi wpi wbi wi144">
+	<ul>
+		<li class="wi144tab wi144selected" data-index="0"><i class="fa fa-info-circle CMS_edit CMS_remove"></i><span class="CMS_edit CMS_unwrap">Tab 1</span></li>
+		<li class="wi144tab" data-index="1"><i class="fa fa-cog CMS_edit CMS_remove"></i><span class="CMS_edit CMS_unwrap">Tab 2</span></li>
+		<li class="wi144tab" data-index="2"><i class="fa fa-warning CMS_edit CMS_remove"></i><span class="CMS_edit CMS_unwrap">Tab 3</span></li>
+	</ul>
+	<div data-index="0" data-cms-info="1" class="wi144body wi144selected CMS_widgets"></div>
+	<div data-index="1" data-cms-info="2" class="wi144body CMS_widgets"></div>
+	<div data-index="2" data-cms-info="3" class="wi144body CMS_widgets"></div>
+</div>
