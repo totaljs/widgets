@@ -1,17 +1,17 @@
 <style>
-	.wc130 { padding: 30px 0; border-top: 1px solid #E0E0E0; border-bottom: 1px solid #E0E0E0; }
+	.wc130 { padding: 30px 0; border-top: 1px solid #D0D0D0; border-bottom: 1px solid #D0D0D0; }
 	.wc130form { height: 40px; }
-	.wc130input { margin-right: 100px; padding: 7px 10px 0; border: 1px solid #E0E0E0; border-right: 0; border-radius: 3px 0 0 3px; height: 40px; }
+	.wc130input { margin-right: 100px; padding: 7px 10px 0; border: 1px solid #D0D0D0; border-right: 0; border-radius: 3px 0 0 3px; height: 40px; }
 	.wc130input input { width: 100%; outline: 0; border: 0; background-color: white; font-weight: bold; font-size: 16px; color: black; }
 	.wc130button { float: right; width: 100px; height: 32px; margin: 0; }
-	.wc130button button { width: 100%; border: 0; background-color: white; border: 2px solid #1891E3; color: #1891E3; border-radius: 0 3px 3px 0; height: 40px; outline: 0; font-size: 14px; font-weight: bold; }
-	.wc130button button:hover { background-color: #1891E3; color: white; }
+	.wc130button button { width: 100%; border: 0; background-color: white; border: 2px solid #D0D0D0; color: black; border-radius: 0 3px 3px 0; height: 40px; outline: 0; font-size: 14px; font-weight: bold; }
+	.wc130button button:hover { background-color: #F0F0F0; }
 	.wc130title { margin: 0 0 0 55px; padding: 2px 0 0 0; color: gray; line-height: 18px; }
 	.wc130title b { color: #303030; }
 	.wc130title div { font-size: 16px; }
 	.wc130success { background-color: #78AE4E; border-radius: 3px; margin: 0; color: white; padding: 12px 15px; font-size: 16px; text-align: center; }
 	.wc130success i { margin-right: 7px; }
-	.wc130icon { float: left; font-size: 40px; width: 45px; line-height: 0; color: #1891E3; }
+	.wc130icon { float: left; font-size: 40px; width: 45px; line-height: 0; }
 	.CMS_preview .wc130success { display: block !important; visibility: visible !important; margin-top: 15px; }
 
 	@media(max-width: 768px) {
@@ -35,7 +35,7 @@
 				var data = {};
 				var input = self.find('input');
 				data.email = input.val();
-				!BLOCKED(self.id, 2000) && data.email.isEmail() && AJAX('POST /api/subscribers/', data, function(response) {
+				!BLOCKED(self.ID, 2000) && data.email.isEmail() && AJAX('POST /api/subscribers/', data, function(response) {
 					input.val('');
 					self.find('.wc130form').aclass('hidden');
 					self.find('.wc130success').rclass('hidden');
