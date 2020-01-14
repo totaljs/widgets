@@ -7,8 +7,16 @@
 	.wc184link:hover, .wc184link:hover * { text-decoration: none !important; }
 	.wc184date { font-size: 12px; color: gray; padding: 3px 10px 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
+	.wc184swipe { text-align: center; font-size: 11px; color: #A0A0A0; display: none; }
+	.wc184swipe span { margin: 0 10px; }
+
 	@media (min-width: 768px) and (max-width: 991px) {
 		.wc184link { font-size: 12px; }
+	}
+
+	@media (max-width: 768px) {
+		.wc184swipe { display: block; }
+		.ui-mobilecarousel .wc184item { margin-bottom: 0 !important; }
 	}
 
 </style>
@@ -20,6 +28,7 @@
 	option('language', 'Language', 'en');
 	option('tag', 'Tag', '');
 	option('detail', 'URL to detail', 'https://blog.totaljs.com/posts/{0}/');
+	option('mobilecarousel', 'Enable carousel (XS)', false);
 </script>
 
 <script total>
@@ -41,23 +50,40 @@
 			options.tag && (filter.tag = options.tag);
 			filter.languageid = options.language || 'en';
 
+			if (!options.layout)
+				options.layout = 'col-sm-3';
+
 			builder.url('https://bufferwall.com/api/ex/posts/'.format(options.type));
 			builder.get(filter);
 			builder.header('x-token', options.token || MAIN.variables.bufferwall);
 			builder.timeout(1500);
 			builder.exec(function(err, data) {
 				var builder = ['<div class="row">'];
+
+				if (options.mobilecarousel)
+					builder.unshift('<div class="wc184container" data---="mobilecarousel__null__selector:.' + options.layout + '">');
+
 				if (data && data.items) {
 					for (var i = 0; i < data.items.length; i++) {
 						var item = data.items[i];
 						var name = item.name.encode();
 						var url = (options.detail || 'https://blog.totaljs.com/posts/{0}/').format(item.id);
-						builder.push('<div class="' + (options.layout || 'col-sm-3') + '"><div class="wc184item"><a href="' + url + '" class="wc184image" target="_blank"><img src="' + item.picture + '" alt="' + name + '" class="img-responsive" border="0" /></a><a href="' + url + '" class="wc184link" target="_blank"><strong>' + name + '</strong><span>' + item.summary.encode() + '</span></a><div class="wc184date">' + item.dtpublished.format('dd MMM. yyyy') + (item.readingtime ? (', ' + item.readingtime + ' min. read') : '') + '</div></div></div>');
+						builder.push('<div class="' + options.layout + '"><div class="wc184item"><a href="' + url + '" class="wc184image" target="_blank"><img src="' + item.picture + '" alt="' + name + '" class="img-responsive" border="0" /></a><a href="' + url + '" class="wc184link" target="_blank"><strong>' + name + '</strong><span>' + item.summary.encode() + '</span></a><div class="wc184date">' + item.dtpublished.format('dd MMM. yyyy') + (item.readingtime ? (', ' + item.readingtime + ' min. read') : '') + '</div></div></div>');
 					}
 				}
-				next(html.substring(0, html.indexOf('<div class="totaljs')) + builder.join('') + '</div></div></div>');
+
+				builder.push('</div>');
+
+				if (options.mobilecarousel)
+					builder.push('<div class="wc184swipe wm"><i class="fa fa-long-arrow-left CMS_edit"></i><span class="CMS_edit">$swipecontent</span><i class="fa fa-long-arrow-right CMS_edit"></i></div>');
+
+				next(html.substring(0, html.indexOf('<div class="totaljs')) + builder.join('') + '</div></div>');
 			});
 		});
+	};
+
+	exports.install = function() {
+		this.globals('swipecontent', 'Swipe content');
 	};
 </script>
 

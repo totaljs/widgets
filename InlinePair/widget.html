@@ -16,10 +16,11 @@
 	option('align', 'Align', 'left', ['left', 'center', 'right']);
 
 	exports.configure = function(options, el) {
-		el.tclass('wi142-noborder', options.noborder);
-		el.tclass('wi142-smaller', options.smaller);
-		el.rclass2('wi142-align-');
-		el.aclass('wi142-align-' + options.align);
+		var container = el.find('.wi142');
+		container.tclass('wi142-noborder', options.noborder);
+		container.tclass('wi142-smaller', options.smaller);
+		container.rclass2('wi142-align-');
+		container.aclass('wi142-align-' + options.align);
 	};
 
 </script>
