@@ -37,6 +37,22 @@ __Default global styles__:
 .wmi { margin-bottom: 15px; }
 ```
 
+__Colors palette__:
+
+```css
+.WIDGET-smoke { background-color: #D0D0D0; color: black !important; }
+.WIDGET-yellow { background-color: #F5DB6E; color: black !important; }
+.WIDGET-orange { background-color: #FFA911; }
+.WIDGET-green { background-color: #83C83C; }
+.WIDGET-blue { background-color: #4285F4; }
+.WIDGET-red { background-color: #E73323; }
+.WIDGET-pink { background-color: #E7357F; }
+.WIDGET-mint { background-color: #2AB08F; }
+.WIDGET-purple { background-color: #6118A3; }
+.WIDGET-white { background-color: white; color: black !important; }
+.WIDGET-black { background-color: #202020; }
+```
+
 ## Contributors
 
 | Contributor | Type | E-mail |
