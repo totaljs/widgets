@@ -77,7 +77,7 @@
 				if (options.mobilecarousel)
 					builder.push('</div><div class="wc184swipe wm"><i class="fa fa-long-arrow-left CMS_edit"></i><span class="CMS_edit">$swipecontent</span><i class="fa fa-long-arrow-right CMS_edit"></i></div>');
 
-				next(html.substring(0, html.indexOf('<div class="totaljs')) + builder.join('') + '</div></div>');
+				next(html.substring(0, html.indexOf('<div class="totaljs')) + builder.join('') + '</div>');
 			});
 		});
 	};
