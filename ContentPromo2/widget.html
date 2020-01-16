@@ -1,13 +1,13 @@
 <style>
 	.wc180 { padding-bottom: 0; color: white; font-size: 18px; }
 	.wc180 i { margin-right: 5px; }
-	.wc180 h2 { padding: 0; margin: 25px 0 0; }
+	.wc180 h2 { padding: 0; margin: 25px 0 0; font-size: 30px; }
 	.wc180links { margin-top: 8px; }
 	.wc180links a { margin-left: 10px; color: #7abaf9; }
-	.wc180links a:first-child { maring-left: 0; }
+	.wc180links a:first-child { margin-left: 0; }
 	.wc180links i { margin: 0 0 0 5px; }
 	.wc180body { position: relative; }
-	.wc180header { position: absolute; left: 0; top: 35px; right: 0; text-align: center; }
+	.wc180header { position: absolute; left: 0; top: 35px; right: 0; text-align: center; padding: 0 15px; }
 	.wc180title { margin: 0; padding: 0; color: white; font-size: 24px; font-weight: bold; }
 	.wc180claim { margin: 0; padding: 0; }
 	.wc180item { margin-bottom: 20px; }
@@ -21,6 +21,12 @@
 		.wc180title { font-size: 20px; }
 		.wc180 { font-size: 12px; }
 	}
+
+	@media(max-width: 768px) {
+		.wc180header { top: 20px; }
+		.wc180 h2 { margin-top: 0; font-size: 20px; }
+	}
+
 </style>
 
 <div class="wm wp wb wc180">
@@ -30,7 +36,7 @@
 				<div class="wc180header">
 					<h2 class="wc180title CMS_edit CMS_search">Lorem Ipsum</h2>
 					<div class="wc180claim CMS_edit">Lorem ipsum dolor sit amet, consectetur</div>
-					<div class="wc180links CMS_edit CMS_remove"><a href="#">Learn more<i class="fa fa-angle-right"></i></a></div>
+					<div class="wc180links CMS_remove"><a href="#"><span class="CMS_edit CMS_unwrap">Learn more</span><i class="fa fa-angle-right CMS_edit"></i></a></div>
 				</div>
 			</div>
 			<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlgAAAHCAQAAAAAbCIrJAAAAOElEQVR4Ae3BMQEAAADCIPuntsYOYDEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHhZgAAbYcme0AAAAASUVORK5CYII=" class="img-responsive CMS_edit" data-cms-width="600" data-cms-height="450" alt="" border="0" />
@@ -40,7 +46,7 @@
 				<div class="wc180header">
 					<h2 class="wc180title CMS_edit CMS_search">Lorem Ipsum</h2>
 					<div class="wc180claim CMS_edit">Lorem ipsum dolor sit amet, consectetur</div>
-					<div class="wc180links CMS_edit CMS_remove"><a href="#">Learn more<i class="fa fa-angle-right"></i></a></div>
+					<div class="wc180links CMS_remove"><a href="#"><span class="CMS_edit CMS_unwrap">Learn more</span><i class="fa fa-angle-right CMS_edit"></i></a></div>
 				</div>
 			</div>
 			<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlgAAAHCAQAAAAAbCIrJAAAAOElEQVR4Ae3BMQEAAADCIPuntsYOYDEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHhZgAAbYcme0AAAAASUVORK5CYII=" class="img-responsive CMS_edit" data-cms-width="600" data-cms-height="450" alt="" border="0" />
