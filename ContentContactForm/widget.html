@@ -46,27 +46,27 @@
 			<div data-scope="?" class="wm hidden CMS_visible" data-jc-class="hidden">
 				<div class="row">
 					<div class="col-sm-6 wc185m">
-						<div data---="input__?.firstname__required:true;innerlabel:1;maxlength:30__''" class="CMS_edit CMS_input">First name</div>
+						<div data---="input@1__?.firstname__required:true;innerlabel:1;maxlength:30__''" class="CMS_edit CMS_input">First name</div>
 					</div>
 					<div class="col-sm-6 wc185m">
-						<div data---="input__?.lastname__required:true;innerlabel:1;maxlength:30__''" class="CMS_edit CMS_input">Last name</div>
+						<div data---="input@1__?.lastname__required:true;innerlabel:1;maxlength:30__''" class="CMS_edit CMS_input">Last name</div>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-sm-6 wc185m">
-						<div data---="input__?.email__required:true;maxlength:120;innerlabel:1;type:email__'@'" class="CMS_edit CMS_input">E-mail address</div>
+						<div data---="input@1__?.email__required:true;maxlength:120;innerlabel:1;type:email__'@'" class="CMS_edit CMS_input">E-mail address</div>
 					</div>
 					<div class="col-sm-6 wc185m">
-						<div data---="input__?.phone__maxlength:30;innerlabel:1__''" class="CMS_edit CMS_input">Phone number</div>
+						<div data---="input@1__?.phone__maxlength:30;innerlabel:1__''" class="CMS_edit CMS_input">Phone number</div>
 					</div>
 				</div>
 				<div class="wc185m">
-					<div data---="textarea__?.body__required:true;height:80__''" class="CMS_edit CMS_input">Questions</div>
+					<div data---="textarea@1__?.body__required:true;height:80__''" class="CMS_edit CMS_input">Questions</div>
 				</div>
 				<div data-bind="?.response__show:value && value.success" class="wc185success hidden CMS_visible">
 					<i class="fa fa-check-circle CMS_edit"></i><span class="CMS_unwrap CMS_edit">Thank you. Your message has been sent successfully.</span>
 				</div>
-				<div data---="validation__?">
+				<div data---="validation@1__?">
 					<button name="submit" class="button exec" data-exec="wc185_submit"><i class="fa fa-envelope"></i><span class="CMS_unwrap CMS_edit">SUBMIT</span></button>
 				</div>
 			</div>
@@ -79,7 +79,7 @@
 		var scope = el.scope();
 		if (scope && scope.can()) {
 			scope.reset();
-			var model = scope.get();
+			var model = GETR(scope.path);
 			model.source = location.pathname;
 			AJAX('POST /api/contact/', model, function(response) {
 				scope.set('response', response);

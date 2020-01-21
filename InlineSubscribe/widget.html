@@ -29,9 +29,10 @@
 			});
 			self.event('click', 'button', function() {
 				var btn = $(this);
-				var data = {};
 				var input = self.find('input');
+				var data = {};
 				data.email = input.val();
+				data.source = location.pathname;
 				!BLOCKED(self.ID, 2000) && data.email.isEmail() && AJAX('POST /api/subscribers/', data, function(response) {
 					input.val('');
 					self.find('.wi117form').aclass('hidden');

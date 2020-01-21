@@ -26,10 +26,11 @@
 	.wc142button-purple { background-color: #967ADC; }
 	.wc142button-white { background-color: white; color: black !important; }
 	.wc142button-black { background-color: #202020; }
-	.wc142button { display: block; width: 100%; padding: 0; height: 30px; font-size: 12px; color: white; border-radius: 3px; border: 0; margin-top: 21px; outline: 0; }
+	.wc142button { display: block; width: 100%; margin: 0; padding: 0; height: 39px; font-size: 12px; color: white; border-radius: 3px; border: 0; outline: 0; font-weight: bold; }
 	.wc142button i { margin-right: 5px; }
 	.wc142button:hover { text-decoration: none; opacity: 0.9; }
 	.wc142button:disabled { cursor: not-allowed; background-color: #E0E0E0 !important; color: gray !important; }
+	.CMS_preview .wc142button { margin-top: 21px; }
 
 	@media(max-width: 992px) {
 		.wc142button { height: 50px; font-size: 14px; font-weight: bold; }
@@ -55,67 +56,24 @@
 
 </script>
 
-<script total>
-
-	exports.install = function() {
-
-		NEWSCHEMA('WidgetQuestion').make(function(schema) {
-
-			// Fiels
-			schema.define('email', 'Email', true);
-			schema.define('body', 'String(1000)', true);
-			schema.define('url', 'String(100)');
-
-			schema.setSave(function($) {
-
-				var model = $.model;
-
-				model.ip = $.ip;
-				model.created = F.datetime;
-
-				NOSQL('questions').insert(model);
-
-				var builder = [];
-				builder.push('<b>Created:</b><br />' + model.created.format('yyyy-MM-dd HH:mm:ss'));
-				builder.push('<b>IP address:</b><br />' + model.ip);
-				builder.push('<b>Url:</b><br />' + model.url);
-				builder.push('<b>Email address:</b><br />' + model.email);
-				builder.push('<b>Question:</b><br />' + model.body);
-
-				F.logmail(F.global.config ? F.global.config.emailcontactform : PREF.emailcontactform, 'Ask a Question', builder.join('\n\n')).reply(model.email, true);
-				$.success();
-			});
-
-		});
-
-		ROUTE('/api/widgets/question/', ['id:question', '*WidgetQuestion --> save', 'post']);
-	};
-
-	exports.uninstall = function() {
-		UNINSTALL('route', 'id:route');
-		UNINSTALL('schema', 'WidgetQuestion');
-	};
-
-</script>
-
-<div class="wm wp wb">
-	<div class="wc142 wc142-yellow" data-jc-scope="?">
+<div class="wm wp wb jcomponent">
+	<div class="wc142 wc142-yellow" data-scope="?">
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1">
 				<h2><i class="fa fa-question-circle CMS_edit"></i><span class="CMS_edit CMS_unwrap">Ask a Question</span></h2>
-				<p class="CMS_edit wmi">Do you have technical or other questions? Do you want to be our sponsor or partner? Are you an investor? Then, send us a short message and we will get in touch with you.</p>
-				<div class="row" data-bind="?.response__show:!value || !value.success" data-jc="enter__?__exec:feedback_submit">
+				<p class="CMS_edit wmi">Contact us about anything related to our company or services. We'll do our best to get back to you as soon as possible.</p>
+				<div class="row" data-bind="?.response__show:!value||!value.success" data---="enter@1__?__exec:feedback_submit">
 					<div class="col-md-3 wmi">
-						<div data-jc="textbox__email__maxlength:120;required:true;type:email__'@'" class="CMS_edit">Email address</div>
+						<div data---="input@1__?.email__maxlength:120;required:1;innerlabel:1;type:email__'@'" class="CMS_edit CMS_input">Email address</div>
 					</div>
 					<div class="col-md-7">
-						<div data-jc="textbox__body__maxlength:1000;required:true" class="CMS_edit">Your question</div>
+						<div data---="input@1__?.body__maxlength:1000;required:1;innerlabel:1__''" class="CMS_edit CMS_input">Your question</div>
 					</div>
-					<div class="col-md-2" data-jc="validation__?">
-						<button name="submit" disabled="disabled" data-exec="feedback_submit" class="wc142button wc142button-yellow exec"><i class="fa fa-send CMS_edit CMS_remove"></i><span class="CMS_unwrap CMS_edit">SUBMIT</span></button>
+					<div class="col-md-2" data---="validation@1__?">
+						<button name="submit" disabled="disabled" data-exec="wc142_submit" class="wc142button wc142button-yellow exec"><i class="far fa-envelope CMS_edit CMS_remove"></i><span class="CMS_unwrap CMS_edit">SUBMIT</span></button>
 					</div>
 				</div>
-				<div data-bind="?.response__show:value && value.success" class="wc142success hidden CMS_visible">
+				<div data-bind="?.response__show:value&&value.success" class="wc142success hidden CMS_visible">
 					<i class="fa fa-check-circle CMS_edit"></i><span class="CMS_unwrap CMS_edit">Thank you. Your message has been sent successfully.</span>
 				</div>
 			</div>
@@ -124,9 +82,20 @@
 </div>
 
 <script>
-	function feedback_submit(el) {
-		var component = el.make ? el : el.closest('[data-jc]').component();
-		window[component.pathscope].url = location.href;
-		AJAX('POST /api/widgets/question/', window[component.pathscope], component.pathscope + '.response');
+	function wc142_submit(el) {
+		var scope = el.scope();
+		if (scope && scope.can()) {
+			scope.reset();
+			var model = GETR(scope.path);
+			model.source = location.pathname;
+			model.name = 'Ask a Question';
+			AJAX('POST /api/contact/', model, function(response) {
+				scope.set('response', response);
+				if (response.success) {
+					scope.default();
+					scope.set('response', null, 5000);
+				}
+			});
+		}
 	}
 </script>
