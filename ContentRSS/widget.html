@@ -1,0 +1,96 @@
+<style>
+	.wc191-item { padding: 10px; border: 1px solid #E0E0E0; margin-bottom: 32px; }
+	.wc191-item-meta { height: 90px; overflow: hidden; line-height: 18px; font-size: 14px; }
+	.wc191-item a { display: block; font-weight: bold; color: black; font-size: 16px; line-height: 20px; }
+	.wc191-item p { margin: 10px 0 0; color: #6A6A74; }
+	.wc191-item-image { height: 200px; overflow: hidden; display: block; background-size: cover; background-position: 50% 50%; }
+	.wc191-item-small { height: 140px; }
+	.wc191-item-small .wc191-item-meta { height: 110px; }
+	.wc191 .totaljs b { text-transform: none; }
+
+	@media(max-width: 991px) {
+		.wc191-item-meta { font-size: 12px; line-height: 16px; }
+		.wc191-item a { font-size: 14px; line-height: 18px; }
+		.wc191-item p { margin-top: 5px; }
+	}
+
+	@media(max-width: 768px) {
+		.wc191-item { margin-bottom: 15px; }
+	}
+
+</style>
+
+<script editor>
+
+	option('url', 'RSS address', 'https://bufferwall.com/rss/');
+	option('count', 'Count', 9);
+
+	exports.configure = function(options, el) {
+		el.find('b').text(options.url);
+	};
+
+</script>
+
+<script total>
+	exports.render = function(options, html, next, template) {
+
+		console.log(options, html);
+
+		if (!options.url) {
+			next('');
+			return;
+		}
+
+		RESTBuilder.GET(options.url).stream(function(err, response) {
+			var arr = [];
+			response.on('data', U.streamer('<item>', '</item>', function(item) {
+
+				item = item.parseXML(true);
+
+				var obj = {};
+
+				obj.title = item.item_title;
+				obj.description = item.item_description;
+				obj.date = item.item_pubDate ? Date.parse(item.item_pubDate) : null;
+				obj.url = item.item_link;
+				obj.image = (item.item_enclosure__ ? item.item_enclosure__.url : item.item_image_url) || null;
+
+				if (obj.image) {
+					if (!protocol.test(obj.image))
+						obj.image = obj.url.substring(0, obj.url.indexOf('/', 10)) + obj.image;
+				}
+
+				arr.push(obj);
+
+			})).on('end', function() {
+
+				var template = '<div class="col-sm-6 wc191-item-container"><div class="wc191-item wc191-item-small"><div class="wc191-item-meta"><a href="{0}" target="_blank">{2}</a><p>{3}</p></div></div></div>';
+				var items = arr.take(options.count || 9);
+				var builder = ['<div class="row">'];
+
+				for (var i = 0; i < items.length; i++) {
+
+					var item = items[i];
+
+					if (i) {
+						if (i === 5)
+							builder.push('</div><div class="row">');
+						builder.push(template.format(item.url, item.image, item.name, item.description)));
+					} else
+						builder.push(('<div class="col-sm-6 wc191-item-container"><a href="{0}" target="_blank" class="wc191-item-image"' + (item.image ? ' style="background-image:url({1})"' : '') + '></a><div class="wc191-item-meta"><a href="{0}" target="_blank">{2}</a><p>{3}</p></div></div></div>'.format(item.url, item.image, item.name, item.description)));
+				}
+
+				builder.push('</div>');
+				next(builder.join(''));
+				next(html.substring(0, html.indexOf('<div class="totaljs')) + builder.join('') + '</div>');
+
+			}).on('error', function() {
+				next('');
+			});
+		});
+	};
+</script>
+
+<div class="wm wp wb wc191">
+	<div class="totaljs">RSS: <b>---</b></div>
+</div>
