@@ -1,0 +1,39 @@
+<style>
+	.wi145items { margin: 0; padding: 0; }
+	.wi145item { list-style-type: none; padding: 0; margin: 0; border-bottom: 1px solid #E0E0E0; }
+	.wi145item > span { float: right; margin: 14px 0 0; font-weight: bold; font-size: 11px; color: gray; }
+	.wi145item:hover > span, .wi145item:hover .wi145title { color: black; }
+	.wi145item > span:before { content: '\f067'; }
+	.wi145title { padding: 10px 0; cursor: pointer; }
+	.wi145body { display: none; padding: 10px 0; border-top: 1px dashed #F0F0F0; }
+	.wi145selected .wi145title { font-weight: bold; }
+	.wi145selected .wi145body { display: block; }
+	.wi145selected > span:before { content: '\f068'; }
+	.CMS_preview .wi145body { display: block !important; }
+</style>
+
+<div class="wbi wmi wpi wi145">
+	<div class="wi145items">
+		<div class="CMS_repeat CMS_remove wi145item">
+			<span class="fa"></span>
+			<div class="wi145title nowrap CMS_edit">Lorem ipsum dolor sit amet</div>
+			<div class="wi145body CMS_widgets" data-cms-category="Inline"></div>
+		</div>
+		<div class="CMS_repeat CMS_remove wi145item">
+			<span class="fa"></span>
+			<div class="wi145title nowrap CMS_edit">Lorem ipsum dolor sit amet</div>
+			<div class="wi145body CMS_widgets" data-cms-category="Inline"></div>
+		</div>
+		<div class="CMS_repeat CMS_remove wi145item">
+			<span class="fa"></span>
+			<div class="wi145title nowrap CMS_edit">Lorem ipsum dolor sit amet</div>
+			<div class="wi145body CMS_widgets" data-cms-category="Inline"></div>
+		</div>
+	</div>
+</div>
+
+<script>
+	$(document).on('click', '.wi145item', function() {
+		$(this).tclass('wi145selected');
+	});
+</script>
