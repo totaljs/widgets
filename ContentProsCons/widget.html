@@ -1,0 +1,75 @@
+<style>
+	.wc192 ul { margin: 3px 0 0; padding: 0; list-style-type: none; }
+	.wc192 li { display: block; padding: 5px 0; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; }
+	.wc192 li:first-child { border-top: 0; padding-top: 0; }
+	.wc192 i { margin-right: 8px; color: #6EBC45; }
+	.wc192large { font-size: 16px; }
+	.wc192large li { padding: 8px 0; }
+	.wc192-items { margin-bottom: 30px; }
+	.wc192-items:last-child { margin-bottom: 0; }
+
+	.wc192-caption { font-size: 18px; color: black; font-weight: bold; }
+
+	@media(max-width: 767px) {
+		.wc192 li { overflow-x: auto; text-overflow: clip; overflow-scrolling: touch; }
+		.wc192-caption { margin-bottom: 10px; padding-bottom: 5px; border-bottom: 1px solid #E0E0E0; }
+	}
+
+</style>
+
+<script editor>
+
+	option('large', 'Large', false);
+	option('twocolumns', 'Two columns', false);
+
+	exports.configure = function(options, el) {
+		var container = el.find('.wc192');
+		container.tclass('wc192large', options.large);
+		container = container.find('.wc192-ul');
+		var columns = container.find('.row').length > 0;
+		if (options.twocolumns) {
+			!columns && container.html('<div class="row">{0}{0}</div>'.format('<div class="col-sm-6"><ul><li class="CMS_repeat"><i class="fa fa-check CMS_edit"></i><span class="CMS_edit CMS_unwrap">Lorem Ipsum sodem</span></li></ul></div>'));
+		} else
+			columns && container.html('<ul><li class="CMS_repeat"><i class="fa fa-check CMS_edit"></i><span class="CMS_edit CMS_unwrap">Lorem Ipsum sodem</span></li></ul>');
+	};
+
+</script>
+
+<div class="wmi wpi wbi">
+	<div class="wc192">
+		<div class="wc192-items CMS_repeat">
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="wc192-caption CMS_edit">Lorem ipsum dolor sit</div>
+				</div>
+				<div class="col-sm-6 wc192-ul">
+					<ul>
+						<li class="CMS_repeat CMS_remove"><i class="fa fa-check CMS_edit"></i><span class="CMS_edit CMS_unwrap">Lorem Ipsum sodem</span></li>
+						<li class="CMS_repeat CMS_remove"><i class="fa fa-check CMS_edit"></i><span class="CMS_edit CMS_unwrap">Lorem Ipsum sodem</span></li>
+						<li class="CMS_repeat CMS_remove"><i class="fa fa-check CMS_edit"></i><span class="CMS_edit CMS_unwrap">Lorem Ipsum sodem</span></li>
+						<li class="CMS_repeat CMS_remove"><i class="fa fa-check CMS_edit"></i><span class="CMS_edit CMS_unwrap">Lorem Ipsum sodem</span></li>
+						<li class="CMS_repeat CMS_remove"><i class="fa fa-check CMS_edit"></i><span class="CMS_edit CMS_unwrap">Lorem Ipsum sodem</span></li>
+						<li class="CMS_repeat CMS_remove"><i class="fa fa-check CMS_edit"></i><span class="CMS_edit CMS_unwrap">Lorem Ipsum sodem</span></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="wc192-items CMS_repeat">
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="wc192-caption CMS_edit">Lorem ipsum dolor sit</div>
+				</div>
+				<div class="col-sm-6 wc192-ul">
+					<ul>
+						<li class="CMS_repeat CMS_remove"><i class="fa fa-check CMS_edit"></i><span class="CMS_edit CMS_unwrap">Lorem Ipsum sodem</span></li>
+						<li class="CMS_repeat CMS_remove"><i class="fa fa-check CMS_edit"></i><span class="CMS_edit CMS_unwrap">Lorem Ipsum sodem</span></li>
+						<li class="CMS_repeat CMS_remove"><i class="fa fa-check CMS_edit"></i><span class="CMS_edit CMS_unwrap">Lorem Ipsum sodem</span></li>
+						<li class="CMS_repeat CMS_remove"><i class="fa fa-check CMS_edit"></i><span class="CMS_edit CMS_unwrap">Lorem Ipsum sodem</span></li>
+						<li class="CMS_repeat CMS_remove"><i class="fa fa-check CMS_edit"></i><span class="CMS_edit CMS_unwrap">Lorem Ipsum sodem</span></li>
+						<li class="CMS_repeat CMS_remove"><i class="fa fa-check CMS_edit"></i><span class="CMS_edit CMS_unwrap">Lorem Ipsum sodem</span></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
