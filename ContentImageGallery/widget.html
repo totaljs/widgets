@@ -1,25 +1,24 @@
 <style>
 	.noscroll { overflow: hidden !important; overflow-scrolling: auto !important; }
-	.wc133 {}
-	.wc133 img { border-radius: 3px; cursor: pointer; }
+	.wc133 img { border-radius: 2px; cursor: pointer; }
 	.wc133body { margin-bottom: 25px; }
-	.wc133preview { position: fixed; left: 0; top: 0; bottom: 0; right: 0; background-color: rgba(255,255,255,0.8); height: 100%; z-index: 10; overflow: hidden; }
+	.wc133preview { position: fixed; left: 0; top: 0; bottom: 0; right: 0; background-color: rgba(0,0,0,0.9); height: 100%; z-index: 10; overflow: hidden; }
+	.wc133picture { position: relative; display: inline-block; background-size: cover; border-radius: 2px; background-repeat: no-repeat; background-position: 50% 50%; box-shadow: 0 10px 50px rgba(0,0,0,0.8); max-width: 1280px; max-height: 960px; width: 100%; height: 100%; }
 	.wc133table { width: 100%; height: 100%; display: table; }
-	.wc133cell { vertical-align: middle; align-self: center; display: table-cell; }
-	.wc133cell img { margin: 0 auto; border-radius: 4px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); width: auto; max-height: 100%; height: 100%; display: block; }
-	.wc133cell div { position: absolute; bottom: 20px; top: 20px; right: 20px; left: 20px; z-index: 2; }
-	.wc133preview button { position: absolute; width: 50px; height: 80px; background-color: #369CE6; color: white; font-size: 20px; border: 0; top: 50%; margin-top: -60px; outline: 0; cursor: pointer; z-index: 5; }
+	.wc133cell { vertical-align: middle; text-align: center; display: table-cell; }
+	.wc133preview button { position: absolute; width: 50px; height: 60px; background-color: black; color: white; font-size: 20px; border: 0; top: 50%; margin-top: -60px; outline: 0; cursor: pointer; z-index: 5; padding: 0; text-align: center; }
 	.wc133preview button * { cursor: pointer; }
 	.wc133preview button:hover { opacity: 0.9; }
-	.wc133preview button[name='next'] { right: 0; border-radius: 3px 0 0 3px; }
-	.wc133preview button[name='prev'] { border-radius: 0 3px 3px 0; }
-	@media(max-width: 980px) {
-		.wc133cell img { width: 100%; max-height: auto; height: auto; max-width: 100%; display: block; border-radius: 0; }
-		.wc133cell div { position: relative; bottom: 0; top: 0; right: 0; left: 0; display: block; }
+	.wc133preview button[name='next'] { right: 0; border-radius: 3px 0 0 3px; border-right: 0; }
+	.wc133preview button[name='prev'] { border-radius: 0 3px 3px 0; border-left: 0; }
+
+	@media(max-width: 768px) {
+		.wc133picture { bottom: 0; top: 0; right: 0; left: 0; display: block; }
+		.wc133preview button { top: auto; bottom: 0; margin-top: 0; }
 	}
 </style>
 
-<div class="wm wp wb wc133" data-jc="wc133">
+<div class="wm wp wb wc133" data---="wc133">
 	<h2 class="CMS_edit CMS_remove CMS_search">Lorem ipsum dolor</h2>
 	<div class="row">
 		<div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 wc133body CMS_repeat">
@@ -49,21 +48,37 @@
 
 		var images, container, current = 0;
 		var $W = $(window);
+		var ratio = 1.333333;
 
 		self.readonly();
 		self.blind();
 
 		self.init = function() {
 
-			$('body').append('<div class="wc133preview hidden"><button name="prev"><i class="fa fa-caret-left"></i></button><button name="next"><i class="fa fa-caret-right"></i></button><div class="wc133table"><div class="wc133cell"><div><img src="" alt="" /></div></div></div></div>');
+			$('body').append('<div class="wc133preview hidden"><button name="prev"><i class="fa fa-chevron-left"></i></button><button name="next"><i class="fa fa-chevron-right"></i></button><div class="wc133table"><div class="wc133cell"><div class="wc133picture"></div></div></div></div>');
 
 			W.wc133container = $('.wc133preview');
+			W.wc133resize = function() {
+				var w = '';
+				var h = '';
+
+				if (!isMOBILE) {
+					if (WH < WW) {
+						if (WH < 960) {
+							h = WH - 50;
+							w = Math.ceil(h * ratio);
+						}
+					} else if (WW < 1280) {
+						w = WW - 50;
+						h = Math.ceil(w / ratio);
+					}
+				}
+
+				$('.wc133preview').css({ width: WW, height: WH }).find('.wc133picture').css({ width: w, height: h });
+			};
 
 			$W.on('resize', function() {
-				setTimeout2('wc133', function() {
-					var w = $W;
-					$('.wc133preview').css({ width: w.width(), height: w.height() });
-				}, 500);
+				setTimeout2('wc133', W.wc133resize, 500);
 			});
 
 			$W.on('keydown', function(e) {
@@ -88,9 +103,11 @@
 				W.wc133instance && W.wc133instance[this.name]();
 			});
 
-			W.wc133container.on('click', 'img', function() {
+			W.wc133container.on('click', '.wc133picture', function() {
 				W.wc133instance && W.wc133instance.close();
 			});
+
+			setTimeout2('wc133', W.wc133resize, 500);
 		};
 
 		self.make = function() {
@@ -128,7 +145,8 @@
 			var img = images[current];
 
 			// Loads image
-			container.find('img').attr('src', $(img).attrd('cms-src'));
+			// container.find('img').attr('src', $(img).attrd('cms-src'));
+			container.find('.wc133picture').css('background-image', 'url("' + $(img).attrd('cms-src') + '")');
 			container.rclass('hidden');
 			container.css('height', WH + 5);
 			$('html,body').aclass('noscroll');
