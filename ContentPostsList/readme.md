@@ -1,4 +1,4 @@
-# Posts
+# PostsList
 
 - content widget
 - responsive

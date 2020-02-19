@@ -127,7 +127,7 @@
 	"InlineQuote",
 	"ContentCard",
 	"ContentBanner",
-	"ContentPosts",
+	"ContentPostsList",
 	"ContentBufferwall",
 	"ContentContactForm",
 	"InlinePair",
