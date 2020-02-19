@@ -38,7 +38,7 @@
 			opt.sort = 'event_asc';
 		}
 
-		$QUERY('Notice', opt, function(err, response) {
+		$QUERY('Notices', opt, function(err, response) {
 			var builder = [];
 
 			for (var i = 0, length = response.items.length; i < length; i++) {
