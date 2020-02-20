@@ -1,3 +1,3 @@
-# Partners
+# Logos
 
 - content widget
