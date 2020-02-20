@@ -1,0 +1,3 @@
+# Partners
+
+- content widget
