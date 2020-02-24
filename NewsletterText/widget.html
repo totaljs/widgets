@@ -1,0 +1,11 @@
+<script editor>
+
+	option('align', 'Align', 'left', ['left', 'center', 'right', 'justify']);
+
+	exports.configure = function(options, el) {
+		el.find('.wnewslettertext').css({ 'text-align': options.align });
+	};
+
+</script>
+
+<div class="CMS_edit wnewslettertext" style="margin:10px;font-size:14px">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod. Excepteur sint occaecat cupidatat nonproident.</div>

@@ -1,0 +1,15 @@
+<script editor>
+
+	option('link', 'Enable link', false);
+
+	exports.configure = function(options, el) {
+		var link = el.find('a');
+		if (options.link) {
+			!link.length && el.find('img').wrap('<a href="/" class="CMS_edit"></a>');
+		} else
+			link.length && el.find('img').unwrap('a');
+	};
+
+</script>
+
+<div><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABHQAAAEsAQMAAACYJ3bIAAAAA1BMVEXW1taWrGEgAAAAQElEQVR4Ae3BMQEAAADCIPuntsUuYOQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOCowAABhgBYigAAAABJRU5ErkJggg==" style="display:block;max-width:100%;height:auto" class="CMS_edit" alt="Image" border="0" /></div>
