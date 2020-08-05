@@ -1,3 +1,3 @@
-# Chapters
+# Cards
 
 - content widget
