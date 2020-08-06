@@ -1,0 +1,79 @@
+<style>
+	.wi146 ul { list-style: none; padding: 0; }
+	.wi146 ul li { position: relative; padding: 8px 26px; border-bottom: 1px solid #e0e0e0; }
+	.wi146 ul li:hover { background-color: #f9f9f9; }
+	.wi146 ul li:last-child { border-bottom: none; }
+	.wi146 ul li:before { content: ''; width: 6px; height: 6px; border-radius: 50%; background-color: #808080; position: absolute; left: 8px; top: 16px; }
+
+	.wi146 ol { list-style: none; counter-reset: custom-counter; padding: 0; }
+	.wi146 ol li:hover { background-color: #f9f9f9; }
+	.wi146 ol li { position: relative; counter-increment: custom-counter; padding: 8px 26px; border-bottom: 1px solid #e0e0e0; }
+	.wi146 ol li:last-child { border-bottom: none; }
+	.wi146 ol li:before { content: counter(custom-counter) ". "; color: #808080; font-weight: bold; position: absolute; left: 8px; top: 8px; }
+
+	.wi146large { font-size: 16px; }
+	.wi146large li { padding: 10px 26; }
+
+	.wi146-blue:before { background-color: #3075D1 !important; }
+	.wi146-red:before { background-color: #C7292D !important; }
+	.wi146-dark:before { background-color: #303030 !important; }
+	.wi146-green:before { background-color: #76BA16 !important; }
+	.wi146-orange:before { background-color: #ffa500 !important; }
+	.wi146-gray:before { background-color: #808080 !important; }
+
+	.wi146-ol-blue:before { color: #3075D1 !important; }
+	.wi146-ol-red:before { color: #C7292D !important; }
+	.wi146-ol-dark:before { color: #303030 !important; }
+	.wi146-ol-green:before { color: #76BA16 !important; }
+	.wi146-ol-orange:before { color: #ffa500 !important; }
+	.wi146-ol-gray:before { color: #808080 !important; }
+</style>
+
+<script editor>
+
+	option('large', 'Large', false);
+	option('twocolumns', 'Two columns', false);
+	option('ordered', 'Ordered list', false);
+	option('color', 'Color', 'gray', [{ text: 'Gray', value: 'gray' }, { text: 'Blue', value: 'blue' }, { text: 'Red', value: 'red' }, { text: 'Green', value: 'green' }, { text: 'Dark', value: 'dark' }, { text: 'Orange', value: 'orange' }]);
+
+	exports.configure = function(options, el, prev) {
+		
+		var container = el.find('.wi146');
+		
+		container.tclass('wi146large', !!options.large);
+
+		var columns = container.find('.row').length > 0;
+		if (options.twocolumns) {
+			!columns && container.html('<div class="row">{0}{0}</div>'.format('<div class="col-sm-6"><ul><li class="CMS_repeat"><span class="CMS_edit CMS_unwrap">Lorem Ipsum sodem</span></li></ul></div>'));
+		} else
+			columns && container.html('<ul><li class="CMS_repeat"><span class="CMS_edit CMS_unwrap">Lorem Ipsum sodem</span></li></ul>');
+
+		if (options.ordered) {
+			container.find('ul').replaceWith(function() { 
+				return $('<ol/>', {html: this.innerHTML});
+			});
+
+			el = el.find('.wi146 ol li');
+			el.rclass2('wi146-').aclass('wi146-ol-' + options.color);
+		} else {
+			container.find('ol').replaceWith(function() {
+				return $('<ul/>', { html: this.innerHTML });
+			});
+
+			el = el.find('.wi146 ul li');
+			el.rclass2('wi146-').aclass('wi146-' + options.color);
+		}
+	};
+
+</script>
+
+<div class="wmi wpi wbi">
+	<div class="wi146">
+		<ul>
+			<li class="CMS_repeat CMS_remove"><span class="CMS_edit CMS_unwrap">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip</span></li>
+			<li class="CMS_repeat CMS_remove"><span class="CMS_edit CMS_unwrap">consectetur adipiscing elit, sed do eiusmod tempor incididunt</span></li>
+			<li class="CMS_repeat CMS_remove"><span class="CMS_edit CMS_unwrap">labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</span></li>
+			<li class="CMS_repeat CMS_remove"><span class="CMS_edit CMS_unwrap">jquis nostrud exercitation ullamco laboris</span></li>
+		</ul>
+	</div>
+</div>
