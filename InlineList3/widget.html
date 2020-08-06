@@ -14,19 +14,19 @@
 	.wi146large { font-size: 16px; }
 	.wi146large li { padding: 10px 26; }
 
-	.wi146-blue:before { background-color: #3075D1 !important; }
-	.wi146-red:before { background-color: #C7292D !important; }
-	.wi146-dark:before { background-color: #303030 !important; }
-	.wi146-green:before { background-color: #76BA16 !important; }
-	.wi146-orange:before { background-color: #ffa500 !important; }
-	.wi146-gray:before { background-color: #808080 !important; }
+	.wi146-blue li:before { background-color: #3075D1 !important; }
+	.wi146-red li:before { background-color: #C7292D !important; }
+	.wi146-dark li:before { background-color: #303030 !important; }
+	.wi146-green li:before { background-color: #76BA16 !important; }
+	.wi146-orange li:before { background-color: #ffa500 !important; }
+	.wi146-gray li:before { background-color: #808080 !important; }
 
-	.wi146-ol-blue:before { color: #3075D1 !important; }
-	.wi146-ol-red:before { color: #C7292D !important; }
-	.wi146-ol-dark:before { color: #303030 !important; }
-	.wi146-ol-green:before { color: #76BA16 !important; }
-	.wi146-ol-orange:before { color: #ffa500 !important; }
-	.wi146-ol-gray:before { color: #808080 !important; }
+	.wi146-ol-blue li:before { color: #3075D1 !important; }
+	.wi146-ol-red li:before { color: #C7292D !important; }
+	.wi146-ol-dark li:before { color: #303030 !important; }
+	.wi146-ol-green li:before { color: #76BA16 !important; }
+	.wi146-ol-orange li:before { color: #ffa500 !important; }
+	.wi146-ol-gray li:before { color: #808080 !important; }
 </style>
 
 <script editor>
@@ -49,18 +49,18 @@
 			columns && container.html('<ul><li class="CMS_repeat"><span class="CMS_edit CMS_unwrap">Lorem Ipsum sodem</span></li></ul>');
 
 		if (options.ordered) {
-			container.find('ul').replaceWith(function() { 
-				return $('<ol/>', {html: this.innerHTML});
+			container.find('ul').replaceWith(function() {
+				return '<ol>' + this.innerHTML + '</ol>';
 			});
 
-			el = el.find('.wi146 ol li');
+			el = el.find('.wi146 ol');
 			el.rclass2('wi146-').aclass('wi146-ol-' + options.color);
 		} else {
 			container.find('ol').replaceWith(function() {
-				return $('<ul/>', { html: this.innerHTML });
+				return '<ul>' + this.innerHTML + '</ul>';
 			});
 
-			el = el.find('.wi146 ul li');
+			el = el.find('.wi146 ul');
 			el.rclass2('wi146-').aclass('wi146-' + options.color);
 		}
 	};
