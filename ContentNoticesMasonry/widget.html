@@ -31,7 +31,7 @@
 		var opt = {};
 		opt.limit = options.count || 3;
 		opt.category = options.category === 'all' ? null : options.category;
-		opt.ispinned = options.type === 'all' ? null : options.type === 'pinned';
+		opt.pinned = opt.ispinned = options.type === 'all' ? null : options.type === 'pinned';
 
 		if (opt.category === 'event') {
 			opt.event = true;
