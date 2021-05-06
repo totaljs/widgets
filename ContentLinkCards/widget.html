@@ -1,0 +1,83 @@
+<style>
+	.wc197 .card { padding: 30px 30px 15px 30px; position: relative; transition: transform .2s; }
+	.wc197 .card .heading { display: flex; justify-content: space-between; align-items: center; }
+	.wc197 .card .heading h2 { margin: 0 !important; margin-bottom: 0 !important; color: #fff; }
+	.wc197 .card .heading i { font-size: 22px; color: #fff; }
+	.wc197 .card .links { margin-top: 15px; }
+	.wc197 .card .links a { color: #fff; display: block; padding: 4px 0; font-size: 14px; }
+	.wc197 .card .divider { width: 50px; height: 1px; background-color: #fff; margin-top: 15px; }
+	.wc197 .card:hover { transform: scale(1.04); z-index: 10; box-shadow: 0 3px 10px 2px rgba(0,0,0,0.1); }
+	.wc197-gray .card.card1 { background-color: #505050; }
+	.wc197-gray .card.card2 { background-color: #404040; }
+	.wc197-gray .card.card3 { background-color: #303030; }
+	.wc197-blue .card.card1 { background-color: #395be0; }
+	.wc197-blue .card.card2 { background-color: #2146d6; }
+	.wc197-blue .card.card3 { background-color: #1c3cb9; }
+	.wc197-red .card.card1 { background-color: #ec0000; }
+	.wc197-red .card.card2 { background-color: #ca0000; }
+	.wc197-red .card.card3 { background-color: #a80000; }
+	.wc197-green .card.card1 { background-color: #4dbe49; }
+	.wc197-green .card.card2 { background-color: #40a93c; }
+	.wc197-green .card.card3 { background-color: #379033; }
+	.wc197-orange .card.card1 { background-color: #ffba59; }
+	.wc197-orange .card.card2 { background-color: #ffac37; }
+	.wc197-orange .card.card3 { background-color: #ff9e15; }
+</style>
+
+<script editor>
+	option('color', 'Color', 'gray', [{ text: 'Gray', value: 'gray'}, { text: 'Blue', value: 'blue' }, { text: 'Red', value: 'red' }, { text: 'Green', value: 'green' }, { text: 'Orange', value: 'orange' }]);
+
+	exports.configure = function(options, element, prev) {
+
+		var container = element.find('.wc197');
+
+		if (options.color) {
+			container.rclass2('wc197-').aclass('wc197-' + options.color);
+		}
+	};
+
+</script>
+
+<div class="wb wm wc197 wc197-gray">
+	<div class="row nogutters">
+		<div class="col-sm-4">
+			<div class="card card1">
+				<div class="heading">
+					<h2 class="CMS_edit">Prva karta</h2>
+					<i class="fa fa-adjust CMS_edit"></i>
+				</div>
+				<div class="divider"></div>
+				<div class="links">
+					<a href="#" class="CMS_repeat hellip"><span class="CMS_edit">Link</span></a>
+					<a href="#" class="CMS_repeat hellip CMS_remove"><span class="CMS_edit">Link</span></a>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="card card2">
+				<div class="heading">
+					<h2 class="CMS_edit">Druha karta</h2>
+					<i class="fa fa-adjust CMS_edit"></i>
+				</div>
+				<div class="divider"></div>
+				<div class="links">
+					<a href="#" class="CMS_repeat hellip"><span class="CMS_edit">Link</span></a>
+					<a href="#" class="CMS_repeat hellip CMS_remove"><span class="CMS_edit">Link</span></a>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="card card3">
+				<div class="heading">
+					<h2 class="CMS_edit">Tretia karta</h2>
+					<i class="fa fa-adjust CMS_edit"></i>
+				</div>
+				<div class="divider"></div>
+				<div class="links">
+					<a href="#" class="CMS_repeat hellip"><span class="CMS_edit">Link</span></a>
+					<a href="#" class="CMS_repeat hellip CMS_remove"><span class="CMS_edit">Link</span></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
