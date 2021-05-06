@@ -26,16 +26,10 @@
 
 <script editor>
 	option('color', 'Color', 'gray', [{ text: 'Gray', value: 'gray'}, { text: 'Blue', value: 'blue' }, { text: 'Red', value: 'red' }, { text: 'Green', value: 'green' }, { text: 'Orange', value: 'orange' }]);
-
 	exports.configure = function(options, element, prev) {
-
 		var container = element.find('.wc197');
-
-		if (options.color) {
-			container.rclass2('wc197-').aclass('wc197-' + options.color);
-		}
+		options.color && container.rclass2('wc197-').aclass('wc197-' + options.color);
 	};
-
 </script>
 
 <div class="wb wm wc197 wc197-gray">
@@ -43,7 +37,7 @@
 		<div class="col-sm-4">
 			<div class="card card1">
 				<div class="heading">
-					<h2 class="CMS_edit">Prva karta</h2>
+					<h2 class="CMS_edit">Title</h2>
 					<i class="fa fa-adjust CMS_edit"></i>
 				</div>
 				<div class="divider"></div>
@@ -56,7 +50,7 @@
 		<div class="col-sm-4">
 			<div class="card card2">
 				<div class="heading">
-					<h2 class="CMS_edit">Druha karta</h2>
+					<h2 class="CMS_edit">Title</h2>
 					<i class="fa fa-adjust CMS_edit"></i>
 				</div>
 				<div class="divider"></div>
@@ -69,7 +63,7 @@
 		<div class="col-sm-4">
 			<div class="card card3">
 				<div class="heading">
-					<h2 class="CMS_edit">Tretia karta</h2>
+					<h2 class="CMS_edit">Title</h2>
 					<i class="fa fa-adjust CMS_edit"></i>
 				</div>
 				<div class="divider"></div>
