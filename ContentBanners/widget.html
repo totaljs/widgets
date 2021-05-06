@@ -39,12 +39,12 @@
 	option('delay', 'Timeout in seconds', 1, 'number', 50, 1);
 
 	exports.configure = function(options, el) {
-		el.attrd('jc-config', 'delay:' + options.delay);
+		el.attrd('---', 'wc117__null__delay:' + options.delay);
 	};
 
 </script>
 
-<div class="wm wb wc117" data-jc="wc117" data-jc-config="delay:4">
+<div class="wm wb wc117" data---="wc117__null__delay:4">
 	<div class="wc117-images-container">
 		<div class="wc117-images-scroll">
 			<div class="wc117-images">
@@ -56,7 +56,7 @@
 					</div>
 					<a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABHQAAAH0AQMAAABmSuiKAAAAA1BMVEUhISFeAxSwAAAAXElEQVQYGe3BgQAAAADDoPtTD+AK1QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIATGU8AAVmqEjoAAAAASUVORK5CYII=" class="img-responsive CMS_edit" alt="" border="0" data-cms-width="1140" data-cms-height="500" /></a>
 				</div>
-				<div class="wc117-image CMS_repeat">
+				<div class="wc117-image CMS_repeat CMS_remove">
 					<div class="wc117-headline CMS_remove">
 						<div class="wc117-headline-title CMS_edit">Welcome here</div>
 						<div class="wc117-headline-text CMS_edit">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus hic explicabo.</div>
@@ -64,7 +64,7 @@
 					</div>
 					<a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABHQAAAH0AQMAAABmSuiKAAAAA1BMVEUhISFeAxSwAAAAXElEQVQYGe3BgQAAAADDoPtTD+AK1QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIATGU8AAVmqEjoAAAAASUVORK5CYII=" class="img-responsive CMS_edit" alt="" border="0" data-cms-width="1140" data-cms-height="500" /></a>
 				</div>
-				<div class="wc117-image CMS_repeat">
+				<div class="wc117-image CMS_repeat CMS_remove">
 					<div class="wc117-headline CMS_remove">
 						<div class="wc117-headline-title CMS_edit">Welcome here</div>
 						<div class="wc117-headline-text CMS_edit">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus hic explicabo.</div>
@@ -105,7 +105,7 @@
 			});
 
 			self.autosize();
-			$(window).on('resize', self.autosize);
+			$(W).on('resize', self.autosize);
 
 			interval = setInterval(function() {
 
