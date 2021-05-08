@@ -1,0 +1,58 @@
+<style>
+	.wc198 h2 { font-size: 24px; }
+	.wc198 p { font-size: 16px; margin-top: 0; }
+	.wc198 .flexrow { display: flex; align-items: center; }
+	.wc198-left .flexitem:first-child { order: 1; }
+	.wc198-left .flexitem:last-child { order: 2; }
+	.wc198-right .flexitem:first-child { order: 2; }
+	.wc198-right .flexitem:last-child { order: 1; }
+	.wc198-padding-small { padding: 20px 0; }
+	.wc198-padding-medium { padding: 40px 0; }
+	.wc198-padding-big { padding: 60px 0; }
+
+	@media(max-width: 768px) {
+		.wc198 .flexrow { flex-direction: column; align-items: flex-start; }
+		.wc198 .flexrow img { margin-bottom: 30px; }
+
+		.wc198-right .flexitem:first-child { order: 1; }
+		.wc198-right .flexitem:last-child { order: 2; }
+	}
+</style>
+
+<script editor>
+
+	option('align', 'Align', 'left', [{ text: 'Left', value: 'left'}, { text: 'Right', value: 'right'}] );
+	option('padding', 'Padding', 'small', [{ text: 'Big', value: 'big' }, { text: 'Medium', value: 'medium' }, { text: 'Small', value: 'small' }]);
+	option('titlesize', 'Change title to h3', false);
+
+	exports.configure = function(options, element, prev) {
+		var container = element.find('.wc198');
+
+		options.align && container.rclass2('wc198-').aclass('wc198-' + options.align);
+		options.padding && container.aclass('wc198-padding-' + options.padding );
+
+		if (options.titlesize) {
+			container.find('h2').replaceWith(function() {
+				return '<h3 class="CMS_edit CMS_remove">' + this.innerHTML + '</h3>';
+			});
+		} else {
+			container.find('h3').replaceWith(function() {
+				return '<h2 class="CMS_edit CMS_remove">' + this.innerHTML + '</h2>';
+			});
+		}
+
+	};
+
+</script>
+
+<div class="wc198 wb wm wp">
+	<div class="row flexrow">
+		<div class="col-md-6 flexitem">
+			<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAiYAAAD6AQMAAACvYx54AAAAA1BMVEXW1taWrGEgAAAAJ0lEQVR4Ae3BAQ0AAADCIPuntscHDAAAAAAAAAAAAAAAAAAAAABIOkRcAAGV9dofAAAAAElFTkSuQmCC" class="img-responsive CMS_edit" alt="" border="0" />
+		</div>
+		<div class="col-md-6 flexitem">
+			<h2 class="CMS_edit CMS_remove">Title</h2>
+			<p class="CMS_edit CMS_remove">Lorem ipsum dolor sit amet</p>
+		</div>
+	</div>
+</div>
