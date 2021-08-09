@@ -150,5 +150,7 @@
 	"ContentAlert2",
 	"ContentLinkCards",
 	"ContentTextImageFlex",
-	"ContentProperties"
+	"ContentProperties",
+	"ContentMilestones",
+	"ContentTimeLine2"
 ]
