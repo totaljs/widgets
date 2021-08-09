@@ -1,0 +1,100 @@
+<style>
+	.wc201 .timeline { position: relative; margin: 0 auto; max-width: 1200px; }
+	.wc201 .timeline:after { content: ''; position: absolute; width: 4px; background-color: #606060; opacity: .3; top: 0; bottom: 0; left: 50%; margin-left: -2px; }
+	.wc201 .item { padding: 10px 40px; position: relative; background-color: inherit; width: 50%; }
+	.wc201 .item:after { content: ''; position: absolute; width: 20px; height: 20px; right: -10px; background-color: #fff; border: 6px solid #606060; top: 50%; transform: translate(0, -50%); border-radius: 50%; z-index: 1; }
+	.wc201 .item:nth-child(odd) { left: 0; }
+	.wc201 .item:nth-child(even) { left: 50%; }
+	.wc201 .item:nth-child(odd):before { content: ''; height: 0; position: absolute; top: 50%; transform: translate(0, -50%); right: 30px; width: 0; z-index: 1; border: medium solid white; border-width: 10px 0 10px 10px; border-color: transparent transparent transparent #f0f0f0; }
+	.wc201 .item:nth-child(even):before { content: " "; height: 0; position: absolute; top: 50%; transform: translate(0, -50%); width: 0; z-index: 1; left: 30px; border: medium solid white; border-width: 10px 10px 10px 0; border-color: transparent #f0f0f0 transparent transparent; }
+	.wc201 .item:nth-child(even):after  { left: -10px; }
+	.wc201 .content { padding: 20px 30px; background-color: #f0f0f0; position: relative; border-radius: 6px; }
+	.wc201 .content .date { font-weight: bold; font-size: 18px; border-bottom: 1px solid #d0d0d0; margin-bottom: 10px; padding-bottom: 10px; }
+	.wc201 .content .body { color: gray; }
+	.wc201 .content .body ul { padding-left: 20px; margin-bottom: 0; }
+
+	.wc201-gray .item:after { border-color: #606060 !important; }
+	.wc201-red .item:after { border-color: #ca0000 !important; }
+	.wc201-purple .item:after { border-color: #48478b !important; }
+	.wc201-orange .item:after { border-color: #ffac37 !important; }
+	.wc201-green .item:after { border-color: #40a93c !important; }
+	.wc201-black .item:after { border-color: #333333 !important; }
+	.wc201-blue .item:after { border-color: #2146d6 !important; }
+
+	.wc201-gray .timeline:after { background-color: #606060 !important; }
+	.wc201-red .timeline:after { background-color: #ca0000 !important; }
+	.wc201-purple .timeline:after { background-color: #48478b !important; }
+	.wc201-orange .timeline:after { background-color: #ffac37 !important; }
+	.wc201-green .timeline:after { background-color: #40a93c !important; }
+	.wc201-black .timeline:after { background-color: #333333 !important; }
+	.wc201-blue .timeline:after { background-color: #2146d6 !important; }
+
+	.wc201-light .item .content { background-color: #fff !important; }
+	.wc201-light .item:nth-child(odd):before { border-color: transparent transparent transparent #fff; }
+	.wc201-light .item:nth-child(even):before { border-color: transparent #fff transparent transparent; }
+
+	@media(max-width:768px) {
+		.wc201 .timeline:after { left: 31px; }
+		.wc201 .item { width: 100%; padding-left: 70px; padding-right: 25px; }
+		.wc201 .item:nth-child(odd):after, .wc201 .item:nth-child(even):after { left: 21px; }
+		.wc201 .item:nth-child(odd):before { left: 60px; border-width: 10px 10px 10px 0; border-color: transparent #f0f0f0 transparent transparent }
+		.wc201 .item:nth-child(even):before { left: 60px; border-width: 10px 10px 10px 0; border-color: transparent #f0f0f0 transparent transparent }
+		.wc201 .item:nth-child(even) { left: 0%; }
+	}
+
+</style>
+
+<script editor>
+
+	option('color', 'Color', 'gray', [{ text: 'Gray', value: 'gray'}, { text: 'Blue', value: 'blue' }, { text: 'Red', value: 'red' }, { text: 'Green', value: 'green' }, { text: 'Orange', value: 'orange' }, { text: 'Puprle', value: 'purple' }, , { text: 'Black', value: 'black' }]);
+	option('light', 'Light', false);
+
+	exports.configure = function(options, element, prev) {
+		var container = element.find('.wc201');
+		options.color && container.rclass2('wc201-').aclass('wc201-' + options.color);
+
+		if (options.light) {
+			container.aclass('wc201-light');
+		}
+	};
+
+</script>
+
+<div class="wm wp wb wc201 wc201-gray">
+	<div class="timeline">
+		<div class="CMS_remove CMS_repeat item">
+			<div class="content">
+				<div class="CMS_edit date">Sept 2021</div>
+				<div class="CMS_edit body">
+					<ul>
+						<li class="CMS_edit CMS_repeat">Lorem ipsum dolor sit Lorem ipsum dolor sit Lorem ipsum dolor sit Lorem ipsum dolor sit Lorem ipsum dolor sit Lorem ipsum dolor sit</li>
+						<li class="CMS_edit CMS_repeat CMS_remove">Lorem ipsum dolor sit Lorem ipsum dolor sit Lorem ipsum dolor sit Lorem ipsum dolor sit Lorem ipsum dolor sit Lorem ipsum dolor sit</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="CMS_remove CMS_repeat item">
+			<div class="content">
+				<div class="CMS_edit date">Dec 2021</div>
+				<div class="CMS_edit body">
+					<ul>
+						<li class="CMS_edit CMS_repeat">Lorem ipsum dolor sit</li>
+						<li class="CMS_edit CMS_repeat CMS_remove">Lorem ipsum dolor sit Lorem ipsum dolor sit Lorem ipsum dolor sit Lorem ipsum dolor sit Lorem ipsum dolor sit</li>
+						<li class="CMS_edit CMS_repeat CMS_remove">Lorem ipsum dolor sit</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="CMS_remove CMS_repeat item">
+			<div class="content">
+				<div class="CMS_edit date">Jan 2022</div>
+				<div class="CMS_edit body">
+					<ul>
+						<li class="CMS_edit CMS_repeat">Lorem ipsum dolor sit</li>
+						<li class="CMS_edit CMS_repeat CMS_remove">Lorem ipsum dolor sit</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
